@@ -29,6 +29,11 @@ p
 img
 { border: 0;}
 
+img.resize{
+    width: 940px; /* you can use % */
+    height: auto;
+}
+
 h1, h2, h3, h4, h5, h6 
 { font: normal 175% 'News Cycle', Arial, sans-serif;
   color: #000;
@@ -179,6 +184,34 @@ ul.slideshow li {
 ul.slideshow li.show {
   z-index: 500;}
  
+#slideshow_container2
+{ height: 750px;
+  background: #0043A8;
+  padding-top: 20px;}
+
+.slideshow2
+{ width: 940px;
+  height: 750px;
+  margin: 0 auto;}  
+  
+/* styling for the slideshow on the homepage */
+ul.slideshow2 {
+  list-style: none;
+  width: 940px;
+  height: 750px;
+  overflow: hidden;
+  position: relative;}
+  
+ul.slideshow2 li {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;}
+ 
+ul.slideshow2 li.show {
+  z-index: 500;}
+
 ul img {
   border: none;}
  

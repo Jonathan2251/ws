@@ -7,6 +7,7 @@ clean:
 # TODO: is there a nicer way of doing this?
 .PHONY: gh-pages
 gh-pages:
+	rm -f `find . -name \*~`
 	git checkout gh-pages
 	git checkout master .
 	git reset HEAD
