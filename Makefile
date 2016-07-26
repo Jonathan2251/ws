@@ -8,6 +8,7 @@ clean:
 .PHONY: gh-pages
 gh-pages:
 	rm -f `find . -name \*~`
+	rm -f `find . -name .DS_Store`
 	git checkout gh-pages
 	git checkout master .
 	git reset HEAD
