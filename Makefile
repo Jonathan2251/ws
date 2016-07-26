@@ -9,6 +9,7 @@ clean:
 gh-pages:
 	rm -f `find . -name \*~`
 	rm -f `find . -name .DS_Store`
+	rm -f `find . -name ._\*`
 	git checkout gh-pages
 	git checkout master .
 	git reset HEAD
