@@ -1,9 +1,31 @@
-$(document).ready(function() {    
-  
-  // execute the slideShow, set 4 seconds (4000) for each image
-  slideShow(4000);
-
+$(document).ready(function() {
+  var url = $(document)[0].URL;
+  if (url.substr(0,5) == "file:") {
+    // execute the slideShow, set 4 seconds (4000) for each image
+    slideShow(4000);
+  }
+  else {
+    ShowPicture();
+  }
 });
+
+function ShowPicture() {
+
+  // append an 'li' item to the 'ul' list for displaying the caption
+  $('ul.slideshow').append('<li id="slideshow-caption" class="caption"><div class="slideshow-caption-container"><p></p></div></li>');
+
+  // set the opacity of all images to 0
+  $('ul.slideshow li').css({opacity: 0.0});
+  
+  // get the first image and display it
+  $('ul.slideshow li:first').css({opacity: 1.0}).addClass('show');
+  
+  // get the caption of the first image from the 'rel' attribute and display it
+  $('#slideshow-caption p').html($('ul.slideshow li.show').find('img').attr('alt'));
+    
+  // display the caption
+  $('#slideshow-caption').css({opacity: 0.6, bottom:0});
+}
 
 function slideShow(speed) {
 
@@ -44,6 +66,7 @@ function gallery() {
   // trying to avoid speed issue
   if(current.queue('fx').length == 0) {
 
+    console.log("length == 0"); 
     // get the next image, if it reached the end of the slideshow, rotate it back to the first image
     var next = ((current.next().length) ? ((current.next().attr('id') == 'slideshow-caption')? $('ul.slideshow li:first') :current.next()) : $('ul.slideshow li:first'));
       
