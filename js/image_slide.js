@@ -1,11 +1,14 @@
 $(document).ready(function() {
   var url = $(document)[0].URL;
-  if (url.substr(0,5) == "file:") {
-    // execute the slideShow, set 4 seconds (4000) for each image
-    slideShow(4000);
+  var filename = url.substr(url.lastIndexOf("/")+1);
+  if (url.substr(0,5) == "http:" && filename == "personal.html") {
+    // On internet (http:), I only show first picture on personal.html page
+    // since I don't upload my personal pictures to internet.
+    ShowPicture();
   }
   else {
-    ShowPicture();
+    // execute the slideShow, set 4 seconds (4000) for each image
+    slideShow(4000);
   }
 });
 
@@ -66,7 +69,6 @@ function gallery() {
   // trying to avoid speed issue
   if(current.queue('fx').length == 0) {
 
-    console.log("length == 0"); 
     // get the next image, if it reached the end of the slideshow, rotate it back to the first image
     var next = ((current.next().length) ? ((current.next().attr('id') == 'slideshow-caption')? $('ul.slideshow li:first') :current.next()) : $('ul.slideshow li:first'));
       
