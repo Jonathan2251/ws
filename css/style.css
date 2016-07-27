@@ -1,2 +1,20 @@
-@import "slideshowstyle1.css";
+
 @import "base.css";
+
+#slideshow_container
+{ height: 270px;
+  background: #0043A8;
+  padding-top: 20px;}
+  
+.slideshow
+{ width: 940px;
+  height: 250px;
+  margin: 0 auto;}  
+  
+/* styling for the slideshow on the homepage */
+ul.slideshow {
+  list-style: none;
+  width: 940px;
+  height: 250px;
+  overflow: hidden;
+  position: relative;}
