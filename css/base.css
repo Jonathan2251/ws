@@ -101,23 +101,30 @@ nav
   margin: 0 auto;} 
   
 #welcome_slogan
-{ width: 940px;
+{ width: 840px;
   float: left;
   height: 70px;
   padding-top: 10px;  
-  margin: 0 auto;}    
+  margin: 0 auto;}
   
 #welcome_slogan H3
 { font: bold 300% 'News Cycle', Arial, sans-serif;
   letter-spacing: -3px;
-  color: #FFF;} 
+  color: #FFF;}
   
+#language_container
+{ width: 100px;
+  float: left;
+  height: 70px;
+  padding-top: 30px;  
+  margin: 0 auto;}
+
 #menubar
 { width: 940px;
   height: 55px;
   padding-top: 10px;
   text-align: center; 
-  margin: 0 auto;}    
+  margin: 0 auto;}
   
 ul#nav
 { margin:0;}
