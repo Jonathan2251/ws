@@ -1,8 +1,8 @@
 $(document).ready(function() {
   var url = $(document)[0].URL;
   var filename = url.substr(url.lastIndexOf("/")+1);
-  //console.log(url);
-  //console.log(filename);
+//  console.log(url);
+//  console.log(filename);
   if (url.substr(0,4) == "http" && filename == "personal.html") {
     // On internet (http:), I only show first picture on personal.html page
     // since I don't upload my personal pictures to internet.
@@ -13,6 +13,43 @@ $(document).ready(function() {
     slideShow(4000);
   }
 });
+
+function ChangeLanguage() {
+  var lang = $(document)[0].getElementById("lang");
+//  console.log(lang);
+//  console.log(lang.value);
+  var url = $(document)[0].URL;
+  var i = url.lastIndexOf("/");
+  var filename = url.substr(i+1);
+  var newfilename;
+  switch (lang.value) {
+  case "English":
+    switch (filename) {
+    case "index_ch1.html":
+      newfilename = "index.html"; break;
+    case "mywork_ch1.html":
+      newfilename = "mywork.html"; break;
+    case "more_ch1.html":
+      newfilename = "more.html"; break;
+    case "personal_ch1.html":
+      newfilename = "personal.html"; break;
+    }
+  case "Chinese1":
+    switch (filename) {
+    case "index.html":
+      newfilename = "index_ch1.html"; break;
+    case "mywork.html":
+      newfilename = "mywork_ch1.html"; break;
+    case "more.html":
+      newfilename = "more_ch1.html"; break;
+    case "personal.html":
+      newfilename = "personal_ch1.html"; break;
+    }
+  }
+  console.log(url);
+  console.log(url.substr(0,i+1) + newfilename);
+  window.location.href = url.substr(0,i+1) + newfilename;
+}
 
 function ShowPicture() {
 
