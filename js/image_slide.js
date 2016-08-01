@@ -3,9 +3,11 @@ $(document).ready(function() {
   var filename = url.substr(url.lastIndexOf("/")+1);
 //  console.log(url);
 //  console.log(filename);
-  if (url.substr(0,4) == "http" && filename == "personal.html") {
-    // On internet (http:), I only show first picture on personal.html page
-    // since I don't upload my personal pictures to internet.
+  if (url.substr(0,4) == "http" && (filename == "personal.html")
+    || (filename == "personal_ch1.html") ) {
+    // On internet (http:), I only show first picture on personal.html or 
+    // personal_ch1.html page since I don't upload my personal pictures to 
+    // internet.
     ShowPicture();
   }
   else {
@@ -14,41 +16,50 @@ $(document).ready(function() {
   }
 });
 
-function ChangeLanguage() {
+function GetNewPage(currpage) {
   var lang = $(document)[0].getElementById("lang");
 //  console.log(lang);
 //  console.log(lang.value);
-  var url = $(document)[0].URL;
-  var i = url.lastIndexOf("/");
-  var filename = url.substr(i+1);
-  var newfilename;
+  var newpage;
   switch (lang.value) {
   case "English":
-    switch (filename) {
+    switch (currpage) {
     case "index_ch1.html":
-      newfilename = "index.html"; break;
+      newpage = "index.html"; break;
     case "mywork_ch1.html":
-      newfilename = "mywork.html"; break;
+      newpage = "mywork.html"; break;
     case "more_ch1.html":
-      newfilename = "more.html"; break;
+      newpage = "more.html"; break;
     case "personal_ch1.html":
-      newfilename = "personal.html"; break;
+      newpage = "personal.html"; break;
     }
+    break;
   case "Chinese1":
-    switch (filename) {
+    switch (currpage) {
     case "index.html":
-      newfilename = "index_ch1.html"; break;
+      newpage = "index_ch1.html"; break;
     case "mywork.html":
-      newfilename = "mywork_ch1.html"; break;
+      newpage = "mywork_ch1.html"; break;
     case "more.html":
-      newfilename = "more_ch1.html"; break;
+      newpage = "more_ch1.html"; break;
     case "personal.html":
-      newfilename = "personal_ch1.html"; break;
+      newpage = "personal_ch1.html"; break;
     }
+    break;
   }
+
+  return newpage;
+}
+
+function ChangeLanguage() {
+  var url = $(document)[0].URL;
   console.log(url);
-  console.log(url.substr(0,i+1) + newfilename);
-  window.location.href = url.substr(0,i+1) + newfilename;
+  var i = url.lastIndexOf("/");
+  var currpage = url.substr(i+1);
+  var newpage = GetNewPage(currpage);
+//  console.log(url);
+//  console.log(url.substr(0,i+1) + newpage);
+  window.location.href = url.substr(0,i+1) + newpage;
 }
 
 function ShowPicture() {
