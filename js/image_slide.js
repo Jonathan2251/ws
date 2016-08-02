@@ -8,7 +8,7 @@ $(document).ready(function() {
     // On internet (http:), I only show first picture on personal.html or 
     // personal_ch1.html page since I don't upload my personal pictures to 
     // internet.
-    ShowPicture();
+    showPicture();
   }
   else {
     // execute the slideShow, set 4 seconds (4000) for each image
@@ -16,53 +16,7 @@ $(document).ready(function() {
   }
 });
 
-function GetNewPage(currpage) {
-  var lang = $(document)[0].getElementById("lang");
-//  console.log(lang);
-//  console.log(lang.value);
-  var newpage;
-  switch (lang.value) {
-  case "English":
-    switch (currpage) {
-    case "index_ch1.html":
-      newpage = "index.html"; break;
-    case "mywork_ch1.html":
-      newpage = "mywork.html"; break;
-    case "more_ch1.html":
-      newpage = "more.html"; break;
-    case "personal_ch1.html":
-      newpage = "personal.html"; break;
-    }
-    break;
-  case "Chinese1":
-    switch (currpage) {
-    case "index.html":
-      newpage = "index_ch1.html"; break;
-    case "mywork.html":
-      newpage = "mywork_ch1.html"; break;
-    case "more.html":
-      newpage = "more_ch1.html"; break;
-    case "personal.html":
-      newpage = "personal_ch1.html"; break;
-    }
-    break;
-  }
-
-  return newpage;
-}
-
-function ChangeLanguage() {
-  var url = $(document)[0].URL;
-  console.log(url);
-  var i = url.lastIndexOf("/");
-  var currpage = url.substr(i+1);
-  var newpage = GetNewPage(currpage);
-//  console.log(url);
-//  console.log(url.substr(0,i+1) + newpage);
-  window.location.href = url.substr(0,i+1) + newpage;
-}
-
-function ShowPicture() {
+function showPicture() {
 
   // append an 'li' item to the 'ul' list for displaying the caption
   $('ul.slideshow').append('<li id="slideshow-caption" class="caption"><div class="slideshow-caption-container"><p></p></div></li>');
