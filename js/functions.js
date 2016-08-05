@@ -2,41 +2,43 @@ function ChangeLanguage() {
   var url = $(document)[0].URL;
   console.log(url);
   var i = url.lastIndexOf("/");
-  var currpage = url.substr(i+1);
+  var j = i - 1;
+  for ( ; url[j] != '/'; j--);
+  var currpage = url.substr(j+1);
+  console.log(currpage);
   var newpage = GetNewPage(currpage);
-//  console.log(url);
-//  console.log(url.substr(0,i+1) + newpage);
-  window.location.href = url.substr(0,i+1) + newpage;
+  console.log(url);
+  console.log(url.substr(0,j+1) + newpage);
+  window.location.href = url.substr(0,j+1) + newpage;
 }
 
 function GetNewPage(currpage) {
   var lang = $(document)[0].getElementById("lang");
-//  console.log(lang);
 //  console.log(lang.value);
   var newpage;
   switch (lang.value) {
   case "English":
     switch (currpage) {
-    case "index_ch1.html":
-      newpage = "index.html"; break;
-    case "mywork_ch1.html":
-      newpage = "mywork.html"; break;
-    case "more_ch1.html":
-      newpage = "more.html"; break;
-    case "personal_ch1.html":
-      newpage = "personal.html"; break;
+    case "ch1/index.html":
+      newpage = "en/index.html"; break;
+    case "ch1/mywork.html":
+      newpage = "en/mywork.html"; break;
+    case "ch1/more.html":
+      newpage = "en/more.html"; break;
+    case "ch1/personal.html":
+      newpage = "en/personal.html"; break;
     }
     break;
   case "Chinese1":
     switch (currpage) {
-    case "index.html":
-      newpage = "index_ch1.html"; break;
-    case "mywork.html":
-      newpage = "mywork_ch1.html"; break;
-    case "more.html":
-      newpage = "more_ch1.html"; break;
-    case "personal.html":
-      newpage = "personal_ch1.html"; break;
+    case "en/index.html":
+      newpage = "ch1/index.html"; break;
+    case "en/mywork.html":
+      newpage = "ch1/mywork.html"; break;
+    case "en/more.html":
+      newpage = "ch1/more.html"; break;
+    case "en/personal.html":
+      newpage = "ch1/personal.html"; break;
     }
     break;
   }

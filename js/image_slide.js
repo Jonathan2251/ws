@@ -1,13 +1,15 @@
 $(document).ready(function() {
   var url = $(document)[0].URL;
+  console.log(url);
+  switchEntryPage(url, "ws/en/index.html");
+
   var filename = url.substr(url.lastIndexOf("/")+1);
 //  console.log(url);
 //  console.log(filename);
-  if (url.substr(0,4) == "http" && ((filename == "personal.html")
-    || (filename == "personal_ch1.html"))) {
+  if (url.substr(0,4) == "http" && filename == "personal.html") {
     // On internet (http:), I only show first picture on personal.html or 
     // personal_ch1.html page since I don't upload my personal pictures to 
-    // internet.
+    // internet
     showPicture();
   }
   else {
@@ -15,6 +17,18 @@ $(document).ready(function() {
     slideShow(4000);
   }
 });
+
+// Switch to ws/en/index.html if it's ws/index.html
+function switchEntryPage(url, destPage) {
+  var i = url.lastIndexOf("/");
+  var j = i - 1;
+  for ( ; url[j] != '/'; j--);
+  var currpage = url.substr(j+1);
+  console.log(currpage);
+  if (currpage == "ws/index.html") {
+    window.location.href = url.substr(0,j+1) + destPage;
+  }
+}
 
 function showPicture() {
 
