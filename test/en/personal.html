@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+  <title>Home</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript" src="../js/modernizr-1.5.min.js"></script>
+</head>
+
+<body>
+  <div id="main">		
+
+    <header>
+	  <div id="strapline">
+	    <div id="welcome_slogan">
+	      <h3>Welcome To <span>Chen Chung-Shu's website</span></h3>
+	    </div><!--close welcome_slogan-->
+	    <div id="language_container">
+        <select name="language", id="lang", onchange="ChangeLanguage()">
+        <option value="English" selected>English</option>
+        <option value="Chinese1">中文繁體</option>
+        </select>
+	    </div><!--close language_container-->
+    </div><!--close strapline-->
+	  <nav>
+	    <div id="menubar">
+        <ul id="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mywork.html">My Work</a></li>
+          <li><a href="more.html">More</a></li>
+          <li class="current"><a href="personal.html">Personal</a></li>
+        </ul>
+      </div><!--close menubar-->
+    </nav>
+    </header>
+    
+    <div id="slideshow_container">  
+	    <div class="slideshow">
+	      <ul class="slideshow">
+          <li class="show"><img width="940" height="250" src="../images/home_1.jpg" alt="&quot;Sweet home&quot;" /></li>
+          <li><img width="940" height="250" src="../images/home_2.jpg" alt="&quot;Happy&quot;" /></li>
+          <li><img width="940" height="250" src="../images/home_3.jpg" alt="&quot;Sweet smile&quot;" /></li>
+        </ul>
+	    </div><!--close slideshow-->
+	  </div><!--close slideshow_container-->
+
+
+	<div id="site_content">
+	  <div id="content">
+      <div class="content_item">
+	      <form >
+        Password:
+        <input type="password" id="passwd" name="passwd" /><br><br>
+        <input type="button" name="personalslideshow" value="slide show", onclick="Personal_SlideShowClick()" />
+        <input type="button" name="personalvideoplay" value="video playing", onclick="Personal_VideoPlayClick()" />
+        </form>
+		  </div><!--close content_item-->
+    </div><!--close content-->   
+	</div><!--close site_content-->  	
+
+  </div><!--close main-->
+
+  <!-- javascript at the bottom for fast page loading -->
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/image_slide.js"></script>
+  <script type="text/javascript" src="../js/functions.js"></script>
+  
+</body>
+</html>
