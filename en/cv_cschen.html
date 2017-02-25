@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chung-Shu Chen - Resume</title>
+
+<meta name="viewport" content="width=device-width"/>
+<meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>
+<meta charset="UTF-8"> 
+
+<link type="text/css" rel="stylesheet" href="../css/resume.css">
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+
+<script src="../js/Chart.bundle.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/resume.js"></script>
+<style>
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+</style>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body id="top">
+<div id="cv">
+	<div class="mainDetails">
+		<div id="headshot">
+			<img src="../images/headshot.png" alt="Alan Smith" />
+		</div>
+		
+		<div id="contactDetails">
+			<ul>
+				<p>Chung-Shu Chen 陳鍾樞 (03)6681193, 0970577923 <a href="mailto:gamma_chen@yahoo.com.tw" target="_blank"> gamma_chen@yahoo.com.tw</a><br></p>
+                <p>I am an experienced programmer who used many different computer languages, tools and computer 
+                    related knowledge to develop products of Set Top Box, CPU, compiler, simulator, ..., in my career. 
+                    In addition, I know tools and software engineering method very well and write good document for my 
+                    program to deliver readable and maintainable software.</p>
+			</ul>
+		</div>
+		<div class="clear"></div>
+				<div class="title">
+					<h1>RESUME</h1>
+				</div>
+	</div>
+	
+	<div id="mainArea">
+		<section>
+			<article>
+				<div class="sectionTitle">
+					<h1>QUALIFICATION</h1>
+				</div>
+				
+				<div class="sectionContent">
+					<p>Over 20 years experience in c/c++ embedded system programming, well knowledge in software development and debugging.</p>
+				</div>
+			</article>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionContent">
+        			
+            <div id="container" style="width: 100%;">
+                <canvas id="canvas" height="100"></canvas>
+            </div>
+            <script> drawSkillBarChart(); </script>
+    
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>MY OPEN SOURCE PROJECT</h1>
+			</div>
+			
+			<div class="sectionContent">
+              <p>Tutorial: Create an LLVM Backend compiler &nbsp;&nbsp;&nbsp;&nbsp; <a href="http://jonathan2251.github.io/lbd/index.html" target="_blank"><img style="vertical-align: middle;" src="../images/GitHub-Mark-32px.png" title="My github lbd" width="16" height="16" /> http://jonathan2251.github.io/lbd/index.html</a> <br> </p>
+
+              <p>Tutorial: Create an LLVM Backend Toolchain &nbsp;&nbsp;&nbsp;&nbsp; <a href="http://jonathan2251.github.io/lbd/index.html" target="_blank"><img style="vertical-align: middle;" src="../images/GitHub-Mark-32px.png" title="My github lbd" width="16" height="16" /> http://jonathan2251.github.io/lbd/index.html</a> <br> </p>
+			</div>
+			<div class="clear"></div>
+		</section>
+
+		<section>
+			<div class="sectionTitle">
+				<h1>EDUCATION</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<p>1997-1999 Master, June 1999, National Taiwan Normal University, Taipei, Major: Computer Science.</p>
+					<p>1991-1994 B.S., June 1994, National Taiwan Technology University of Science and Technology, Taipei, Major: Industry Engineer.</p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>LICENSE</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<p>Taiwan National Computer Engineer license, 1995 高考資訊技師及格.</p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>EXPERIENCE</h1>
+			</div>
+			
+			<div class="sectionContent">
+                <img src="../images/resume_experiences.png" alt="Experiences" style="width:300px;height:200px;">
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>THESIS OF MASTER DEGREE</h1>
+			</div>
+			
+			<div class="sectionContent">
+              <p><a href="https://github.com/Jonathan2251/ow/tree/master/sortingnetwork/ThesisMaster"><img style="vertical-align: middle;" src="../images/user_phd.png" title="The Researches of Column Sort and Related Problems" width="16" height="16" /> The Researches of Column Sort and Related Problems</a></p>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>PROPOSAL OF PHD STUDY</h1>
+			</div>
+			
+			<div class="sectionContent">
+              <p><a href="https://github.com/Jonathan2251/ow/tree/master/sortingnetwork/PHD"><img style="vertical-align: middle;" src="../images/user_phd.png" title="The Researches of Sorting Network and Related Algorithm" width="16" height="16" /> The Researches of Sorting Network and Related Algorithm</a></p>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>ACHIEVEMENT</h1>
+			</div>
+			<div class="sectionTitle">
+				<h1>Marvell</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<p>Introduced polly for Marvell llvm toolchain optimization. Polly is a software for loop optimization.</p>
+                       <p style="margin-left:25px;">The advantage was that it might be 500% speed up in some numerical
+                       application program, such as matrix multiplication, or other kind of matrix
+                       operation. Though Marvell's CPUs were not used in numerical applications.
+                       </p>
+					<p>I applied compiler code generation concept to propose this solution and Csim team adopted it.</p>
+					<p>I completed cmake and adjusted python programs to build Csim instead of make.</p>
+					<p>Report the better solution for cmake writting and performance compare with ninja.</p>
+				</article>
+			</div>
+
+			<div class="clear"></div>
+			
+			<div class="sectionTitle">
+				<h1>Mortorola</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<p>Designed QIP7kP1 and P2 board level testing code. Over 500 millions units of QIP7k model of Set Top Box was tested with this code on production line, as well as shipping to market. Other major products DCX33, DCX34 and DCX35 (over 1000 millions of box) were porting from QIP7kP1 & QIP7kP2.</p>
+					<p>Combined mips cpu and software engineer knowledge to create a frame work for board level testing code as manager request.</p>
+                       <p style="margin-left:25px;">I used Rational Ross UML tool to design the frame work. In this task. I applied object oriented analysis & program (OOA, OOP, design pattern) knowledge and UML tool skill.</p>
+					<p>Implemented the I/O redirection mechanism to make the new version of code porting task easier. One of my colleague adopted this mechanism by his will.</p>
+					<p>Implemented Board Level Test with design pattern </p>
+				</article>
+			</div>
+
+			<div class="clear"></div>
+		</section>
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>CPU, COMPILER, AND OS RELATED EXPERIENCES</h1>
+			</div>
+			<div class="sectionTitle">
+				<h1>CPU architecture study</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<p>Studied books “Computer Organization and Design: The Hardware/Software Interface” and “Computer Architecture – A Quantitative Approach” and Mips CPU user manual. Verilog language/tool study.</p>
+					<p>Apply in work:</p>
+					   <p style="margin-left:25px;">Finding the compiler bug of Code Warrior compiler for Mips cpu. The bug came from #pack(1) statement code generation.</p>
+					     <p style="margin-left:25px;">I emailed the bug along with example code to Code Warrior and it admited that this was a bug of their compiler for mips backend.</p>
+					<p>Implemented the mini process mechanism with mips assembly language to solve the program hang problem. After this implementation, the code was running more stable and fast. It was a serious problem since when one test item hang on, the other test items scheduled after that wouldn’t be run. In this situation, operator had no idea of the test result since test result was displayed after all test items executed. I implemented a mechanism (hundred lines of mips assembly) to jump out from the test item (by restore the stack and cpu registers status).</p>
+					<p>Applied Verilog and book “Computer Architecture” knowledge to change Cpu0 verilog code to fit my llvm backend compiler design.</p>
+				</article>
+			</div>
+
+			<div class="clear"></div>
+			
+			<div class="sectionTitle">
+				<h1>Compiler study:</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<p>Studied llvm front & backend design. Studied book “Compilers – Principles, Techniques, & tools 2nd Aho,...” and yacc and lex tool.</p>
+					<p>Apply in work:</p>
+                       <p style="margin-left:25px;">I implemented the Cpu0 llvm compiler backend started from scratch for tutorial purpose, and writing books as in my publish books. A lot of readers have been asking me questions and I answering them out of working time.</p>
+					<p>Applied the compiler syntax parsing tool, yacc & lex, in test station design (specify test items for each station in script language I defined).</p>
+				</article>
+			</div>
+
+			<div class="sectionTitle">
+				<h1>OS study:</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<p>Study book “Linux Device Driver (2nd & 3rd edition)”</p>
+					<p>Apply in work:</p>
+                       <p style="margin-left:25px;">Implemented the mini process mechanism as mentioned in above section "CPU architecture study".</p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+	</div>
+</div>
+</body>
+</html>
