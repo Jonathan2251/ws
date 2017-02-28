@@ -16,14 +16,7 @@ html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-ser
 .clear {clear: both;}
 
 p {
-	font-size: 0.7em;
-	line-height: 1.2em;
-	margin-bottom: 4px;
-	color: #444;
-}
-
-pp {
-	font-size: 0.7em;
+	font-size: 0.9em;
 	line-height: 1.2em;
 	margin-bottom: 4px;
 	color: #444;
@@ -67,7 +60,7 @@ pp {
 #contactDetails p {
 	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 0.9em;
+	font-size: 1.0em;
 }
 
 .title {
