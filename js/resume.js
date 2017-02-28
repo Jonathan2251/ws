@@ -66,7 +66,7 @@ function drawExperiences() {
   ctx.fillText("March 2013",xLine-10,px[1]+5);
   ctx.fillText("August 2012",xLine-10,px[2]+5);
   ctx.fillText("September 2004",xLine-10,px[3]+5);
-  ctx.fillText("September 2004",xLine-10,px[4]+5);
+  ctx.fillText("June 1999",xLine-10,px[4]+5);
   
   ctx.textAlign="left";
   ctx.fillText("Senior software engineer in Marvell",xLine+10,px[0]+15);
@@ -78,7 +78,7 @@ function drawExperiences() {
   ctx.fillText("Senior software engineer in Mortorola",xLine+10,px[2]+15);
   ctx.fillText("Software engineer in Set Top Box TV",xLine+20,px[2]+2*15);
   
-  ctx.fillText("Software engineer in a few Taiwan companies",xLine+10,px[3]+15);
+  ctx.fillText("Software engineer in a few Taiwan's companies",xLine+10,px[3]+15);
   
   ctx.stroke();
   ctx.beginPath();
