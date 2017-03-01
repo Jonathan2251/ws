@@ -68,7 +68,6 @@ function drawExperiences() {
   }
   
   var Dot = makeStruct("color px py radius");
-  
   var Item = makeStruct("dot leftText rightText");
   experiences[0] = new Item(new Dot("lightgreen", 150, 20, 5), "November 2016", ["Senior software engineer in Marvell       (lvm open source team at my personal time)", "  llvm optimization for ARM", "  The simulator programmer of Marvell's ARM SOC chips"]);
   experiences[1] = new Item(new Dot("lightgreen", 150, 75, 5), "March 2013", ["Programmer in llvm (a compiler) open source team"]);
@@ -81,12 +80,13 @@ function drawExperiences() {
   
   ctx.font="12px Arial";
   
-  // Show the different textAlign values
+  // Draw leftText
   ctx.textAlign="right";
   for (i = 0; i < experiences.length; i++) {
     ctx.fillText(experiences[i].leftText,experiences[i].dot.px-10,experiences[i].dot.py+5);
   }
   
+  // Draw rightText
   ctx.textAlign="left";
   for (i = 0; i < experiences.length; i++) {
     var posy = experiences[i].dot.py+15;
@@ -97,6 +97,8 @@ function drawExperiences() {
   }
 
   ctx.stroke();
+  
+  // Draw arrow vertical line
   ctx.beginPath();
   ctx.moveTo(experiences[0].dot.px,0);
   ctx.lineTo(experiences[0].dot.px,experiences[0].dot.py);
@@ -112,6 +114,7 @@ function drawExperiences() {
   ctx.lineTo(experiences[i].dot.px,experiences[i].dot.py+20);
   ctx.stroke();
   
+  // Draw circles according experiences[i].dot
   for (i = 0; i < experiences.length; i++) {
      ctx.beginPath();
      ctx.arc(experiences[i].dot.px,experiences[i].dot.py,experiences[i].dot.radius,0,2*Math.PI);
