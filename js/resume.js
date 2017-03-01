@@ -52,7 +52,28 @@ function drawSkillBarChart() {
   };
 }
 
+function createRightText() {
+  var result;
+  
+  result = new Array(5);
+  result[0] = new Array(3);
+  result[1] = new Array(1);
+  result[2] = new Array(1);
+  result[3] = new Array(1);
+  result[4] = new Array(1);
+  result[0][0] = "Senior software engineer in Marvell       (lvm open source team at my personal time)";
+  result[0][1] = "  llvm optimization for ARM";
+  result[0][2] = "  The simulator programmer of Marvell's ARM SOC chips";
+  result[1][0] = "Programmer in llvm (a compiler) open source team";
+  result[2][0] = "Software engineer in Set Top Box TV";
+  result[3][0] = "Software engineer in a few Taiwan's companies";
+  result[4][0] = "";
+  
+  return result;
+}
+
 function drawExperiences() {
+  var rightText;
   var dot = [];
   var experiences = [];
   
@@ -67,13 +88,15 @@ function drawExperiences() {
     return constructor;
   }
   
+  rightText = createRightText();
+  
   var Dot = makeStruct("color px py radius");
   var Item = makeStruct("dot leftText rightText");
-  experiences[0] = new Item(new Dot("lightgreen", 150, 20, 5), "November 2016", ["Senior software engineer in Marvell       (lvm open source team at my personal time)", "  llvm optimization for ARM", "  The simulator programmer of Marvell's ARM SOC chips"]);
-  experiences[1] = new Item(new Dot("lightgreen", 150, 75, 5), "March 2013", ["Programmer in llvm (a compiler) open source team"]);
-  experiences[2] = new Item(new Dot("lightgreen", 150, 100, 5), "August 2012", ["Software engineer in Set Top Box TV"]);
-  experiences[3] = new Item(new Dot("lightgreen", 150, 140, 5), "September 2004", ["Software engineer in a few Taiwan's companies"]);
-  experiences[4] = new Item(new Dot("lightgreen", 150, 160, 5), "June 1999", [""]);
+  experiences[0] = new Item(new Dot("lightgreen", 150, 20, 5), "November 2016", rightText[0]);
+  experiences[1] = new Item(new Dot("lightgreen", 150, 75, 5), "March 2013", rightText[1]);
+  experiences[2] = new Item(new Dot("lightgreen", 150, 100, 5), "August 2012", rightText[2]);
+  experiences[3] = new Item(new Dot("lightgreen", 150, 140, 5), "September 2004", rightText[3]);
+  experiences[4] = new Item(new Dot("lightgreen", 150, 160, 5), "June 1999", rightText[4]);
 
   var c=document.getElementById("canvas2");
   var ctx=c.getContext("2d");
