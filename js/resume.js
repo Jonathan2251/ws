@@ -53,8 +53,29 @@ function drawSkillBarChart() {
 }
 
 function drawExperiences() {
-  var xLine = 150;
-  var px = [20, 75, 100, 140, 160];
+  var dot = [];
+  var experiences = [];
+  
+  function makeStruct(names) {
+    var names = names.split(' ');
+    var count = names.length;
+    function constructor() {
+      for (var i = 0; i < count; i++) {
+        this[names[i]] = arguments[i];
+      }
+    }
+    return constructor;
+  }
+  
+  var Dot = makeStruct("color px py radius");
+  
+  var Item = makeStruct("dot leftText rightText");
+  experiences[0] = new Item(new Dot("lightgreen", 150, 20, 5), "November 2016", ["Senior software engineer in Marvell       (lvm open source team at my personal time)", "  llvm optimization for ARM", "  The simulator programmer of Marvell's ARM SOC chips"]);
+  experiences[1] = new Item(new Dot("lightgreen", 150, 75, 5), "March 2013", ["Programmer in llvm (a compiler) open source team"]);
+  experiences[2] = new Item(new Dot("lightgreen", 150, 100, 5), "August 2012", ["Software engineer in Set Top Box TV"]);
+  experiences[3] = new Item(new Dot("lightgreen", 150, 140, 5), "September 2004", ["Software engineer in a few Taiwan's companies"]);
+  experiences[4] = new Item(new Dot("lightgreen", 150, 160, 5), "June 1999", [""]);
+
   var c=document.getElementById("canvas2");
   var ctx=c.getContext("2d");
   
@@ -62,38 +83,39 @@ function drawExperiences() {
   
   // Show the different textAlign values
   ctx.textAlign="right";
-  ctx.fillText("November 2016",xLine-10,px[0]+5);
-  ctx.fillText("March 2013",xLine-10,px[1]+5);
-  ctx.fillText("August 2012",xLine-10,px[2]+5);
-  ctx.fillText("September 2004",xLine-10,px[3]+5);
-  ctx.fillText("June 1999",xLine-10,px[4]+5);
+  for (i = 0; i < experiences.length; i++) {
+    ctx.fillText(experiences[i].leftText,experiences[i].dot.px-10,experiences[i].dot.py+5);
+  }
   
   ctx.textAlign="left";
-  ctx.fillText("Senior software engineer in Marvell",xLine+10,px[0]+15);
-  ctx.fillText("llvm optimization for ARM",xLine+20,px[0]+2*15);
-  ctx.fillText("The simulator programmer of Marvell's ARM SOC chips",xLine+20,px[0]+3*15);
-  
-  ctx.fillText("Programmer in llvm (a compiler) open source team",xLine+10,px[1]+15);
-  
-  ctx.fillText("Senior software engineer in Mortorola",xLine+10,px[2]+15);
-  ctx.fillText("Software engineer in Set Top Box TV",xLine+20,px[2]+2*15);
-  
-  ctx.fillText("Software engineer in a few Taiwan's companies",xLine+10,px[3]+15);
-  
+  for (i = 0; i < experiences.length; i++) {
+    var posy = experiences[i].dot.py+15;
+    for (j = 0; j < experiences[i].rightText.length; j++) {
+      ctx.fillText(experiences[i].rightText[j],experiences[i].dot.px+10,posy);
+      posy += 15;
+    }
+  }
+
   ctx.stroke();
   ctx.beginPath();
-  ctx.moveTo(xLine,0);
-  ctx.lineTo(xLine,canvas2.height-1);
-  ctx.moveTo(xLine,0);
-  ctx.lineTo(xLine-5,5);
-  ctx.moveTo(xLine,0);
-  ctx.lineTo(xLine+5,5);
+  ctx.moveTo(experiences[0].dot.px,0);
+  ctx.lineTo(experiences[0].dot.px,experiences[0].dot.py);
+  ctx.moveTo(experiences[0].dot.px,0);
+  ctx.lineTo(experiences[0].dot.px-5,5);
+  ctx.moveTo(experiences[0].dot.px,0);
+  ctx.lineTo(experiences[0].dot.px+5,5);
+  for (i = 0; i < experiences.length - 1; i++) {
+    ctx.moveTo(experiences[i].dot.px,experiences[i].dot.py);
+    ctx.lineTo(experiences[i+1].dot.px,experiences[i+1].dot.py);
+  }
+  ctx.moveTo(experiences[i].dot.px,experiences[i].dot.py);
+  ctx.lineTo(experiences[i].dot.px,experiences[i].dot.py+20);
   ctx.stroke();
   
-  for (i = 0; i < px.length; i++) {
+  for (i = 0; i < experiences.length; i++) {
      ctx.beginPath();
-     ctx.arc(xLine,px[i],5,0,2*Math.PI);
-     ctx.fillStyle = "green";
+     ctx.arc(experiences[i].dot.px,experiences[i].dot.py,experiences[i].dot.radius,0,2*Math.PI);
+     ctx.fillStyle = experiences[i].dot.color;
      ctx.fill();
      ctx.stroke();
   }
