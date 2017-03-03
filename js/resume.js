@@ -72,49 +72,101 @@ function createRightText() {
   return result;
 }
 
+// factory pattern
+function makeStruct(names) {
+  var names = names.split(' ');
+  var count = names.length;
+  function constructor() {
+    for (var i = 0; i < count; i++) {
+      this[names[i]] = arguments[i];
+    }
+  }
+  return constructor;
+}
+
+function monthToString(month) {
+  var str = "1234567890";
+  switch (month) {
+    case 1:
+      str = "January";
+      break;
+    case 2:
+      str = "Feburary";
+      break;
+    case 3:
+      str = "March";
+      break;
+    case 4:
+      str = "April";
+      break;
+    case 5:
+      str = "May";
+      break;
+    case 6:
+      str = "June";
+      break;
+    case 7:
+      str = "July";
+      break;
+    case 8:
+      str = "August";
+      break;
+    case 9:
+      str = "September";
+      break;
+    case 10:
+      str = "October";
+      break;
+    case 11:
+      str = "November";
+      break;
+    case 12:
+      str = "December";
+      break;
+    default:
+      str = "";
+      break;
+  }
+  return str;
+}
+
 function drawExperiences() {
   var rightText;
   var dot = [];
-  var experiences = [];
-  
-  function makeStruct(names) {
-    var names = names.split(' ');
-    var count = names.length;
-    function constructor() {
-      for (var i = 0; i < count; i++) {
-        this[names[i]] = arguments[i];
-      }
-    }
-    return constructor;
-  }
+  var period = [0, 1, 2, 3, 4, 5];
+  var item = [];
   
   rightText = createRightText();
-  
+
   var Dot = makeStruct("color px py radius");
-  var Item = makeStruct("dot leftText rightText");
-  experiences[0] = new Item(new Dot("lightgreen", 150, 20, 5), "November 2016", rightText[0]);
-  experiences[1] = new Item(new Dot("lightgreen", 150, 75, 5), "March 2013", rightText[1]);
-  experiences[2] = new Item(new Dot("lightgreen", 150, 100, 5), "August 2012", rightText[2]);
-  experiences[3] = new Item(new Dot("lightgreen", 150, 140, 5), "September 2004", rightText[3]);
-  experiences[4] = new Item(new Dot("lightgreen", 150, 160, 5), "June 1999", rightText[4]);
+  var MonthYear = makeStruct("month year");
+  var Period = makeStruct("startDate endDate");
+  var Experience = makeStruct("period work");
+  var Item = makeStruct("dotStart dotEnd experience");
+
+  item[0] = new Item(new Dot("lightgreen", 150, 75, 5), new Dot("lightgreen", 150, 20, 5), new Experience(new Period(new MonthYear(3, 2013), new MonthYear(11, 2016)), rightText[0]));
+  item[1] = new Item(new Dot("lightgreen", 150, 100, 5), new Dot("lightgreen", 150, 75, 5), new Experience(new Period(new MonthYear(8, 2012), new MonthYear(3, 2013)), rightText[1]));
+  item[2] = new Item(new Dot("lightgreen", 150, 140, 5), new Dot("lightgreen", 150, 100, 5), new Experience(new Period(new MonthYear(9, 2004), new MonthYear(8, 2012)), rightText[2]));
+  item[3] = new Item(new Dot("lightgreen", 150, 160, 5), new Dot("lightgreen", 150, 140, 5), new Experience(new Period(new MonthYear(6, 1999), new MonthYear(9, 2004)), rightText[3]));
 
   var c=document.getElementById("canvas2");
   var ctx=c.getContext("2d");
   
   ctx.font="12px Arial";
   
-  // Draw leftText
+
+  // Draw period
   ctx.textAlign="right";
-  for (i = 0; i < experiences.length; i++) {
-    ctx.fillText(experiences[i].leftText,experiences[i].dot.px-10,experiences[i].dot.py+5);
+  for (i = 0; i < item.length; i++) {
+    ctx.fillText(monthToString(item[i].experience.period.startDate.month)+" "+item[i].experience.period.startDate.year,item[i].dotEnd.px-10,item[i].dotEnd.py+5);
   }
   
-  // Draw rightText
+  // Draw work
   ctx.textAlign="left";
-  for (i = 0; i < experiences.length; i++) {
-    var posy = experiences[i].dot.py+15;
-    for (j = 0; j < experiences[i].rightText.length; j++) {
-      ctx.fillText(experiences[i].rightText[j],experiences[i].dot.px+10,posy);
+  for (i = 0; i < item.length; i++) {
+    var posy = item[i].dotEnd.py+15;
+    for (j = 0; j < item[i].experience.work.length; j++) {
+      ctx.fillText(item[i].experience.work[j],item[i].dotEnd.px+10,posy);
       posy += 15;
     }
   }
@@ -123,25 +175,33 @@ function drawExperiences() {
   
   // Draw arrow vertical line
   ctx.beginPath();
-  ctx.moveTo(experiences[0].dot.px,0);
-  ctx.lineTo(experiences[0].dot.px,experiences[0].dot.py);
-  ctx.moveTo(experiences[0].dot.px,0);
-  ctx.lineTo(experiences[0].dot.px-5,5);
-  ctx.moveTo(experiences[0].dot.px,0);
-  ctx.lineTo(experiences[0].dot.px+5,5);
-  for (i = 0; i < experiences.length - 1; i++) {
-    ctx.moveTo(experiences[i].dot.px,experiences[i].dot.py);
-    ctx.lineTo(experiences[i+1].dot.px,experiences[i+1].dot.py);
+  
+  // Draw vertical arrow
+  ctx.moveTo(item[0].dotEnd.px,0);
+  ctx.lineTo(item[0].dotEnd.px,item[0].dotEnd.py);
+  ctx.moveTo(item[0].dotEnd.px,0);
+  ctx.lineTo(item[0].dotEnd.px-5,5);
+  ctx.moveTo(item[0].dotEnd.px,0);
+  ctx.lineTo(item[0].dotEnd.px+5,5);
+  
+  for (i = 0; i < item.length; i++) {
+    ctx.moveTo(item[i].dotEnd.px,item[i].dotEnd.py);
+    ctx.lineTo(item[i].dotStart.px,item[i].dotStart.py);
   }
-  ctx.moveTo(experiences[i].dot.px,experiences[i].dot.py);
-  ctx.lineTo(experiences[i].dot.px,experiences[i].dot.py+20);
+  ctx.moveTo(item[i-1].dotStart.px,item[i-1].dotStart.py);
+  ctx.lineTo(item[i-1].dotStart.px,item[i-1].dotStart.py+20);
   ctx.stroke();
   
-  // Draw circles according experiences[i].dot
-  for (i = 0; i < experiences.length; i++) {
+  // Draw circles according item[i].dot
+  for (i = 0; i < item.length; i++) {
      ctx.beginPath();
-     ctx.arc(experiences[i].dot.px,experiences[i].dot.py,experiences[i].dot.radius,0,2*Math.PI);
-     ctx.fillStyle = experiences[i].dot.color;
+     ctx.arc(item[i].dotEnd.px,item[i].dotEnd.py,item[i].dotEnd.radius,0,2*Math.PI);
+     ctx.fillStyle = item[i].dotEnd.color;
+     ctx.fill();
+     ctx.stroke();
+     ctx.beginPath();
+     ctx.arc(item[i].dotStart.px,item[i].dotStart.py,item[i].dotStart.radius,0,2*Math.PI);
+     ctx.fillStyle = item[i].dotStart.color;
      ctx.fill();
      ctx.stroke();
   }
