@@ -158,7 +158,8 @@ function drawExperiences() {
   // Draw period
   ctx.textAlign="right";
   for (i = 0; i < item.length; i++) {
-    ctx.fillText(monthToString(item[i].experience.period.startDate.month)+" "+item[i].experience.period.startDate.year,item[i].dotEnd.px-10,item[i].dotEnd.py+5);
+    ctx.fillText(monthToString(item[i].experience.period.endDate.month)+" "+item[i].experience.period.endDate.year,item[i].dotEnd.px-10,item[i].dotEnd.py+5);
+    ctx.fillText(monthToString(item[i].experience.period.startDate.month)+" "+item[i].experience.period.startDate.year,item[i].dotStart.px-10,item[i].dotStart.py+5);
   }
   
   // Draw work
