@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chung-Shu Chen - 詳細履歷</title>
+
+<meta name="viewport" content="width=device-width"/>
+<meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>
+<meta charset="UTF-8"> 
+
+<link type="text/css" rel="stylesheet" href="../css/resume.css">
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+
+<script src="../js/Chart.bundle.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/resume.js"></script>
+<style>
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+</style>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body id="top">
+<div id="cv">
+  <div class="mainDetails">
+    <div id="headshot">
+      <img src="../images/headshot.png" alt="Alan Smith" />
+    </div>
+    
+    <div id="contactDetails">
+      <ul>
+        <p>陳鍾樞 &nbsp;&nbsp;&nbsp;&nbsp; (03)6681193, &nbsp;&nbsp;&nbsp;&nbsp; 0970577923 &nbsp;&nbsp;&nbsp;&nbsp; <a href="mailto:gamma_chen@yahoo.com.tw" target="_blank"> gamma_chen@yahoo.com.tw</a><br></p>
+        <p>我是位有經驗的軟體工程師，在工作中運用不同軟體語言、工具與相關知識開發數位電視機上盒、處理器，編譯器，模擬軟體 simulator，...，。 
+        此外，對寫程式總是懷抱熱情，相當暸解工具與軟體工程方法，並運用文件撰寫以產生具可讀性及可維護性的軟體。</p>
+      </ul>
+    </div>
+    <div class="clear"></div>
+    
+    <div class="title">
+      <h1>詳細履歷</h1>
+    </div>
+  </div>
+  
+  <div id="mainArea">
+    <section>
+      <article>
+        <div class="sectionTitle">
+          <h1>資格</h1>
+        </div>
+        
+        <div class="sectionContent">
+          <p>二十年c/c++嵌入系統軟體開發經驗，相當暸解軟體與除錯。</p>
+        </div>
+      </article>
+      <div class="clear"></div>
+    </section>
+
+    <section>
+      <div class="sectionContent">
+        <div id="container" style="width: 100%;">
+            <canvas id="canvas" height="100"></canvas>
+        </div>
+        <script> drawSkillBarChart(); </script>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1>我的開法原始碼專案</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <p>如何建立LLVM 後端編譯器 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://jonathan2251.github.io/lbd/index.html" target="_blank"><img style="vertical-align: middle;" src="../images/GitHub-Mark-32px.png" title="My github lbd" width="16" height="16" /> http://jonathan2251.github.io/lbd/index.html</a> </p>
+        <p>如何建立LLVM 後端系統工具 &nbsp;&nbsp;&nbsp;&nbsp; <a href="http://jonathan2251.github.io/lbd/index.html" target="_blank"><img style="vertical-align: middle;" src="../images/GitHub-Mark-32px.png" title="My github lbd" width="16" height="16" /> http://jonathan2251.github.io/lbd/index.html</a> </p>
+      </div>
+      <div class="clear"></div>
+    </section>
+
+    <section>
+      <div class="sectionTitle">
+        <h1>學歷</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <article>
+          <p>1997-1999 碩士班，六月 1999，國立台灣師範大學，台北，主修：資訊科學。</p>
+          <p>1991-1994 學士班，六月 1994，國立台灣科技大學，台北，主修：工業工程。</p>
+        </article>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1>證照</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <article>
+          <p>1995年 高考資訊技師及格。</p>
+        </article>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1>經驗</h1>
+      </div>
+    
+      <div id="container"" style="solid #000000;">
+        <canvas id="canvas2" width="800" height="200"></canvas>
+      </div>
+      <script> drawExperiences(); </script>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1>碩士論文THESIS OF MASTER DEGREE</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <p><a href="https://github.com/Jonathan2251/ow/tree/master/sortingnetwork/ThesisMaster"><img style="vertical-align: middle;" src="../images/user_phd.png" title="行排序法的相關研究" width="16" height="16" /> The Researches of Column Sort and Related Problems</a></p>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1>博士班研究計畫</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <p><a href="https://github.com/Jonathan2251/ow/tree/master/sortingnetwork/PHD"><img style="vertical-align: middle;" src="../images/user_phd.png" title="排序網路及相關演算法之研究" width="16" height="16" /> The Researches of Sorting Network and Related Algorithm</a></p>
+      </div>
+      <div class="clear"></div>
+    </section>
+
+    <section>
+      <div class="sectionTitle">
+        <h1>推薦函</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <p><a href="https://jonathan2251.github.io/wr/RecommendationLetter_Marvell_ChenDavid_Singature.pdf"> 前主管推薦函: https://jonathan2251.github.io/wr/RecommendationLetter_Marvell_ChenDavid_Singature.pdf</a></p>
+      </div>
+      <div class="clear"></div>
+    </section>
+  </div>
+</div>
+</body>
+</html>
