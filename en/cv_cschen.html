@@ -167,15 +167,15 @@ canvas {
 			
 			<div class="sectionContent">
 				<article>
-					<li><p>Introduced polly for Marvell llvm toolchain optimization. Polly is a software for loop optimization.</p></li>
-                       <li><p style="margin-left:25px;">The advantage was that it might be 500% speed up in some numerical
+					<li><p>Introduce polly for Marvell llvm toolchain optimization. Polly is a software for loop optimization.</p></li>
+                       <li><p style="margin-left:25px;">The advantage is that it might be 500% speed up in some numerical
                        application program, such as matrix multiplication, or other kind of matrix
-                       operation. Though Marvell's CPUs were not used in numerical applications.
+                       operation. Sadly, Marvell's CPUs are not used in numerical applications.
                        </p></li>
-					<li><p>I applied compiler code generation concept to propose this solution and Csim team adopted it.</p></li>
-					<li><p>I completed cmake and adjusted python programs to build Csim instead of make.</p></li>
-					<li><p>Report the better solution for cmake writting.</p></li>
-					<li><p>Report performance compare for cmake and ninja.</p></li>
+					<li><p>Apply compiler code generation concept to propose this solution and Csim team adopted it.</p></li>
+					<li><p>Complete cmake and adjust python programs to build Csim instead of make.</p></li>
+					   <li><p style="margin-left:25px;">Report the better solution for cmake writting.</p></li>
+					   <li><p style="margin-left:25px;">Report performance compare of cmake versus ninja.</p></li>
 				</article>
 			</div>
 
@@ -187,11 +187,11 @@ canvas {
 			
 			<div class="sectionContent">
 				<article>
-					<li><p>Designed QIP7kP1 and P2 board level testing code. Over 500 millions units of QIP7k model of Set Top Box was tested with this code on production line, as well as shipping to market. Other major products DCX33, DCX34 and DCX35 (over 1000 millions of box) were porting from QIP7kP1 & QIP7kP2.</p></li>
-					<li><p>Combined mips cpu and software engineer knowledge to create a frame work for board level testing code as manager request.</p></li>
-                       <li><p style="margin-left:25px;">I used Rational Ross UML tool to design the frame work. In this task. I applied object oriented analysis & program (OOA, OOP, design pattern) knowledge and UML tool skill.</p></li>
-					<li><p>Implemented the I/O redirection mechanism to make the new version of code porting task easier. One of my colleague adopted this mechanism by his will.</p></li>
-					<li><p>Implemented Board Level Test with design pattern </p></li>
+					<li><p>Designe QIP7kP1 and P2 board level testing code. Over 500 millions units of QIP7k model of Set Top Box are tested with this code on production line, as well as shipping to market. Other major products DCX33, DCX34 and DCX35 (over 1000 millions of box) are ported from QIP7kP1 & QIP7kP2.</p></li>
+					<li><p>Combine mips cpu and software engineer knowledge to create a frame work for board level testing code as manager request.</p></li>
+                       <li><p style="margin-left:25px;">Use Rational Ross UML tool to design the frame work. In this task. I apply object oriented analysis & program (OOA, OOP, design pattern) knowledge and UML tool skill.</p></li>
+					<li><p>Implement the I/O redirection mechanism to make the new version of code porting task easier.</p></li>
+					<li><p>Implement Board Level Test with design pattern.</p></li>
 				</article>
 			</div>
 
@@ -208,13 +208,13 @@ canvas {
 			
 			<div class="sectionContent">
 				<article>
-					<li><p>Studied books “Computer Organization and Design: The Hardware/Software Interface” and “Computer Architecture – A Quantitative Approach” and Mips CPU user manual. Verilog language/tool study.</p></li>
+					<li><p>Study books “Computer Organization and Design: The Hardware/Software Interface”, “Computer Architecture – A Quantitative Approach”, Mips and Broadcom CPU user manual. Verilog language/tool study.</p></li>
 					<li><p>Apply in work:</p></li>
-					   <li><p style="margin-left:25px;">Finding the compiler bug of Code Warrior compiler for Mips cpu. The bug came from #pack(1) statement code generation.</p></li>
-					      <li><p style="margin-left:50px;">I emailed the bug along with example code to Code Warrior and it admited that this was a bug of their compiler for mips backend.</p></li>
-					   <li><p style="margin-left:25px;">Implemented the mini process mechanism with mips assembly language to solve the program hang problem.</p></li>
-					      <li><p style="margin-left:50px;">After this implementation, the code was running more stable and fast. It was a serious problem since when one test item hang on, the other test items scheduled after that wouldn’t be run. In this situation, operator had no idea of the test result since test result was displayed after all test items executed. I implemented a mechanism (hundred lines of mips assembly) to jump out from the test item (by restore the stack and cpu registers status).</p></li>
-					   <li><p style="margin-left:25px;">Applied Verilog and book “Computer Architecture” knowledge to change Cpu0 verilog code to fit my llvm backend compiler design.</p></li>
+					   <li><p style="margin-left:25px;">Find the compiler bug of Code Warrior compiler for Mips cpu. The bug come from #pack(1) statement code generation.</p></li>
+					      <li><p style="margin-left:50px;">Email the bug along with example code to Code Warrior and they admit that this is a bug of their compiler for mips backend.</p></li>
+					   <li><p style="margin-left:25px;">Implement the mini process mechanism with mips assembly language to solve the program hang problem.</p></li>
+					      <li><p style="margin-left:50px;">After this implementation, the code is running more stable and fast. It is a serious problem since when one test item hang on, the other test items scheduled after that won’t be run. In this situation, operator has no idea of the test result since test result is displayed after all test items executed. I implement a mechanism (my USA coworker call it mini process, c++ with "observe pattern" plus hundred lines of mips assembly) to jump out from the test item (by restore the stack and cpu registers status).</p></li>
+					   <li><p style="margin-left:25px;">Apply Verilog and book “Computer Architecture” knowledge to change Cpu0 verilog code to fit my llvm backend compiler design.</p></li>
 				</article>
 			</div>
 
@@ -228,8 +228,8 @@ canvas {
 				<article>
 					<li><p>Studied llvm front & backend design. Studied book “Compilers – Principles, Techniques, & tools 2nd Aho,...” and yacc and lex tool.</p></li>
 					<li><p>Apply in work:</p></li>
-                       <li><p style="margin-left:25px;">I implemented the Cpu0 llvm compiler backend started from scratch for tutorial purpose, and writing books as in my publish books. A lot of readers have been asking me questions and I answering them out of working time.</p></li>
-					<li><p>Applied the compiler syntax parsing tool, yacc & lex, in test station design (specify test items for each station in script language I defined).</p></li>
+                       <li><p style="margin-left:25px;">Implement the Cpu0 llvm compiler backend from scratch for tutorial purpose, and writing books as in my publish books. A lot of readers have been asking me questions and I answering them out of working time.</p></li>
+					<li><p>Apply the compiler syntax parsing tool, yacc & lex, in test station design (specify test items for each station in script language I defined).</p></li>
 				</article>
 			</div>
 
@@ -241,7 +241,7 @@ canvas {
 				<article>
 					<li><p>Study book “Linux Device Driver (2nd & 3rd edition)”</p></li>
 					<li><p>Apply in work:</p></li>
-                       <li><p style="margin-left:25px;">Implemented the mini process mechanism as mentioned in above section "CPU architecture study".</p></li>
+                       <li><p style="margin-left:25px;">Implement the mini process mechanism as mentioned in above section "CPU architecture study".</p></li>
 				</article>
 			</div>
 			<div class="clear"></div>
