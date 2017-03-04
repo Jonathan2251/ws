@@ -35,10 +35,10 @@ canvas {
     <div id="contactDetails">
       <ul>
         <p>Chung-Shu Chen 陳鍾樞 (03)6681193, 0970577923 <a href="mailto:gamma_chen@yahoo.com.tw" target="_blank"> gamma_chen@yahoo.com.tw</a><br></p>
-                <p>I am an experienced programmer who used many different computer languages, tools and computer 
-                    related knowledge to develop products of Set Top Box, CPU, compiler, simulator, ..., in my career. 
-                    In addition, I always have full passion in programming, knowing tools and software engineering method 
-                    very well and write good document to deliver readable and maintainable software.</p>
+                <p>I am a programmer who used different computer languages, tools and computer 
+                    related knowledge to develop different software and hardware products, such as Set Top Box, CPU, compiler, simulator, ..., in my career. 
+                    I always have full passion in programming, knowing tools and software engineering method 
+                    well, loving programming and debugging, and feel happy about writing good document to deliver readable and maintainable software.</p>
       </ul>
     </div>
     <div class="clear"></div>
@@ -170,11 +170,11 @@ canvas {
               application program, such as matrix multiplication, or other kind of matrix
               operation. Sadly, Marvell's CPUs are not used in numerical applications.
             </p></li>
-          <li><p>Apply compiler code generation concept to propose this solution and Csim team adopted it.</p></li>
-          <li><p>Complete cmake and adjust python programs to build Csim with cmake instead of the effort in both maintenance of make and windows project.</p></li>
-            <li><p style="margin-left:25px;">Report the better solution for cmake writting.</p></li>
-              <li><p style="margin-left:50px;">Though the version of cmake in Csim server is 2.6.x, the cmake 2.8.8 provides shared object to save the unnecessary compilation.</p></li>
-            <li><p style="margin-left:25px;">Report performance compare of cmake versus ninja.</p></li>
+          <li><p>Apply compiler code generation idea to propose this solution and Csim team adopted it.</p></li>
+          <li><p>Complete cmake and adjust python programs to build Csim with cmake. It save the effort in maintaining both make and windows project file. Cmake also support iMac user.</p></li>
+            <li><p style="margin-left:25px;">Present the better option for cmake writting.</p></li>
+              <li><p style="margin-left:50px;">The version of cmake in Csim server is 2.6.x, however, the cmake 2.8.8 provides shared object to save the unnecessary compilation.</p></li>
+            <li><p style="margin-left:25px;">Report performance comparing between cmake and ninja.</p></li>
         </article>
       </div>
 
@@ -209,10 +209,12 @@ canvas {
         <article>
           <li><p>Study books “Computer Organization and Design: The Hardware/Software Interface”, “Computer Architecture – A Quantitative Approach”, Mips and Broadcom CPU user manual. Verilog language/tool study.</p></li>
           <li><p>Apply in work:</p></li>
-            <li><p style="margin-left:25px;">Find the compiler bug of Code Warrior compiler for Mips cpu. The bug come from #pack(1) statement code generation.</p></li>
-              <li><p style="margin-left:50px;">Email the bug along with example code to Code Warrior and they admit that this is a bug of their compiler for mips backend.</p></li>
-            <li><p style="margin-left:25px;">Implement the tiny OS mechanism with mips assembly language to solve the program hang problem.</p></li>
-              <li><p style="margin-left:50px;">After this implementation, the code is running more stable and fast. It is a serious problem since when one test item hang on, the other test items scheduled after that won’t be run. In this situation, operator has no idea of the test result since test result is displayed after all test items executed. I implement a mechanism (my USA coworker call it tiny OS, c++ with "observe pattern" plus hundred lines of mips assembly) to jump out from the test item (by restore the stack and cpu registers status).</p></li>
+            <li><p style="margin-left:25px;">Find the bug of Code Warrior's compiler in supporting Mips cpu. The bug come from #pack(1) statement code generation.</p></li>
+              <li><p style="margin-left:50px;">Email Code Warrior the bug along with the example code I write for identify this bug, and they admit that is a bug from their compiler for mips backend support.</p></li>
+            <li><p style="margin-left:25px;">Implement the "tiny OS" mechanism with mips assembly language to solve the halting problem in some program.</p></li>
+              <li><p style="margin-left:50px;">After this implementation, the code is running more stable and fast. It is a serious problem since when one test item "halting", the other test items scheduled after that won’t be run. 
+              In this situation, operator has no idea of the test result since test result is displayed after all test items finish execution. I implement a mechanism to jump out from the test item (by restore the stack and cpu registers status). 
+              My USA's coworker call it tiny OS. It's c++ plus few hundred lines of mips assembly with "observe pattern" of "design pattern".</p></li>
             <li><p style="margin-left:25px;">Apply Verilog and book “Computer Architecture” knowledge to change Cpu0 verilog code for my llvm backend compiler support to become a real cpu design in market.</p></li>
         </article>
       </div>
