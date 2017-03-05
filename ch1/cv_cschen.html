@@ -36,7 +36,7 @@ canvas {
       <ul>
         <p>陳鍾樞 &nbsp;&nbsp;&nbsp;&nbsp; (03)6681193, &nbsp;&nbsp;&nbsp;&nbsp; 0970577923 &nbsp;&nbsp;&nbsp;&nbsp; <a href="mailto:gamma_chen@yahoo.com.tw" target="_blank"> gamma_chen@yahoo.com.tw</a><br></p>
         <p>我是位有軟體工程師，過去在工作中使用不同軟體語言、工具，來開發軟硬體產品，諸如：數位電視機上盒、處理器，編譯器，模擬軟體 simulator，...，。 
-        我對寫程式總是懷抱熱情，相當暸解工具與軟體工程方法，喜愛思考程式與除錯，並對撰寫文件以產生具可讀性及可維護性的軟體感到莫名的快樂。</p>
+        我對寫程式總是懷抱熱情，相當暸解工具與軟體工程方法，喜愛思考程式與除錯，並對撰寫文件以產生較有可讀性及可維護性的軟體感到莫名的快樂。</p>
       </ul>
     </div>
     <div class="clear"></div>
@@ -155,7 +155,7 @@ canvas {
 
     <section>
       <div class="sectionTitle">
-        <h1>ACHIEVEMENT</h1>
+        <h1>工作貢獻</h1>
       </div>
       <div class="sectionTitle">
         <h1>Marvell</h1>
@@ -182,9 +182,6 @@ canvas {
         <article>
           <li><p>設計QIP7kP1與P2電路板的產線測試程式。超過五百萬台的此一數位機上盒機型採用此程式進行測試並出貨。其他主要產品DCX33、DCX34與DCX35(共超過一千萬台)都是從此程式移植修改而來的。</p></li>
           <li><p>依主管要求，運用mips處理器與軟體工程知識，帶領、並與其他四位成員一起建立產線測試程式的共用架構。</p></li>。</p></li>
-            <li><p style="margin-left:25px;">使用Rational Ross工具設計此架構。我應用物件導向分析、設計知識以及UML工具，從事此任務。</p></li>
-            <li><p style="margin-left:25px;">使用design pattern於此一任務。</p></li>
-            <li><p style="margin-left:25px;">撰寫I/O轉向機制，讓新版的程式更容易移植。</p></li>
         </article>
       </div>
       <div class="clear"></div>
@@ -208,7 +205,7 @@ canvas {
               <li><p style="margin-left:50px;">此後系統變得更加穩定且快速。當一測試項目死當時，其他測試項目皆無法繼續執行，此情況是一嚴重問題，因為測試結果是在全部測試項目完成後，才能顯示，
               遇此狀況，作業員無法得知測試結果。我製作一個time out機制，讓死當的測試項目得以被略過(藉由從預存的堆疊指標與處理器暫存器還原其值)，美國同事稱它為微作業系統，
               使用c++加上幾百行的mips組合語言的"observe pattern")。</p></li>
-            <li><p style="margin-left:25px;">運用Verilog與書籍“計算機結構 – 量的研究”的知識修改pu0 verilog程式碼使其更符合llvm後端編譯器支援的實際處理器設計。</p></li>
+            <li><p style="margin-left:25px;">運用Verilog與書籍“計算機結構 – 量的研究”所學，修改pu0 verilog程式碼使其更符合llvm後端編譯器支援的實際處理器設計。</p></li>
         </article>
       </div>
       <div class="clear"></div>
@@ -221,8 +218,8 @@ canvas {
         <article>
           <li><p>研究llvm前端與後端設計，研讀書籍“編譯系統設計 Compilers – Principles, Techniques, & tools 2nd Aho,...”, yacc與lex工具。</p></li>
           <li><p>工作應用：</p></li>
-            <li><p style="margin-left:25px;">為教學與記錄所學目的，製作Cpu0 llvm後端編譯器（列在此履歷前面“我的開法原始碼專案”），一些讀者問我問題我也於下班時間回答他們的問題。</p></li>
-          <li><p>運用編譯器語法分析工具yacc & lex於測試站程式設計(我訂定一個簡單的script語言，我與產線工程師可指定測試項目的script語言）。</p></li>
+            <li><p style="margin-left:25px;">為教學與自我學習，設計Cpu0 llvm後端編譯器（列在此履歷前面“我的開法原始碼專案”），一些讀者問我一些問題，我用下班時間回答他們。</p></li>
+          <li><p>運用編譯器語法分析工具yacc與lex，於測試站程式設計(我訂定一個簡單的script語言，如此一來，我與產線工程師可透過此script語言，指定測試項目）。</p></li>
         </article>
       </div>
 
@@ -234,7 +231,9 @@ canvas {
         <article>
           <li><p>研讀書籍“Linux驅動程式 Linux Device Driver (2nd & 3rd edition)”</p></li>
           <li><p>工作應用：</p></li>
-            <li><p style="margin-left:25px;">如上“計算機架構學習與應用”所列，我參考作業系統並使用mips組合語言製作微作業系統機制以解決程式掛住無法運行的問題。</p></li>
+            <li><p style="margin-left:25px;">如上“計算機架構學習與應用”所列，我參考作業系統並使用mips組合語言來設計"微作業系統"機制，以解決程式掛住無法運行的問題。</p></li>
+            <li><p style="margin-left:25px;">如上，在Motorola時，依主管要求，與其他四位成員建立產線測試程式共用架構。</p></li>
+              <li><p style="margin-left:50px;">撰寫I/O轉向機制，讓新版的程式更容易移植。</p></li>
         </article>
       </div>
       <div class="clear"></div>
@@ -247,9 +246,9 @@ canvas {
         <article>
           <li><p>研讀書籍“Design Patterns” and "物件導向分析相關書籍與工具(Rational Rose, ...)"</p></li>
           <li><p>工作應用：</p></li>
-            <li><p style="margin-left:25px;">在Motorola時，依主管要求，運用mips處理器與軟體工程知識，帶領並與其他四位成員建立產線測試程式共用架構。</p></li>
-            <li><p style="margin-left:25px;">使用Rational Ross UML設計此架構。我應用物件導向分析與設計知識及UML工具於此任務。</p></li>
-              <li><p style="margin-left:50px;">使用書籍“Design Patterns”中的四種patterns以及Rational Ross工具建立程式共用架構、文件與產生程式碼。</p></li>
+            <li><p style="margin-left:25px;">在Motorola時，依主管要求，與其他四位成員建立產線測試程式共用架構。</p></li>
+              <li><p style="margin-left:50px;">使用Rational Ross工具設計此架構。我應用物件導向分析、設計知識以及UML工具，從事此任務。</p></li>
+              <li><p style="margin-left:50px;">使用書籍“Design Patterns”中的五種patterns以及Rational Ross工具建立程式共用架構、文件及產生程式碼。</p></li>
         </article>
       </div>
       <div class="clear"></div>
@@ -261,7 +260,7 @@ canvas {
       </div>
       
       <div class="sectionContent">
-        <p><a href="https://jonathan2251.github.io/wr/RecommendationLetter_Marvell_ChenDavid_Singature.pdf"> 前主管推薦函: https://jonathan2251.github.io/wr/RecommendationLetter_Marvell_ChenDavid_Singature.pdf</a></p>
+        <p><a href="https://jonathan2251.github.io/ws/ch1/RecommendationLetter_Marvell.pdf"> 前主管推薦函: https://jonathan2251.github.io/ws/ch1/RecommendationLetter_Marvell.pdf</a></p>
       </div>
       <div class="clear"></div>
     </section>
