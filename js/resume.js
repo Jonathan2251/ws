@@ -210,7 +210,7 @@ function drawExperiences() {
     ctx.lineTo(item[i].dotStart.px,item[i].dotStart.py);
   }
   ctx.moveTo(item[i-1].dotStart.px,item[i-1].dotStart.py);
-  ctx.lineTo(item[i-1].dotStart.px,item[i-1].dotStart.py+20);
+  ctx.lineTo(item[i-1].dotStart.px,item[i-1].dotStart.py+10);
   ctx.stroke();
   
   // Draw circles according item[i].dot
