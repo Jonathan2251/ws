@@ -165,6 +165,13 @@ canvas {
       
       <div class="sectionContent">
         <article>
+          <li><p>Implement semi-auto software system of running benchmark and generating report for gcc toolchain.</p></li>
+            <li><p style="margin-left:25px;">Implemented bash script and run it automatically to generate Excel's format comparison report 
+              when the source code of Marvell's gcc toolchain has updated. The purpose is to make sure the new gcc has no side effect 
+              (the gcc programmer may update code which brings bad effect on some benchmark). 
+            </p></li>
+            <li><p style="margin-left:25px;">Implemented bash script which can compare any two version of gcc toolchain and generate report. 
+            </p></li>
           <li><p>Introduce polly for Marvell llvm toolchain optimization. Polly is a software for loop optimization.</p></li>
             <li><p style="margin-left:25px;">The advantage is that it might be 500% speed up in some numerical
               application program, such as matrix multiplication, or other kind of matrix operation. 
