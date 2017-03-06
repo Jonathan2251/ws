@@ -138,6 +138,7 @@ function drawExperience() {
   var radius = 5; // !! input dot (small circle) size
   var fontSize = 12; // !! input fontSize then the font's size and canvas2.height will set according it
   var gap = 2; // !! input the gap (between dot and work content)
+  var dotX = 150; // !! input the position of x-axis for dot.
   
   var rightText;
   var dot = [];
@@ -166,7 +167,7 @@ function drawExperience() {
   
   for (i = 0; i < period.length; i++) {
     y2 = y1 + radius + 0 + rightText[i].length*height+2*gap;
-    item[i] = new Item(new Dot("lightgreen", 150, y2, radius), new Dot("lightgreen", 150, y1, radius), new Experience(period[i], rightText[i]));
+    item[i] = new Item(new Dot("lightgreen", dotX, y2, radius), new Dot("lightgreen", dotX, y1, radius), new Experience(period[i], rightText[i]));
     y1 = y2;
   }
   y2 = y1 + radius + 0 + rightText[i-1].length*height;
