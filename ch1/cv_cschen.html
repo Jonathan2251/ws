@@ -164,6 +164,11 @@ canvas {
       
       <div class="sectionContent">
         <article>
+          <li><p>設計半自動的軟體系統，自動執行用gcc編譯器編譯benchmark程式，並產生excel比較圖表。</p></li>
+            <li><p style="margin-left:25px;">設計bash scrip每天固定時間此程式會偵測公司的gcc編譯工具原始碼是否有修改，如有修改，則比較舊版的gcc與新改的gcc，目的是確保新改的gcc沒有邊際效應(side effect)。
+            </p></li>
+            <li><p style="margin-left:25px;">設計bash scrip比較任兩版的gcc編譯器的benchmark效能。
+            </p></li>
           <li><p>為提升Marvell公司gcc與llvm編譯器軟體工具效能，介紹Polly軟體系統。Polly是針對loop最佳化的開放原始碼專案。</p></li>
             <li><p style="margin-left:25px;">此系統的好處是針對某些數值應用程式，像是矩陣相乘、各類矩陣運算的程式，他能提升五倍的速度，遺憾的是Marvell的處理器並沒有數值運算領域的運用，但也許未來的64位元的處理器會有機會。</p></li>
           <li><p>利用編譯器產生程式碼此想法，提出解決方案並獲得Csim小組採用。</p></li>
