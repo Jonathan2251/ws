@@ -58,6 +58,7 @@ function drawSkillBarChart() {
 function createWorkContent() {
   var result;
   
+  // !! input your work content
   result = new Array(5);
   result[0] = new Array(1);
   result[1] = new Array(3);
@@ -134,8 +135,10 @@ function monthToString(month) {
 }
 
 function drawExperience() {
-  var radius = 5; // dot (small circle) size
-  var fontSize = 12; // !! set fontSize then the font's size and canvas2.height will set according it
+  var radius = 5; // !! input dot (small circle) size
+  var fontSize = 12; // !! input fontSize then the font's size and canvas2.height will set according it
+  var gap = 2; // !! input the gap (between dot and work content)
+  
   var rightText;
   var dot = [];
   var period = [];
@@ -151,6 +154,7 @@ function drawExperience() {
   var Experience = makeStruct("period work");
   var Item = makeStruct("dotStart dotEnd experience");
   
+  // !! input your work period
   period[0] = new Period(new MonthYear(11, 2016), "current");
   period[1] = new Period(new MonthYear(3, 2013), new MonthYear(11, 2016));
   period[2] = new Period(new MonthYear(8, 2012), new MonthYear(3, 2013));
@@ -161,7 +165,7 @@ function drawExperience() {
   var y1 = 15;
   
   for (i = 0; i < period.length; i++) {
-    y2 = y1 + radius + 0 + rightText[i].length*height;
+    y2 = y1 + radius + 0 + rightText[i].length*height+2*gap;
     item[i] = new Item(new Dot("lightgreen", 150, y2, radius), new Dot("lightgreen", 150, y1, radius), new Experience(period[i], rightText[i]));
     y1 = y2;
   }
@@ -177,19 +181,17 @@ function drawExperience() {
       if (item[i].experience.period.endDate == "current") {
         ctx.fillText("current",item[i].dotEnd.px-2*radius,item[i].dotEnd.py+4);
       }
-      else if ((item[i].experience.period.endDate.month != item[i-1].experience.period.startDate.month) || (item[i].experience.period.endDate.year != item[i-1].experience.period.startDate.year)) {
-        ctx.fillText(monthToString(item[i].experience.period.endDate.month)+" "+item[i].experience.period.endDate.year,item[i].dotEnd.px-2*radius,item[i].dotEnd.py+4);
-      }
     }
-    else {
-      ctx.fillText(monthToString(item[i].experience.period.startDate.month)+" "+item[i].experience.period.startDate.year,item[i].dotStart.px-2*radius,item[i].dotStart.py+4);
+    else if ((item[i].experience.period.endDate.month != item[i-1].experience.period.startDate.month) || (item[i].experience.period.endDate.year != item[i-1].experience.period.startDate.year)) {
+      ctx.fillText(monthToString(item[i].experience.period.endDate.month)+" "+item[i].experience.period.endDate.year,item[i].dotEnd.px-2*radius,item[i].dotEnd.py+4);
     }
+    ctx.fillText(monthToString(item[i].experience.period.startDate.month)+" "+item[i].experience.period.startDate.year,item[i].dotStart.px-2*radius,item[i].dotStart.py+4);
   }
   
   // Draw work
   ctx.textAlign="left";
   for (i = 0; i < item.length; i++) {
-    var posy = item[i].dotEnd.py+height;
+    var posy = item[i].dotEnd.py+height+gap;
     for (j = 0; j < item[i].experience.work.length; j++) {
       ctx.fillText(item[i].experience.work[j],item[i].dotEnd.px+2*radius,posy);
       posy += height;
