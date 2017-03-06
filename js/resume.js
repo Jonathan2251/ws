@@ -55,16 +55,15 @@ function drawSkillBarChart() {
   };
 }
 
-function createWorkExperiences() {
+function createWorkContent() {
   var result;
   
-  result = new Array(6);
+  result = new Array(5);
   result[0] = new Array(1);
   result[1] = new Array(3);
   result[2] = new Array(1);
   result[3] = new Array(1);
   result[4] = new Array(1);
-  result[5] = new Array(1);
   result[0][0] = "Web and document software study and design (html/css/javascript, Graphivz, ...)";
   result[1][0] = "Senior software engineer in Marvell       (lvm open source team at my personal time)";
   result[1][1] = "  llvm optimization for ARM";
@@ -72,7 +71,6 @@ function createWorkExperiences() {
   result[2][0] = "Programmer in llvm (a compiler) open source team";
   result[3][0] = "Software engineer in Set Top Box TV";
   result[4][0] = "Software engineer in a few Taiwan's companies";
-  result[5][0] = "";
   
   return result;
 }
@@ -135,7 +133,7 @@ function monthToString(month) {
   return str;
 }
 
-function drawExperiences() {
+function drawExperience() {
   var radius = 5; // dot (small circle) size
   var fontSize = 12; // !! set fontSize then the font's size and canvas2.height will set according it
   var rightText;
@@ -145,7 +143,7 @@ function drawExperiences() {
   
   var c=document.getElementById("canvas2");
   
-  rightText = createWorkExperiences();
+  rightText = createWorkContent();
 
   var Dot = makeStruct("color px py radius");
   var MonthYear = makeStruct("month year");
@@ -161,13 +159,13 @@ function drawExperiences() {
 
   var height = (fontSize+fontSize/4);
   var y1 = 15;
-  var y2 = y1 + radius + 0 + rightText[0].length*height;
   
   for (i = 0; i < period.length; i++) {
+    y2 = y1 + radius + 0 + rightText[i].length*height;
     item[i] = new Item(new Dot("lightgreen", 150, y2, radius), new Dot("lightgreen", 150, y1, radius), new Experience(period[i], rightText[i]));
     y1 = y2;
-    y2 = y1 + radius + 0 + rightText[i+1].length*height;
   }
+  y2 = y1 + radius + 0 + rightText[i-1].length*height;
   c.height = y2; // set canvas2.height changed according the font size
   var ctx=c.getContext("2d");
   ctx.font=String(fontSize)+"px Arial"; // must set font after set c.height, otherwise will make the fontSize smaller than 12 and worse
@@ -216,7 +214,7 @@ function drawExperiences() {
     ctx.lineTo(item[i].dotStart.px,item[i].dotStart.py);
   }
   ctx.moveTo(item[i-1].dotStart.px,item[i-1].dotStart.py);
-  ctx.lineTo(item[i-1].dotStart.px,item[i-1].dotStart.py+2*radius);
+  ctx.lineTo(item[i-1].dotStart.px,item[i-1].dotStart.py+10);
   ctx.stroke();
   
   // Draw circles according item[i].dot
