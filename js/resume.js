@@ -3,7 +3,10 @@ function drawSkillBarChart() {
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   var color = Chart.helpers.color;
   var horizontalBarChartData = {
-      labels: ["Embedded system (c/c++, linux, bare metal, mips, assembly)", "Linux programming (gcc, device driver, bash, usb)", "CPU design (simulator, python, Verilog, mips, arm)", "Compiler design (yacc/lex, llvm/lld, cmake/make)", "Software engineering (OOP/OOA, design pattern)", "UI design (VC, Borland C++, VB, html/css/java script)", "Documentation writing(Sphinx, uml, html/css/java script)", "Equipment usage (scope, spectrum, power meter, ...)"],
+      labels: ["Embedded system (c/c++, linux, bare metal, mips, assembly)", "Linux programming (gcc, device driver, bash, usb)", 
+      "CPU design (simulator, python, Verilog, mips, arm)", "Compiler design (yacc/lex, llvm/lld, cmake/make)", 
+      "Software engineering (OOP/OOA, design pattern)", "UI design (VC, Borland C++, VB, html/css/java script)", 
+      "Documentation writing(Sphinx, uml, html/css/java script)", "Equipment usage (scope, spectrum, power meter, ...)"],
       datasets: [{
           label: 'Quality',
           backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
@@ -62,7 +65,7 @@ function createWorkExperiences() {
   result[3] = new Array(1);
   result[4] = new Array(1);
   result[5] = new Array(1);
-  result[0][0] = "Web, document software study and design (html/css/javascript, Graphivz, ...)";
+  result[0][0] = "Web and document software study and design (html/css/javascript, Graphivz, ...)";
   result[1][0] = "Senior software engineer in Marvell       (lvm open source team at my personal time)";
   result[1][1] = "  llvm optimization for ARM";
   result[1][2] = "  The simulator programmer of Marvell's ARM SOC chips";
@@ -87,7 +90,7 @@ function makeStruct(names) {
 }
 
 function monthToString(month) {
-  var str = "1234567890";
+  var str = "";
   switch (month) {
     case 1:
       str = "January";
@@ -133,10 +136,14 @@ function monthToString(month) {
 }
 
 function drawExperiences() {
+  var radius = 5; // dot (small circle) size
+  var fontSize = 12; // !! set fontSize then the font's size and canvas2.height will set according it
   var rightText;
   var dot = [];
-  var period = [0, 1, 2, 3, 4, 5];
+  var period = [];
   var item = [];
+  
+  var c=document.getElementById("canvas2");
   
   rightText = createWorkExperiences();
 
@@ -145,50 +152,49 @@ function drawExperiences() {
   var Period = makeStruct("startDate endDate");
   var Experience = makeStruct("period work");
   var Item = makeStruct("dotStart dotEnd experience");
+  
+  period[0] = new Period(new MonthYear(11, 2016), "current");
+  period[1] = new Period(new MonthYear(3, 2013), new MonthYear(11, 2016));
+  period[2] = new Period(new MonthYear(8, 2012), new MonthYear(3, 2013));
+  period[3] = new Period(new MonthYear(9, 2004), new MonthYear(8, 2012));
+  period[4] = new Period(new MonthYear(6, 1999), new MonthYear(9, 2004));
 
-  var y1 = 20;
-  var y2 = y1 + 10 + rightText[0].length*15;
-  item[0] = new Item(new Dot("lightgreen", 150, y2, 5), new Dot("lightgreen", 150, y1, 5), new Experience(new Period(new MonthYear(11, 2016), "current"), rightText[0]));
-  y1 = y2;
-  y2 = y1 + 10 + rightText[1].length*15;
-  item[1] = new Item(new Dot("lightgreen", 150, y2, 5), new Dot("lightgreen", 150, y1, 5), new Experience(new Period(new MonthYear(3, 2013), new MonthYear(11, 2016)), rightText[1]));
-  y1 = y2;
-  y2 = y1 + 10 + rightText[2].length*15;
-  item[2] = new Item(new Dot("lightgreen", 150, y2, 5), new Dot("lightgreen", 150, y1, 5), new Experience(new Period(new MonthYear(8, 2012), new MonthYear(3, 2013)), rightText[2]));
-  y1 = y2;
-  y2 = y1 + 10 + rightText[3].length*15;
-  item[3] = new Item(new Dot("lightgreen", 150, y2, 5), new Dot("lightgreen", 150, y1, 5), new Experience(new Period(new MonthYear(9, 2004), new MonthYear(8, 2012)), rightText[3]));
-  y1 = y2;
-  y2 = y1 + 10 + rightText[4].length*15;
-  item[4] = new Item(new Dot("lightgreen", 150, y2, 5), new Dot("lightgreen", 150, y1, 5), new Experience(new Period(new MonthYear(6, 1999), new MonthYear(9, 2004)), rightText[4]));
-
-  var c=document.getElementById("canvas2");
+  var height = (fontSize+fontSize/4);
+  var y1 = 15;
+  var y2 = y1 + radius + 0 + rightText[0].length*height;
+  
+  for (i = 0; i < period.length; i++) {
+    item[i] = new Item(new Dot("lightgreen", 150, y2, radius), new Dot("lightgreen", 150, y1, radius), new Experience(period[i], rightText[i]));
+    y1 = y2;
+    y2 = y1 + radius + 0 + rightText[i+1].length*height;
+  }
+  c.height = y2; // set canvas2.height changed according the font size
   var ctx=c.getContext("2d");
-  
-  ctx.font="12px Arial";
-  
+  ctx.font=String(fontSize)+"px Arial"; // must set font after set c.height, otherwise will make the fontSize smaller than 12 and worse
 
   // Draw period
   ctx.textAlign="right";
   for (i = 0; i < item.length; i++) {
     if (i == 0) {
       if (item[i].experience.period.endDate == "current") {
-        ctx.fillText("current",item[i].dotEnd.px-10,item[i].dotEnd.py+5);
+        ctx.fillText("current",item[i].dotEnd.px-2*radius,item[i].dotEnd.py+4);
+      }
+      else if ((item[i].experience.period.endDate.month != item[i-1].experience.period.startDate.month) || (item[i].experience.period.endDate.year != item[i-1].experience.period.startDate.year)) {
+        ctx.fillText(monthToString(item[i].experience.period.endDate.month)+" "+item[i].experience.period.endDate.year,item[i].dotEnd.px-2*radius,item[i].dotEnd.py+4);
       }
     }
-    else if ((item[i].experience.period.endDate.month != item[i-1].experience.period.startDate.month) || (item[i].experience.period.endDate.year != item[i-1].experience.period.startDate.year)) {
-      ctx.fillText(monthToString(item[i].experience.period.endDate.month)+" "+item[i].experience.period.endDate.year,item[i].dotEnd.px-10,item[i].dotEnd.py+5);
+    else {
+      ctx.fillText(monthToString(item[i].experience.period.startDate.month)+" "+item[i].experience.period.startDate.year,item[i].dotStart.px-2*radius,item[i].dotStart.py+4);
     }
-    ctx.fillText(monthToString(item[i].experience.period.startDate.month)+" "+item[i].experience.period.startDate.year,item[i].dotStart.px-10,item[i].dotStart.py+5);
   }
   
   // Draw work
   ctx.textAlign="left";
   for (i = 0; i < item.length; i++) {
-    var posy = item[i].dotEnd.py+15;
+    var posy = item[i].dotEnd.py+height;
     for (j = 0; j < item[i].experience.work.length; j++) {
-      ctx.fillText(item[i].experience.work[j],item[i].dotEnd.px+10,posy);
-      posy += 15;
+      ctx.fillText(item[i].experience.work[j],item[i].dotEnd.px+2*radius,posy);
+      posy += height;
     }
   }
 
@@ -210,7 +216,7 @@ function drawExperiences() {
     ctx.lineTo(item[i].dotStart.px,item[i].dotStart.py);
   }
   ctx.moveTo(item[i-1].dotStart.px,item[i-1].dotStart.py);
-  ctx.lineTo(item[i-1].dotStart.px,item[i-1].dotStart.py+10);
+  ctx.lineTo(item[i-1].dotStart.px,item[i-1].dotStart.py+2*radius);
   ctx.stroke();
   
   // Draw circles according item[i].dot
