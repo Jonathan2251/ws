@@ -55,6 +55,53 @@ function drawSkillBarChart() {
   };
 }
 
+function drawCmakeSharedObjectBarChart() {
+  var color = Chart.helpers.color;
+  var horizontalBarChartData = {
+      labels: ["No using Shared Object", "Using Shared Object"],
+      datasets: [{
+          label: 'Minutes',
+          backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
+          borderColor: window.chartColors.green,
+          borderWidth: 1,
+          data: [
+              13.9,
+              4.5,
+              0
+          ]
+      }]
+
+  };
+
+  function draw() {
+      var ctx = document.getElementById("canvas3").getContext("2d");
+      window.myHorizontalBar = new Chart(ctx, {
+          type: 'horizontalBar',
+          data: horizontalBarChartData,
+          options: {
+              // Elements options apply to all of the options unless overridden in a dataset
+              // In this case, we are setting the border of each horizontal bar to be 2px wide
+              elements: {
+                  rectangle: {
+                      borderWidth: 2,
+                  }
+              },
+              responsive: true,
+              legend: {
+                  position: 'right',
+              },
+              title: {
+                  display: true,
+                  position: 'top',
+                  text: 'cmake Shared Object time save'
+              }
+          }
+      });
+
+  };
+  draw();
+}
+
 function createWorkContent() {
   var result;
   
