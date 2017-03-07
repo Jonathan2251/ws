@@ -117,7 +117,7 @@ function createWorkContent() {
   result[1][1] = "  llvm optimization for ARM";
   result[1][2] = "  The simulator programmer of Marvell's ARM SOC chips";
   result[2][0] = "Programmer in llvm (a compiler) open source team";
-  result[3][0] = "Software engineer in Set Top Box TV";
+  result[3][0] = "Senior software engineer in Motorola";
   result[4][0] = "Software engineer in a few Taiwan's companies";
   
   return result;
