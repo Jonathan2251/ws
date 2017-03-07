@@ -20,6 +20,13 @@ canvas {
     -ms-user-select: none;
 }
 </style>
+<style>
+canvas3 {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+</style>
 
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -178,12 +185,18 @@ canvas {
               application program, such as matrix multiplication, or other kind of matrix operation. 
               Sadly, Marvell's CPUs are not used in numerical applications. But maybe it will have for 64 bits ARM in future.
             </p></li>
+            <img src="../images/polly_benchmark.png" width="600" height="150"/>
           <li><p>Implement co-simulator(our name:Csim) for a few Marvell's ARM based cpu.</p></li>
-          <li><p>Apply compiler code generation idea to propose a solution and Csim team adopted it.</p></li>
-          <li><p>Complete cmake and adjust python programs to build Csim with cmake. It saves effort in maintaining both make and windows project file. In addition, cmake also support iMac user.</p></li>
+          <li><p>Apply compiler code generation idea to propose a solution and Csim team adopted it. <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> reference</a></p></li>
+          <li><p>Complete cmake and adjust python programs to build Csim with cmake. It saves effort in maintaining both make and windows project file. In addition, cmake also support iMac user. <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> reference</a></p></li>
             <li><p style="margin-left:25px;">Present the better option for cmake writting.</p></li>
               <li><p style="margin-left:50px;">The version of cmake in Csim server is 2.6.x, however, the cmake 2.8.8 provides shared object to save the unnecessary compilation.</p></li>
-            <li><p style="margin-left:25px;">Report performance comparing between cmake and ninja.</p></li>
+              <div id="container" style="width: 100%;">
+                <canvas id="canvas3" height="50"></canvas>
+              </div>
+              <script> drawCmakeSharedObjectBarChart(); </script>
+            <li><p style="margin-left:25px;">Report performance comparing between cmake and ninja for other manager's concern. The result is "no difference"</p></li>
+            <p style="margin-left:40px;"><img src="../images/cmake_vs_ninja.png" width="250" height="80"/></p>
         </article>
       </div>
 

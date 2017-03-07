@@ -172,11 +172,17 @@ canvas {
             </p></li>
           <li><p>為提升Marvell公司gcc與llvm編譯器軟體工具效能，介紹Polly軟體系統。Polly是針對loop最佳化的開放原始碼專案。</p></li>
             <li><p style="margin-left:25px;">此系統的好處是針對某些數值應用程式，像是矩陣相乘、各類矩陣運算的程式，他能提升五倍的速度，遺憾的是Marvell的處理器並沒有數值運算領域的運用，但也許未來的64位元的處理器會有機會。</p></li>
-          <li><p>提出解決方案利用編譯器產生程式碼，此想法獲得Csim小組採用。</p></li>
-          <li><p>完成cmake以及調整python程式，使Csim軟體系統可採用一套cmake而不必維護make與windows專案檔兩套專案檔，同時也知援蘋果電腦的使用者。</p></li>
-             <li><p style="margin-left:25px;">介紹可改進cmake的程式寫法。</p></li>
-                <li><p style="margin-left:50px;">安裝於公司伺服器的cmake版本是2.6.x，儘管如此，cmake 2.8.8提供shared object支援以節省不必要的編譯時間。</p></li>
-             <li><p style="margin-left:25px;">cmake與ninja兩種編譯時效評估報告。</p></li>
+            <img src="../images/polly_benchmark.png" width="600" height="150"/>
+          <li><p>提出解決方案利用編譯器產生程式碼，此想法獲得Csim小組採用。 <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> 推薦函</a></p></li>
+          <li><p>完成cmake以及調整python程式，使Csim軟體系統可採用一套cmake而不必維護make與windows專案檔兩套專案檔，同時也知援蘋果電腦的使用者。 <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> 推薦函</a></p></li>
+            <li><p style="margin-left:25px;">介紹可改進cmake的程式寫法。</p></li>
+              <li><p style="margin-left:50px;">安裝於公司伺服器的cmake版本是2.6.x，儘管如此，cmake 2.8.8提供shared object支援以節省不必要的編譯時間。</p></li>
+              <div id="container" style="width: 100%;">
+                <canvas id="canvas3" height="50"></canvas>
+              </div>
+              <script> drawCmakeSharedObjectBarChart(); </script>
+            <li><p style="margin-left:25px;">cmake與ninja兩種編譯時效評估報告。</p></li>
+            <p style="margin-left:40px;"><img src="../images/cmake_vs_ninja.png" width="250" height="80"/></p>
         </article>
       </div>
       <div class="clear"></div>
