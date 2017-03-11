@@ -119,7 +119,13 @@ canvas {
       <div id="container"" style="solid #000000;">
         <canvas id="canvas2" width="800"></canvas>
       </div>
-      <script> drawExperience(); </script>
+      <script> 
+        var Config = makeStruct("canvasId fontSize gap radius dotX period rightText");
+        var period = createWorkPeriod();
+        var rightText = createWorkContent();
+        config = new Config("canvas2", 12, 2, 5, 150, period, rightText);
+        drawExperience(config);
+      </script>
     </section>
     
     <section>

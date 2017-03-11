@@ -102,27 +102,6 @@ function drawCmakeSharedObjectBarChart() {
   draw();
 }
 
-function createWorkContent() {
-  var result;
-  
-  // !! input your work content
-  result = new Array(5);
-  result[0] = new Array(1);
-  result[1] = new Array(3);
-  result[2] = new Array(1);
-  result[3] = new Array(1);
-  result[4] = new Array(1);
-  result[0][0] = "Web and document software study and design (html/css/javascript, Graphivz, ...)";
-  result[1][0] = "Senior software engineer in Marvell       (lvm open source team at my personal time)";
-  result[1][1] = "  llvm optimization for ARM";
-  result[1][2] = "  The simulator programmer of Marvell's ARM SOC chips";
-  result[2][0] = "Programmer in llvm (a compiler) open source team";
-  result[3][0] = "Senior software engineer in Motorola";
-  result[4][0] = "Software engineer in a few Taiwan's companies";
-  
-  return result;
-}
-
 // factory pattern
 function makeStruct(names) {
   var names = names.split(' ');
@@ -134,6 +113,12 @@ function makeStruct(names) {
   }
   return constructor;
 }
+
+var Dot = makeStruct("color px py radius");
+var MonthYear = makeStruct("month year");
+var Period = makeStruct("startDate endDate");
+var Experience = makeStruct("period work");
+var Item = makeStruct("dotStart dotEnd experience");
 
 function monthToString(month) {
   var str = "";
@@ -181,26 +166,8 @@ function monthToString(month) {
   return str;
 }
 
-function drawExperience() {
-  var radius = 5; // !! input dot (small circle) size
-  var fontSize = 12; // !! input fontSize then the font's size and canvas2.height will set according it
-  var gap = 2; // !! input the gap (between dot and work content)
-  var dotX = 150; // !! input the position of x-axis for dot.
-  
-  var rightText;
-  var dot = [];
+function createWorkPeriod() {
   var period = [];
-  var item = [];
-  
-  var c=document.getElementById("canvas2");
-  
-  rightText = createWorkContent();
-
-  var Dot = makeStruct("color px py radius");
-  var MonthYear = makeStruct("month year");
-  var Period = makeStruct("startDate endDate");
-  var Experience = makeStruct("period work");
-  var Item = makeStruct("dotStart dotEnd experience");
   
   // !! input your work period
   period[0] = new Period(new MonthYear(11, 2016), "current");
@@ -208,6 +175,44 @@ function drawExperience() {
   period[2] = new Period(new MonthYear(8, 2012), new MonthYear(3, 2013));
   period[3] = new Period(new MonthYear(9, 2004), new MonthYear(8, 2012));
   period[4] = new Period(new MonthYear(6, 1999), new MonthYear(9, 2004));
+  
+  return period;
+}
+
+function createWorkContent() {
+  var str;
+  
+  // !! input your work content
+  str = new Array(5);
+  str[0] = new Array(1);
+  str[1] = new Array(3);
+  str[2] = new Array(1);
+  str[3] = new Array(1);
+  str[4] = new Array(1);
+  str[0][0] = "Web and document software study and design (html/css/javascript, Graphivz, ...)";
+  str[1][0] = "Senior software engineer in Marvell       (lvm open source team at my personal time)";
+  str[1][1] = "  llvm optimization for ARM";
+  str[1][2] = "  The simulator programmer of Marvell's ARM SOC chips";
+  str[2][0] = "Programmer in llvm (a compiler) open source team";
+  str[3][0] = "Senior software engineer in Motorola";
+  str[4][0] = "Software engineer in a few Taiwan's companies";
+  
+  return str;
+}
+
+function drawExperience(config) {
+  var canvasId = config.canvasId;
+  var fontSize = config.fontSize; // !! input fontSize then the font's size and canvas2.height will set according it
+  var gap =  config.gap; // !! input the gap (between dot and work content)
+  var radius = config.radius; // !! input dot (small circle) size
+  var dotX = config.dotX; // !! input the position of x-axis for dot.
+  var period = config.period;
+  var rightText = config.rightText;
+  
+  var dot = [];
+  var item = [];
+  
+  var c=document.getElementById(canvasId);
 
   var height = (fontSize+fontSize/4);
   var y1 = 15;
