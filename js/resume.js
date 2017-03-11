@@ -160,19 +160,13 @@ function monthToString(month) {
   return str;
 }
 
-function MonthYear(month, year) {
-  this.month = month;
-  this.year = year;
-}
-
-function Period(startDate, endDate) {
-  this.startDate = startDate;
-  this.endDate = endDate;
-}
+var Period;
 
 function createWorkPeriod() {
   var period = [];
   
+  var MonthYear = makeStruct("month year");
+  Period = makeStruct("startDate endDate");
   // !! input your work period
   period[0] = new Period(new MonthYear(11, 2016), "current");
   period[1] = new Period(new MonthYear(3, 2013), new MonthYear(11, 2016));
