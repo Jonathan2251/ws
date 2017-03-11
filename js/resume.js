@@ -114,12 +114,6 @@ function makeStruct(names) {
   return constructor;
 }
 
-var Dot = makeStruct("color px py radius");
-var MonthYear = makeStruct("month year");
-var Period = makeStruct("startDate endDate");
-var Experience = makeStruct("period work");
-var Item = makeStruct("dotStart dotEnd experience");
-
 function monthToString(month) {
   var str = "";
   switch (month) {
@@ -164,6 +158,16 @@ function monthToString(month) {
       break;
   }
   return str;
+}
+
+function MonthYear(month, year) {
+  this.month = month;
+  this.year = year;
+}
+
+function Period(startDate, endDate) {
+  this.startDate = startDate;
+  this.endDate = endDate;
 }
 
 function createWorkPeriod() {
@@ -213,6 +217,10 @@ function drawExperience(config) {
   var item = [];
   
   var c=document.getElementById(canvasId);
+  
+  var Dot = makeStruct("color px py radius");
+  var Experience = makeStruct("period work");
+  var Item = makeStruct("dotStart dotEnd experience");
 
   var height = (fontSize+fontSize/4);
   var y1 = 15;
