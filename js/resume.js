@@ -222,32 +222,36 @@ Experience.prototype.draw = function (config) {
   var dotX = config.dotX; // !! input the position of x-axis for dot.
   
   var dot = [];
-  var i;
-  
-  var c=document.getElementById(canvasId);
-  
-  var Dot = makeStruct("color px py radius");
-
   var height = (fontSize+fontSize/4);
-  var y1 = 15;
+  var c=document.getElementById(canvasId);
+  dot = createDots(dotX, radius, gap, height, this.period, this.work);
   
-  for (i = 0; i < this.period.length; i++) {
-    dot[i] = new Dot("lightgreen", dotX, y1, radius);
-    y1 = y1 + radius + 0 + this.work[i].length*height+2*gap;
-  }
-  dot[i] = new Dot("lightgreen", dotX, y1, radius);
-  y1 = y1 + radius + 0 + this.work[i-1].length*height;
-  c.height = y1; // set canvas2.height changed according the font size
+  c.height = dot[dot.length-1].py + radius + 0 + this.work[this.work.length-1].length*height;; // set canvas2.height changed according the font size
   var ctx=c.getContext("2d");
   ctx.font=String(fontSize)+"px Arial"; // must set font after set c.height, otherwise will make the fontSize smaller than 12 and worse
 
   drawVerticalLine(ctx, dot);
   drawDots(ctx, dot);
-  outputWorkPeriod(ctx, dot, this.period);
-  outputWorkContent(ctx, dot, this.work);
+  outputWorkPeriod(ctx, dot, this.period, radius);
+  outputWorkContent(ctx, dot, this.work, height, gap, radius);
+  
+  function createDots(dotX, radius, gap, height, period, work) {
+    var dot = [];
+    var Dot = makeStruct("color px py radius");
+    var y1 = 15;
+    
+    for (i = 0; i < period.length; i++) {
+      dot[i] = new Dot("lightgreen", dotX, y1, radius);
+      y1 = y1 + config.radius + 0 + work[i].length*height+2*gap;
+    }
+    dot[i] = new Dot("lightgreen", dotX, y1, radius);
+    
+    return dot;
+  }
   
   function drawVerticalLine(ctx, dot) {
     // Draw arrow vertical line
+    ctx.fillStyle = "grey";
     ctx.beginPath();
     
     // Draw vertical arrow
@@ -262,7 +266,7 @@ Experience.prototype.draw = function (config) {
       ctx.moveTo(dot[i].px,dot[i].py);
       ctx.lineTo(dot[i+1].px,dot[i+1].py);
     }
-    ctx.moveTo(dot[i-1].px,dot[i-1].py);
+    ctx.moveTo(dot[i].px,dot[i].py);
     ctx.lineTo(dot[i].px,dot[i].py+10);
     ctx.stroke();
   }
@@ -278,8 +282,8 @@ Experience.prototype.draw = function (config) {
     }
   }
   
-  function outputWorkPeriod(ctx, dot, period) {
-    ctx.fillStyle = "black";
+  function outputWorkPeriod(ctx, dot, period, radius) {
+    ctx.fillStyle = "grey";
     ctx.textAlign="right";
     for (i = 0; i < period.length; i++) {
       if (i == 0 && period[i].endDate == "current") {
@@ -290,11 +294,10 @@ Experience.prototype.draw = function (config) {
       }
     }
     ctx.fillText(monthToString(period[i-1].startDate.month)+" "+period[i-1].startDate.year,dot[i].px-2*radius,dot[i].py+4);
-    ctx.stroke();
   }
   
-  function outputWorkContent(ctx, dot, work) {
-    ctx.fillStyle = "black";
+  function outputWorkContent(ctx, dot, work, height, gap, radius) {
+    ctx.fillStyle = "grey";
     ctx.textAlign="left";
     for (i = 0; i < work.length; i++) {
       var posy = dot[i].py+height+gap;
@@ -303,6 +306,5 @@ Experience.prototype.draw = function (config) {
         posy += height;
       }
     }
-    ctx.stroke();
   }
 };
