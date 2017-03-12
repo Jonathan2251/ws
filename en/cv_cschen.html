@@ -113,10 +113,10 @@ canvas {
     
     <section>
       <div class="sectionTitle">
-        <h1>EXPERIENCE</h1>
+        <h1 class="instaFade delayOne">EXPERIENCE</h1>
       </div>
             
-      <div id="container"" style="solid #000000;">
+      <div id="container"" style="solid #000000;" class="quickFade delayOne">
         <canvas id="canvas2" width="800"></canvas>
       </div>
       <script>
@@ -124,7 +124,7 @@ canvas {
         var config = new Config("canvas2", 12, 2, 5, 150);
         var workPeriod = createWorkPeriod();
         var workContent = createWorkContent();
-        var experience = Experience(workPeriod, workContent);
+        var experience = new Experience(workPeriod, workContent);
         experience.draw(config);
       </script>
     </section>
