@@ -199,97 +199,110 @@ function createWorkContent() {
 function Experience(workPeriod, workContent) {
   if (workPeriod.length != workContent.length)
     alert("workPeriod.length != workContent.length");
-  this.period = workPeriod;
-  this.work = workContent;
-  
-  this.draw = function (config) {
-    var canvasId = config.canvasId;
-    var fontSize = config.fontSize; // !! input fontSize then the font's size and canvas2.height will set according it
-    var gap =  config.gap; // !! input the gap (between dot and work content)
-    var radius = config.radius; // !! input dot (small circle) size
-    var dotX = config.dotX; // !! input the position of x-axis for dot.
-    
-    var dot = [];
-    var item = [];
-    
-    var c=document.getElementById(canvasId);
-    
-    var Dot = makeStruct("color px py radius");
-    var Item = makeStruct("dotStart dotEnd");
-  
-    var height = (fontSize+fontSize/4);
-    var y1 = 15;
-    
-    for (i = 0; i < period.length; i++) {
-      y2 = y1 + radius + 0 + work[i].length*height+2*gap;
-      item[i] = new Item(new Dot("lightgreen", dotX, y2, radius), new Dot("lightgreen", dotX, y1, radius));
-      y1 = y2;
+  this.period = [];
+  for (i = 0; i < workPeriod.length; i++) {
+    this.period[i] = workPeriod[i];
+  }
+  this.work = new Array(workContent.length);
+  for (i = 0; i < workContent.length; i++) {
+    this.work[i] = new Array(workContent[i].length);
+  }
+  for (i = 0; i < workContent.length; i++) {
+    for (j = 0; j < workContent[i].length; j++) {
+      this.work[i][j] = workContent[i][j];
     }
-    y2 = y1 + radius + 0 + work[i-1].length*height;
-    c.height = y2; // set canvas2.height changed according the font size
-    var ctx=c.getContext("2d");
-    ctx.font=String(fontSize)+"px Arial"; // must set font after set c.height, otherwise will make the fontSize smaller than 12 and worse
+  }
+}
+
+Experience.prototype.draw = function (config) {
+  var canvasId = config.canvasId;
+  var fontSize = config.fontSize; // !! input fontSize then the font's size and canvas2.height will set according it
+  var gap =  config.gap; // !! input the gap (between dot and work content)
+  var radius = config.radius; // !! input dot (small circle) size
+  var dotX = config.dotX; // !! input the position of x-axis for dot.
   
-    // Draw period
-    ctx.textAlign="right";
-    for (i = 0; i < item.length; i++) {
-      if (i == 0) {
-        if (period[i].endDate == "current") {
-          ctx.fillText("current",item[i].dotEnd.px-2*radius,item[i].dotEnd.py+4);
-        }
-      }
-      else if ((period[i].endDate.month != period[i-1].startDate.month) || (period[i].endDate.year != period[i-1].startDate.year)) {
-        ctx.fillText(monthToString(period[i].endDate.month)+" "+period[i].endDate.year,item[i].dotEnd.px-2*radius,item[i].dotEnd.py+4);
-      }
-      ctx.fillText(monthToString(period[i].startDate.month)+" "+period[i].startDate.year,item[i].dotStart.px-2*radius,item[i].dotStart.py+4);
-    }
-    
-    // Draw work
-    ctx.textAlign="left";
-    for (i = 0; i < item.length; i++) {
-      var posy = item[i].dotEnd.py+height+gap;
-      for (j = 0; j < work[i].length; j++) {
-        ctx.fillText(work[i][j],item[i].dotEnd.px+2*radius,posy);
-        posy += height;
-      }
-    }
+  var dot = [];
+  var i;
   
-    ctx.stroke();
-    
+  var c=document.getElementById(canvasId);
+  
+  var Dot = makeStruct("color px py radius");
+
+  var height = (fontSize+fontSize/4);
+  var y1 = 15;
+  
+  for (i = 0; i < this.period.length; i++) {
+    dot[i] = new Dot("lightgreen", dotX, y1, radius);
+    y1 = y1 + radius + 0 + this.work[i].length*height+2*gap;
+  }
+  dot[i] = new Dot("lightgreen", dotX, y1, radius);
+  y1 = y1 + radius + 0 + this.work[i-1].length*height;
+  c.height = y1; // set canvas2.height changed according the font size
+  var ctx=c.getContext("2d");
+  ctx.font=String(fontSize)+"px Arial"; // must set font after set c.height, otherwise will make the fontSize smaller than 12 and worse
+
+  drawVerticalLine(ctx, dot);
+  drawDots(ctx, dot);
+  outputWorkPeriod(ctx, dot, this.period);
+  outputWorkContent(ctx, dot, this.work);
+  
+  function drawVerticalLine(ctx, dot) {
     // Draw arrow vertical line
     ctx.beginPath();
     
     // Draw vertical arrow
-    ctx.moveTo(item[0].dotEnd.px,0);
-    ctx.lineTo(item[0].dotEnd.px,item[0].dotEnd.py);
-    ctx.moveTo(item[0].dotEnd.px,0);
-    ctx.lineTo(item[0].dotEnd.px-5,5);
-    ctx.moveTo(item[0].dotEnd.px,0);
-    ctx.lineTo(item[0].dotEnd.px+5,5);
+    ctx.moveTo(dot[0].px,0);
+    ctx.lineTo(dot[0].px,dot[0].py);
+    ctx.moveTo(dot[0].px,0);
+    ctx.lineTo(dot[0].px-5,5);
+    ctx.moveTo(dot[0].px,0);
+    ctx.lineTo(dot[0].px+5,5);
     
-    for (i = 0; i < item.length; i++) {
-      ctx.moveTo(item[i].dotEnd.px,item[i].dotEnd.py);
-      ctx.lineTo(item[i].dotStart.px,item[i].dotStart.py);
+    for (i = 0; i < dot.length-1; i++) {
+      ctx.moveTo(dot[i].px,dot[i].py);
+      ctx.lineTo(dot[i+1].px,dot[i+1].py);
     }
-    ctx.moveTo(item[i-1].dotStart.px,item[i-1].dotStart.py);
-    ctx.lineTo(item[i-1].dotStart.px,item[i-1].dotStart.py+10);
+    ctx.moveTo(dot[i-1].px,dot[i-1].py);
+    ctx.lineTo(dot[i].px,dot[i].py+10);
     ctx.stroke();
-    
-    // Draw circles according item[i].dot
-    for (i = 0; i < item.length; i++) {
-      if (i == 0 || (item[i].dotEnd.py != item[i-1].dotStart.py)) {
-        ctx.beginPath();
-        ctx.arc(item[i].dotEnd.px,item[i].dotEnd.py,item[i].dotEnd.radius,0,2*Math.PI);
-        ctx.fillStyle = item[i].dotEnd.color;
-        ctx.fill();
-        ctx.stroke();
-      }
+  }
+  
+  function drawDots(ctx, dot) {
+    // Draw circles according dot[i]
+    for (i = 0; i < dot.length; i++) {
       ctx.beginPath();
-      ctx.arc(item[i].dotStart.px,item[i].dotStart.py,item[i].dotStart.radius,0,2*Math.PI);
-      ctx.fillStyle = item[i].dotStart.color;
+      ctx.arc(dot[i].px,dot[i].py,dot[i].radius,0,2*Math.PI);
+      ctx.fillStyle = dot[i].color;
       ctx.fill();
       ctx.stroke();
     }
-  };
-  return this;
-}
+  }
+  
+  function outputWorkPeriod(ctx, dot, period) {
+    ctx.fillStyle = "black";
+    ctx.textAlign="right";
+    for (i = 0; i < period.length; i++) {
+      if (i == 0 && period[i].endDate == "current") {
+        ctx.fillText("current",dot[i].px-2*radius,dot[i].py+4);
+      }
+      else {
+        ctx.fillText(monthToString(period[i].endDate.month)+" "+period[i].endDate.year,dot[i].px-2*radius,dot[i].py+4);
+      }
+    }
+    ctx.fillText(monthToString(period[i-1].startDate.month)+" "+period[i-1].startDate.year,dot[i].px-2*radius,dot[i].py+4);
+    ctx.stroke();
+  }
+  
+  function outputWorkContent(ctx, dot, work) {
+    ctx.fillStyle = "black";
+    ctx.textAlign="left";
+    for (i = 0; i < work.length; i++) {
+      var posy = dot[i].py+height+gap;
+      for (j = 0; j < work[i].length; j++) {
+        ctx.fillText(work[i][j],dot[i].px+2*radius,posy);
+        posy += height;
+      }
+    }
+    ctx.stroke();
+  }
+};
