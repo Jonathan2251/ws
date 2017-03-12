@@ -72,6 +72,7 @@ function drawCmakeSharedObjectBarChart() {
       }]
 
   };
+  draw();
 
   function draw() {
       var ctx = document.getElementById("canvas3").getContext("2d");
@@ -99,7 +100,6 @@ function drawCmakeSharedObjectBarChart() {
       });
 
   };
-  draw();
 }
 
 // factory pattern
