@@ -157,7 +157,7 @@ canvas {
       </div>
       
       <div class="sectionContent">
-        <p> Took course "Image processing" and program: <a href="https://github.com/Jonathan2251/ow/tree/master/master-homework/image_processing/JPEG"> Jpeg decoder</a> </p>
+        <p> Take course "Image processing" and program: <a href="https://github.com/Jonathan2251/ow/tree/master/master-homework/image_processing/JPEG"> Jpeg decoder</a> </p>
         <p> Web and javascript: <a href="resume_cschen.html"> As my resume</a> and <a href="index.html"> my personal web site</a></p>
       </div>
       <div class="clear"></div>
@@ -202,6 +202,22 @@ canvas {
       <div class="clear"></div>
       
       <div class="sectionTitle">
+        <h1>LLVM open source project</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <article>
+          <li><p>Use knowledge from compiler books, llvm document/source code, CPU architecture books and Verilog, implement the llvm backend and Verilog CPU, Cpu0, to create a backend and write book as tutorial.</p></li>
+          <li><p>Study the llvm linker open source code, lld, and llvm run time library open source code, compiler-rt, and implement elf linker and software floating point library for Cpu0.</p></li>
+          <li><p>The upper half of the following figure is the work flow and software package of a computer program be generated and executed. IR stands for Intermediate Representation. 
+          The lower half is the llvm's work flow. The yellow and green parts are implemented in my books (listed as my open source project above), Tutorial: Create an LLVM Backend compiler and Tutorial: Create an LLVM Backend toolchain respectively.</p></li>
+          <p style="margin-left:20px;"><img src="../images/mywork_1.png" width="100%" height="120"/></p>
+        </article>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+      <div class="sectionTitle">
         <h1>Mortorola</h1>
       </div>
       
@@ -209,7 +225,6 @@ canvas {
         <article>
           <li><p>Designe QIP7kP1 and P2 board level production line testing code. Over 500 millions units of QIP7k model of Set Top Box are tested with this code on production line and shipping to market. Other major products DCX33, DCX34 and DCX35 (over 1000 millions of box) are ported from QIP7kP1 & QIP7kP2.</p></li>
           <li><p>Combine mips cpu and software engineer knowledge, lead and cowork with other four members to create a frame work for board level testing code as manager request.</p></li>
-            <li><p style="margin-left:25px;">Use Rational Ross UML tool to design the frame work. In this task, I apply object oriented analysis & program (OOA, OOP, design pattern) knowledge and UML tool skill.</p></li>
         </article>
       </div>
       <div class="clear"></div>
@@ -218,6 +233,7 @@ canvas {
     <section>
       <div class="sectionTitle">
         <h1>CPU, COMPILER, OS, AND SOFTWARE ENGINEERING RELATED LEANING & APPLY</h1>
+        <p style="margin-left:20px;"><img src="../images/study_and_apply.png" width="90%" height="250"/></p>
       </div>
       <div class="sectionTitle">
         <h1>CPU architecture study</h1>
@@ -225,7 +241,7 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>Study books “Computer Organization and Design: The Hardware/Software Interface”, “Computer Architecture – A Quantitative Approach”, Mips and Broadcom CPU user manual. Verilog language/tool study.</p></li>
+          <li><p>Study books “Computer Organization and Design: The Hardware/Software Interface”, “Computer Architecture – A Quantitative Approach”, Mips and Broadcom CPU user manual and Verilog.</p></li>
           <li><p>Apply in work:</p></li>
             <li><p style="margin-left:25px;">Find the bug of Code Warrior's compiler in supporting Mips cpu. The bug come from code generation for #pack(1) statement.</p></li>
               <li><p style="margin-left:50px;">Email Code Warrior the bug along with the example code I write for identifing this bug, and they admit that is a bug from their compiler for mips backend support.</p></li>
@@ -233,7 +249,7 @@ canvas {
               <li><p style="margin-left:50px;">After this implementation, the code has run more stable and fast. It is a serious problem since when one test item "halting", the other test items scheduled after that one won’t be run. 
               In this situation, operator has no idea of the test result since test result is displayed after all test items finish execution. I implement a "time out" mechanism to jump out from the test item (by restore the stack and cpu registers status). 
               My USA's coworker call it "tiny OS". It's c++ plus few hundred lines of mips assembly with "observe pattern" of "design pattern".</p></li>
-            <li><p style="margin-left:25px;">Apply knowledge from Verilog and book “Computer Architecture” to change the Verilog code of Cpu0 to become a real cpu design in market for my llvm backend compiler support.</p></li>
+            <li><p style="margin-left:25px;">Apply knowledge from Verilog and book “Computer Architecture” to change the Verilog code of Cpu0 to become a cpu design for my llvm backend compiler support.</p></li>
         </article>
       </div>
       <div class="clear"></div>
@@ -246,8 +262,8 @@ canvas {
         <article>
           <li><p>Study llvm frontend & backend design. Study book “Compilers – Principles, Techniques, & tools 2nd Aho,...”, yacc and lex tool.</p></li>
           <li><p>Apply in work:</p></li>
-            <li><p style="margin-left:25px;">Implement the Cpu0 llvm compiler backend from scratch for tutorial purpose, and writing books as in my publish books. A lot of readers have been asking me questions and I answering them out of working time.</p></li>
-          <li><p>Apply the compiler syntax parsing tool, yacc & lex, in test station design (Production line engineer and I can specify test items for each station in script language I defined).</p></li>
+            <li><p style="margin-left:25px;">Implement the Cpu0 llvm compiler backend from scratch for tutorial purpose, and writing books as in my publish books.</p></li>
+            <li><p style="margin-left:25px;">Apply the compiler syntax parsing tool, yacc & lex, in test station design.</p></li>
         </article>
       </div>
 
@@ -260,8 +276,7 @@ canvas {
           <li><p>Study book “Linux Device Driver (2nd & 3rd edition)”</p></li>
           <li><p>Apply in work:</p></li>
             <li><p style="margin-left:25px;">Implement the "tiny OS" mechanism as mentioned in above section "CPU architecture study".</p></li>
-            <li><p style="margin-left:25px;">During working the Board Level Test Code framework project in Motorola as mentioned above:</p></li>
-            <li><p style="margin-left:50px;">Implement the I/O redirection mechanism to make the new version of code porting task easier.</p></li>
+            <li><p style="margin-left:25px;">Implement the I/O redirection mechanism to make the new version of code porting task easier in Motorola.</p></li>
         </article>
       </div>
       <div class="clear"></div>
@@ -275,7 +290,7 @@ canvas {
           <li><p>Study book “Design Patterns” and "OOA Analysis related books and tools (Rational Rose, ...)"</p></li>
           <li><p>Apply in work:</p></li>
             <li><p style="margin-left:25px;">During working the Board Level Test Code framework project in Motorola as mentioned above:</p></li>
-              <li><p style="margin-left:50px;"> Utilize five patterns in "design pattern" and Rational Ross tool to create framework, document and generate code.</p></li>
+              <li><p style="margin-left:50px;">Utilize five patterns in "design pattern" and Rational Ross tool to create framework, document and generate code in Motorola.</p></li>
         </article>
       </div>
       <div class="clear"></div>
@@ -287,7 +302,7 @@ canvas {
       </div>
       
       <div class="sectionContent">
-        <p><a href="https://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> My former manager's recommendation letter: https://jonathan2251.github.io/ws/en/RL_Marvell.pdf</a></p>
+        <p><a href="RL_Marvell.pdf"> My former manager's recommendation letter: https://jonathan2251.github.io/ws/en/RL_Marvell.pdf</a></p>
       </div>
       <div class="clear"></div>
     </section>
