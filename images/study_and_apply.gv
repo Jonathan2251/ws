@@ -1,0 +1,35 @@
+digraph G {
+
+	rankdir=LR;
+	subgraph cluster_0 {
+		style=filled;
+		label = "Study";
+		node [shape=box,style=filled,color=white]; CPU [label="CPU:\nComputer Organization and Design: The Hardware/Software Interface\nComputer Architecture – A Quantitative Approach\nMips and Broadcom CPU user manual\nVerilog"];
+		node [style=filled,color=white]; COMPILER [label="COMPILER:\nllvm frontend & backend\nCompilers – Principles, Techniques, & tools\nyacc and lex"];
+		node [style=filled,color=white]; OS [label="OS:\nLinux Device Driver"]; 
+		node [style=filled,color=white]; "SOFTWARE ENGINEERING" [label="SOFTWARE ENGINEERING:\nDesign Patterns\nOOA Analysis related books and tools (Rational Rose, ...)"]; 
+		color=lightgrey;
+	}
+	subgraph cluster_1 {
+		style=filled;
+		color=lightgrey;
+		label = "Apply";
+		node [style=filled,color=white]; codewarrior [label="Find the bug of Code Warrior's compiler"];
+		node [style=filled,color=white]; tinyos [label="Implement tiny OS for FIFO scheduling"];
+		node [style=filled,color=white]; verilog [label="Cpu0 Verilog programming"];
+		node [style=filled,color=white]; backend [label="Cpu0 llvm backend"];
+		node [style=filled,color=white]; teststation [label="the test stations of production line design"];
+		node [style=filled,color=white]; io [label="Implement the I/O redirection mechanism"];
+		node [style=filled,color=white]; bltc [label="Design Board Level Test Code framework"];
+	}
+    CPU -> codewarrior;
+    CPU -> tinyos;
+    CPU -> backend;
+    COMPILER -> codewarrior;
+    COMPILER -> teststation;
+    OS -> tinyos;
+    OS -> io;
+    "SOFTWARE ENGINEERING" -> tinyos;
+    "SOFTWARE ENGINEERING" -> bltc;
+
+}
