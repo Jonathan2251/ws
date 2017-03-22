@@ -181,7 +181,7 @@ canvas {
             <li><p style="margin-left:25px;">此系統的好處是針對某些數值應用程式，像是矩陣相乘、各類矩陣運算的程式，他能提升五倍的速度，遺憾的是Marvell的處理器並沒有數值運算領域的運用，但也許未來的64位元的處理器會有機會。</p></li>
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
           <li><p>提出解決方案利用編譯器產生程式碼，此想法獲得Csim小組採用。 <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> 推薦函</a></p></li>
-          <li><p>完成cmake以及調整python程式，使Csim軟體系統可採用一套cmake而不必維護make與windows專案檔兩套專案檔，同時也知援蘋果電腦的使用者。 <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> 推薦函</a></p></li>
+          <li><p>完成cmake以及調整python程式，使Csim軟體系統可採用一套cmake而不必維護make與windows專案檔兩套專案檔，同時也支援蘋果電腦的使用者。 <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> 推薦函</a></p></li>
             <li><p style="margin-left:25px;">介紹可改進cmake的程式寫法。</p></li>
               <li><p style="margin-left:50px;">安裝於公司伺服器的cmake版本是2.6.x，儘管如此，cmake 2.8.8提供shared object支援以節省不必要的編譯時間。</p></li>
               <div id="container" style="width: 100%;">
@@ -199,8 +199,6 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>研讀編譯器書籍llvm文件/原始碼、計算機結構與Verilog，撰寫支援Cpu0計算機的llvm後端編譯器與Verilog，並撰寫成llvm後端編譯器的文件。</p></li>
-          <li><p>研讀llvm連結器原始碼（lld）與llvm執行時期所支援的函式庫原始碼（compiler-rt），撰寫支援Cpu0計算機elf連結器與浮點數函式庫。</p></li>
           <li><p>下圖的上半部是計算機產生與執程式的流程圖。IR是中間碼的縮寫（Intermediate Representation）。
           下半部是llvm的流程圖。黃色與綠色分別是我書中（如上，我的開法原始碼專案），如何建立LLVM後端編譯器與如何建立LLVM後端系統工具中的作品。</p></li>
           <p style="margin-left:20px;"><img src="../images/mywork_1.png" width="100%" height="120"/></p>
@@ -225,7 +223,7 @@ canvas {
     <section>
       <div class="sectionTitle">
         <h1>計算機、編譯器、作業系統與軟體工程相關經驗</h1>
-        <p style="margin-left:20px;"><img src="../images/study_and_apply_ch1.png" width="90%" height="250"/></p>
+        <p style="margin-left:0px;"><img src="../images/study_and_apply_ch1.png" width="100%" height="290"/></p>
       </div>
       <div class="sectionTitle">
         <h1>計算機結構學習與應用：</h1>
@@ -235,8 +233,7 @@ canvas {
         <article>
           <li><p>研讀書籍“計算機組織與設計：軟硬體介面”，“計算機結構 – 量的研究”與Mips與Broadcom處理器使用手冊。還有Verilog語言與工具研究。</p></li>
           <li><p>工作應用：</p></li>
-            <li><p style="margin-left:25px;">發現Code Warrior編譯器支援Mips處理器中的錯誤。此錯誤來自preprocess #pack(1)的程式碼生成。</p></li>
-              <li><p style="margin-left:50px;">Email告知Code Warrior，並用附上我所寫的範例程式指出此錯誤，他們通知，此錯誤來自支援mips處理器的後端編譯器程式碼。</p></li>
+            <li><p style="margin-left:25px;">找出Code Warrior編譯器支援Mips處理器中的錯誤並告知Code Warrior。此錯誤來自preprocess #pack(1)的程式碼生成。</p></li>
             <li><p style="margin-left:25px;">使用mips組合語言製作"微作業系統"機制，以解決程式掛住、無法運行的問題。</p></li>
               <li><p style="margin-left:50px;">此後系統變得更加穩定且快速。當一測試項目死當時，其他測試項目皆無法繼續執行，此情況是一嚴重問題，因為測試結果是在全部測試項目完成後，才能顯示，
               遇此狀況，作業員無法得知測試結果。我製作一個time out機制，讓死當的測試項目得以被略過(藉由從預存的堆疊指標與暫存器還原其值)，美國同事稱它為微作業系統，
