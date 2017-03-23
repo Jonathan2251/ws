@@ -160,6 +160,13 @@ function monthToString(month) {
   return str;
 }
 
+function createDefaultConfig() {
+  var Config = makeStruct("canvasId fontSize gap radius dotX");
+  var config = new Config("canvas2", 12, 2, 5, 150);
+  
+  return config;
+}
+
 function createWorkPeriod() {
   var period = [];
   

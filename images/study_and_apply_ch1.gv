@@ -1,35 +1,37 @@
+// Free usage license, author: Chung-Shu Chen 陳鍾樞
+
 digraph G {
 
-	rankdir=LR;
-	subgraph cluster_0 {
-		style=filled;
-		label = "學習";
-		node [shape=box,style=filled,color=white]; CPU [label="CPU:\n計算機組織與設計：軟硬體介面\n計算機結構 – 量的研究\nMips與Broadcom處理器使用手冊\nVerilog"];
-		node [style=filled,color=white]; COMPILER [label="COMPILER:\nllvm前端與後端\n編譯系統設計 Compilers – Principles, Techniques, & tools \nyacc與lex"];
-		node [style=filled,color=white]; OS [label="OS:\nLinux Device Driver"]; 
-		node [style=filled,color=white]; "SOFTWARE ENGINEERING" [label="SOFTWARE ENGINEERING:\nDesign Patterns\n物件導向分析書籍與工具(Rational Rose, ...)"]; 
-		color=lightgrey;
-	}
-	subgraph cluster_1 {
-		style=filled;
-		color=lightgrey;
-		label = "應用";
-		node [style=filled,color=white]; codewarrior [label="發現Code Warrior編譯器設計錯誤"];
-		node [style=filled,color=white]; tinyos [label="設計微作業系統FIFO排程機制"];
-		node [style=filled,color=white]; verilog [label="修改Cpu0 Verilog"];
-		node [style=filled,color=white]; backend [label="設計Cpu0 llvm後端編譯器"];
-		node [style=filled,color=white]; teststation [label="設計自動化測試站"];
-		node [style=filled,color=white]; io [label="撰寫I/O轉向機制"];
-		node [style=filled,color=white]; bltc [label="建立產線測試程式共用架構"];
-	}
-    CPU -> codewarrior;
-    CPU -> tinyos;
-    CPU -> backend;
-    COMPILER -> codewarrior;
-    COMPILER -> teststation;
-    OS -> tinyos;
-    OS -> io;
-    "SOFTWARE ENGINEERING" -> tinyos;
-    "SOFTWARE ENGINEERING" -> bltc;
+  rankdir=LR;
+  subgraph cluster_0 {
+    style=filled;
+    label = "學習";
+    node [shape=record,style=filled,color=white]; CPU [label="CPU:|計算機組織與設計：軟硬體介面\n計算機結構 – 量的研究\nMips與Broadcom處理器使用手冊\nVerilog"];
+    node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm前端與後端\n編譯系統設計 Compilers – Principles, Techniques, & tools \nyacc與lex"];
+    node [style=filled,color=white]; OS [label="OS:|Linux Device Driver"]; 
+    node [style=filled,color=white]; "SOFTWARE ENGINEERING" [label="SOFTWARE ENGINEERING:|Design Patterns\n物件導向分析書籍與工具(Rational Rose, ...)"]; 
+    color=lightgrey;
+  }
+  subgraph cluster_1 {
+    style=filled;
+    color=lightgrey;
+    label = "應用";
+    node [style=filled,color=white]; codewarrior [label="發現Code Warrior編譯器設計錯誤"];
+    node [style=filled,color=white]; tinyos [label="設計微作業系統FIFO排程機制"];
+    node [style=filled,color=white]; verilog [label="修改Cpu0 Verilog"];
+    node [style=filled,color=white]; backend [label="設計Cpu0 llvm後端編譯器"];
+    node [style=filled,color=white]; teststation [label="設計自動化測試站"];
+    node [style=filled,color=white]; io [label="撰寫I/O轉向機制"];
+    node [style=filled,color=white]; bltc [label="建立產線測試程式共用架構"];
+  }
+  CPU -> codewarrior;
+  CPU -> tinyos;
+  CPU -> backend;
+  COMPILER -> codewarrior;
+  COMPILER -> teststation;
+  OS -> tinyos;
+  OS -> io;
+  "SOFTWARE ENGINEERING" -> tinyos;
+  "SOFTWARE ENGINEERING" -> bltc;
 
 }
