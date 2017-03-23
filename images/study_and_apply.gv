@@ -27,6 +27,7 @@ digraph G {
   CPU -> codewarrior;
   CPU -> tinyos;
   CPU -> backend;
+  COMPILER -> backend;
   COMPILER -> codewarrior;
   COMPILER -> teststation;
   OS -> tinyos;
