@@ -120,11 +120,10 @@ canvas {
         <canvas id="canvas2" width="800"></canvas>
       </div>
       <script>
-        var Config = makeStruct("canvasId fontSize gap radius dotX");
-        var config = new Config("canvas2", 12, 2, 5, 150);
         var workPeriod = createWorkPeriod();
         var workContent = createWorkContent();
         var experience = new Experience(workPeriod, workContent);
+        var config = createDefaultConfig();
         experience.draw(config);
       </script>
     </section>
