@@ -16,7 +16,7 @@ digraph G {
     style=filled;
     color=lightgrey;
     label = "應用";
-    node [style=filled,color=white]; codewarrior [label="發現Code Warrior編譯器設計錯誤"];
+    node [style=filled,color=white]; codewarrior [label="找出Code Warrior編譯器設計錯誤"];
     node [style=filled,color=white]; tinyos [label="設計微作業系統FIFO排程機制"];
     node [style=filled,color=white]; verilog [label="修改Cpu0 Verilog"];
     node [style=filled,color=white]; backend [label="設計Cpu0 llvm後端編譯器"];
