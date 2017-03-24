@@ -101,14 +101,14 @@ section:last-child {
 }
 
 .sectionTitle h1 {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 1.0em;
+	font-size: 14px;
 }
 
 .sectionContent h2 {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-	font-size: 0.9em;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
 	margin-bottom: -2px;
 }
 
