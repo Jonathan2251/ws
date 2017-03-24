@@ -58,9 +58,9 @@ p {
 }
 
 #contactDetails p {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 1.0em;
+	font-size: 14px;
 }
 
 .title {
@@ -69,9 +69,9 @@ p {
 }
 
 .title h1 {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 1.5em;
+	font-size: 16px;
 	text-align: center;
 /*	border-top: 2px solid #cf8a05;*/
 }
@@ -101,14 +101,14 @@ section:last-child {
 }
 
 .sectionTitle h1 {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 1.0em;
+	font-size: 14px;
 }
 
 .sectionContent h2 {
-	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
-	font-size: 0.9em;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
 	margin-bottom: -2px;
 }
 
