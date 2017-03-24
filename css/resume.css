@@ -58,9 +58,9 @@ p {
 }
 
 #contactDetails p {
-	font-family: Rokkitt, Helvetica, Arial, sans-serif;
+	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 1.0em;
+	font-size: 16px;
 }
 
 .title {
