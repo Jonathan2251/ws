@@ -77,7 +77,7 @@ canvas {
       </div>
       
       <div class="sectionContent">
-        <p style="font-size: 0.7em;">I am proud of my work is accepted by LLVM documentation, appears at <a href="http://llvm.org/docs/tutorial/#external-tutorials"> http://llvm.org/docs/tutorial/#external-tutorials</a></p>
+        <p style="font-size: 10px;">I am proud of my work is accepted by LLVM documentation, appears at <a href="http://llvm.org/docs/tutorial/#external-tutorials"> http://llvm.org/docs/tutorial/#external-tutorials</a></p>
         <p>Tutorial: Create an LLVM Backend compiler &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://jonathan2251.github.io/lbd/index.html" target="_blank"><img style="vertical-align: middle;" src="../images/GitHub-Mark-32px.png" title="My github lbd" width="16" height="16" /> http://jonathan2251.github.io/lbd/index.html</a> </p>
         <p>Tutorial: Create an LLVM Backend Toolchain &nbsp;&nbsp;&nbsp;&nbsp; <a href="http://jonathan2251.github.io/lbt/index.html" target="_blank"><img style="vertical-align: middle;" src="../images/GitHub-Mark-32px.png" title="My github lbt" width="16" height="16" /> http://jonathan2251.github.io/lbt/index.html</a> </p>
       </div>
@@ -188,6 +188,46 @@ canvas {
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
           <li><p>Implement co-simulator(our name:Csim) for a few Marvell's ARM based cpu.</p></li>
           <li><p>Apply compiler code generation idea to propose a solution and Csim team adopted it. <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> reference</a></p></li>
+          
+<p style="margin-left:25px;">
+<a style="color:red" title="D7.3.19 MDRAR_EL1, Monitor Debug ROM Address Register
+  ...
+  Traps and Enables
+    For a description ...
+    If MDCR_EL2.TDRA==1, Non-secure accesses to this register will trap from DL1 and EL0 to EL2.
+    If MDCR_EL3.TDA==1, accesses to this register will trap from EL2, EL1 and EL0 to EL3.
+">ARM spec</a>
+
+<a> &rarr; </a>
+
+<a style="color:red" title="/* MDRAR register */
+define_trap(&quotMDCR_EL2.TCPAC == 1 && NS && (level <= EL1)&quot, EL2)
+define_trap(&quotMDCR_EL3.TDA == 1 && !NS && (level <= EL2)&quot, EL3)
+define_end">script</a>
+
+<a> &rarr; </a>
+
+<a> generate c++ </a>
+
+<a style="color:red" title="extern TypException CheckPermission_define_regMDRAR(TypSysRegRW RW, TypExceptionLevel level, TypContext& context);">.h</a>
+
+<a style="color:red" title="TypException CheckPermission_define_regMDRAR(TypSysRegRW /*RW*/, TypExceptionLevel level, TypContext& context)
+{
+if (QueryRegField(MDCR, EL2, nsFIELD::TCPAC) == 1 && !IsSecureAccess() && (level <= EL1))
+  {
+    return Trap(EL2, context, 3);
+
+  }
+  if (QueryRegField(MDCR, EL3, nsFIELD::TDAA) == 1 && IsSecureAccess() && (level <= EL2))
+  {
+    return Trap(EL3, context, 3);
+  }
+
+  return NO_TRAP;
+}">.cpp <br></a>
+<a style="font-size: 10px;"> Mouse hover the above </a> <a style="font-size: 10px;" href="https://jonathan2251.github.io/ws/en/cv_cschen.html"> (in html) </a>  <a style="font-size: 10px;"> for explanation, obviously the script is simple, match ARM spec and easy to read more then the c++ program. </a>
+</p>
+
           <li><p>Complete cmake and adjust python programs to build Csim with cmake. It saves effort in maintaining both make and windows project file. In addition, cmake also support iMac user. <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> reference</a></p></li>
             <li style="margin-left:25px;"><p>Present the better option for cmake writting.</p></li>
               <li style="margin-left:50px;"><p>The version of cmake in Csim server is 2.6.x, however, the cmake 2.8.8 provides shared object to save the unnecessary compilation.</p></li>
