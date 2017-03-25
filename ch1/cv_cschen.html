@@ -193,9 +193,11 @@ canvas {
 
 <a> &rarr; </a>
 
+<!-- http://htmlhelp.com/reference/html40/entities/special.html -->
+
 <a style="color:red" title="/* MDRAR register */
-define_trap(&quotMDCR_EL2.TCPAC == 1 && NS && (level <= EL1)&quot, EL2)
-define_trap(&quotMDCR_EL3.TDA == 1 && !NS && (level <= EL2)&quot, EL3)
+define_trap(&quot;MDCR_EL2.TCPAC == 1 && NS && (level <= EL1)&quot;, EL2)
+define_trap(&quot;MDCR_EL3.TDA == 1 && !NS && (level <= EL2)&quot;, EL3)
 define_end">script</a>
 
 <a> &rarr; </a>
@@ -206,10 +208,9 @@ define_end">script</a>
 
 <a style="color:red" title="TypException CheckPermission_define_regMDRAR(TypSysRegRW /*RW*/, TypExceptionLevel level, TypContext& context)
 {
-if (QueryRegField(MDCR, EL2, nsFIELD::TCPAC) == 1 && !IsSecureAccess() && (level <= EL1))
+  if (QueryRegField(MDCR, EL2, nsFIELD::TCPAC) == 1 && !IsSecureAccess() && (level <= EL1))
   {
     return Trap(EL2, context, 3);
-
   }
   if (QueryRegField(MDCR, EL3, nsFIELD::TDAA) == 1 && IsSecureAccess() && (level <= EL2))
   {
