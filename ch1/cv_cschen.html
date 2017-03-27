@@ -181,46 +181,17 @@ canvas {
             <li style="margin-left:25px;"><p>此系統的好處是針對某些數值應用程式，像是矩陣相乘、各類矩陣運算的程式，他能提升五倍的速度，遺憾的是Marvell的處理器並沒有數值運算領域的運用，但也許未來的64位元的處理器會有機會。</p></li>
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
           <li><p>提出解決方案利用編譯器產生程式碼，此想法獲得Csim小組採用。 <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> 推薦函</a></p></li>
-
-<p style="margin-left:25px;">
-<a style="color:red" title="D7.3.19 MDRAR_EL1, Monitor Debug ROM Address Register
-  ...
-  Traps and Enables
-    For a description ...
-    If MDCR_EL2.TDRA==1, Non-secure accesses to this register will trap from DL1 and EL0 to EL2.
-    If MDCR_EL3.TDA==1, accesses to this register will trap from EL2, EL1 and EL0 to EL3.
-">ARM spec</a>
-
-<a> &rarr; </a>
-
-<!-- http://htmlhelp.com/reference/html40/entities/special.html -->
-
-<a style="color:red" title="/* MDRAR register */
-define_trap(&quot;MDCR_EL2.TCPAC == 1 && NS && (level <= EL1)&quot;, EL2)
-define_trap(&quot;MDCR_EL3.TDA == 1 && !NS && (level <= EL2)&quot;, EL3)
-define_end">script</a>
-
-<a> &rarr; </a>
-
-<a> generate c++ </a>
-
-<a style="color:red" title="extern TypException CheckPermission_define_regMDRAR(TypSysRegRW RW, TypExceptionLevel level, TypContext& context);">.h</a>
-
-<a style="color:red" title="TypException CheckPermission_define_regMDRAR(TypSysRegRW /*RW*/, TypExceptionLevel level, TypContext& context)
-{
-  if (QueryRegField(MDCR, EL2, nsFIELD::TCPAC) == 1 && !IsSecureAccess() && (level <= EL1))
-  {
-    return Trap(EL2, context, 3);
-  }
-  if (QueryRegField(MDCR, EL3, nsFIELD::TDAA) == 1 && IsSecureAccess() && (level <= EL2))
-  {
-    return Trap(EL3, context, 3);
-  }
-
-  return NO_TRAP;
-}">.cpp <br></a>
-<a style="font-size: 10px;"> 將滑鼠移到上面紅字上 </a> <a style="font-size: 10px;" href="https://jonathan2251.github.io/ws/ch1/cv_cschen.html"> (in html) </a>  <a style="font-size: 10px;"> 可得到解釋，明顯的script比c++程式來得簡潔、符合ARM spec、且容易閱讀。</a>
-</p>
+            <p style="margin-left:25px;">
+              <a id="hint_spec" style="color:red" title="">ARM spec</a>
+              <a> &rarr; </a>
+              <a id="hint_script" style="color:red" title="">script</a>
+              <a> &rarr; </a>
+              <a> generate c++ </a>
+              <a id="hint_h" style="color:red" title="">.h</a>
+              <a id="hint_cpp" style="color:red" title="">.cpp <br></a>
+              <a style="font-size: 10px;"> 將滑鼠移到上面紅字上 </a> <a style="font-size: 10px;" href="https://jonathan2251.github.io/ws/ch1/cv_cschen.html"> (in html) </a>  <a style="font-size: 10px;"> 可得到解釋，明顯的script比c++程式來得簡潔、符合ARM spec、且容易閱讀。</a>
+            </p>
+          <script> setHint(); </script>
 
           <li><p>完成cmake以及調整python程式，使Csim軟體系統可採用一套cmake而不必維護make與windows專案檔兩套專案檔，同時也支援蘋果電腦的使用者。 <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> 推薦函</a></p></li>
             <li style="margin-left:25px;"><p>介紹可改進cmake的程式寫法。</p></li>

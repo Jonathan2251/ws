@@ -1,3 +1,55 @@
+function setHint() {
+  var spec = document.getElementById("hint_spec");
+  spec.title = "D7.3.19 MDRAR_EL1, Monitor Debug ROM Address Register\n\
+  ...\n\
+  Traps and Enables\n\
+  For a description ...\n\
+  If MDCR_EL2.TDRA==1, Non-secure accesses to this register will trap from DL1 and EL0 to EL2.\n\
+  If MDCR_EL3.TDA==1, accesses to this register will trap from EL2, EL1 and EL0 to EL3.";
+  
+  var script = document.getElementById("hint_script");
+  var h = document.getElementById("hint_h");
+  var cpp = document.getElementById("hint_cpp");
+  
+// string variable include double quot, "&quot;, refer the following"
+// http://htmlhelp.com/reference/html40/entities/special.html
+  script.title = "/* MDRAR register */\n\
+define_reg(MDRAR, EL1, 3)\n\
+define_trap(&quot;MDCR_EL2.TCPAC == 1 && NS && (level <= EL1)&quot;, EL2)\n\
+define_trap(&quot;MDCR_EL3.TDA == 1 && !NS && (level <= EL2)&quot;, EL3)\n\
+define_end";
+
+  h.title = "extern TypException CheckPermission_define_regMDRAR(TypSysRegRW RW, TypExceptionLevel level, TypContext& context);";
+
+  cpp.title = "TypException CheckPermission_define_regMDRAR(TypSysRegRW /*RW*/, TypExceptionLevel level, TypContext& context)\n\
+{\n\
+  if (QueryRegField(MDCR, EL2, nsFIELD::TCPAC) == 1 && !IsSecureAccess() && (level <= EL1))\n\
+  {\n\
+    return Trap(EL2, context, 3);\n\
+  }\n\
+  if (QueryRegField(MDCR, EL3, nsFIELD::TDAA) == 1 && IsSecureAccess() && (level <= EL2))\n\
+  {\n\
+    return Trap(EL3, context, 3);\n\
+  }\n\
+\n\
+  return NO_TRAP;\n\
+}";
+  
+  // Skip using the following jquery since 1. ../dir/permission.def not work  2. error in debug console for xml parsing even the results is right
+/*
+  var data;
+  $.get('permission.def', function(data) {
+    script.title = data; 
+  }, 'text');
+
+  $.get('permission_codegen.h', function(data) {
+    h.title = data; 
+  }, 'text');
+
+  $.get("permission_codegen.cpp", function(data) {
+    cpp.title = data; 
+  }, 'text');*/
+}
 
 function drawSkillBarChart() {
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

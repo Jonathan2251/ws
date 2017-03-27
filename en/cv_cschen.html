@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Chung-Shu Chen - CV (detail resume)</title>
+<title>CV (detail resume)</title>
 
 <meta name="viewport" content="width=device-width"/>
-<meta name="description" content="Chung-Shu Chen - CV (detail resume)"/>
 <meta charset="UTF-8"> 
 
 <link type="text/css" rel="stylesheet" href="../css/resume.css">
@@ -13,6 +12,7 @@
 <script src="../js/Chart.bundle.js"></script>
 <script src="../js/utils.js"></script>
 <script src="../js/resume.js"></script>
+<script src="../js/jquery.min.js"></script>
 <style>
 canvas {
     -moz-user-select: none;
@@ -46,7 +46,7 @@ canvas {
       <h1>CV (DETAIL RESUME)</h1>
     </div>
   </div>
-  
+
   <div id="mainArea">
     <section>
       <article>
@@ -188,47 +188,17 @@ canvas {
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
           <li><p>Implement co-simulator(our name:Csim) for a few Marvell's ARM based cpu.</p></li>
           <li><p>Apply compiler code generation idea to propose a solution and Csim team adopted it. <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> reference</a></p></li>
-          
-<p style="margin-left:25px;">
-<a style="color:red" title="D7.3.19 MDRAR_EL1, Monitor Debug ROM Address Register
-  ...
-  Traps and Enables
-    For a description ...
-    If MDCR_EL2.TDRA==1, Non-secure accesses to this register will trap from DL1 and EL0 to EL2.
-    If MDCR_EL3.TDA==1, accesses to this register will trap from EL2, EL1 and EL0 to EL3.
-">ARM spec</a>
-
-<a> &rarr; </a>
-
-<!-- http://htmlhelp.com/reference/html40/entities/special.html -->
-
-<a style="color:red" title="/* MDRAR register */
-define_trap(&quot;MDCR_EL2.TCPAC == 1 && NS && (level <= EL1)&quot;, EL2)
-define_trap(&quot;MDCR_EL3.TDA == 1 && !NS && (level <= EL2)&quot;, EL3)
-define_end">script</a>
-
-<a> &rarr; </a>
-
-<a> generate c++ </a>
-
-<a style="color:red" title="extern TypException CheckPermission_define_regMDRAR(TypSysRegRW RW, TypExceptionLevel level, TypContext& context);">.h</a>
-
-<a style="color:red" title="TypException CheckPermission_define_regMDRAR(TypSysRegRW /*RW*/, TypExceptionLevel level, TypContext& context)
-{
-  if (QueryRegField(MDCR, EL2, nsFIELD::TCPAC) == 1 && !IsSecureAccess() && (level <= EL1))
-  {
-    return Trap(EL2, context, 3);
-  }
-  if (QueryRegField(MDCR, EL3, nsFIELD::TDAA) == 1 && IsSecureAccess() && (level <= EL2))
-  {
-    return Trap(EL3, context, 3);
-  }
-
-  return NO_TRAP;
-}">.cpp <br></a>
-<a style="font-size: 10px;"> Mouse hover the above </a> <a style="font-size: 10px;" href="https://jonathan2251.github.io/ws/en/cv_cschen.html"> (in html) </a>  <a style="font-size: 10px;"> for explanation, obviously the script is simple, match ARM spec and easy to read more then the c++ program. </a>
-</p>
-
+            <p style="margin-left:25px;">
+              <a id="hint_spec" style="color:red" title="">ARM spec</a>
+              <a> &rarr; </a>
+              <a id="hint_script" style="color:red" title="">script</a>
+              <a> &rarr; </a>
+              <a> generate c++ </a>
+              <a id="hint_h" style="color:red" title="">.h</a>
+              <a id="hint_cpp" style="color:red" title="">.cpp <br></a>
+              <a style="font-size: 10px;"> Mouse hover the above </a> <a style="font-size: 10px;" href="https://jonathan2251.github.io/ws/en/cv_cschen.html"> (in html) </a>  <a style="font-size: 10px;"> for explanation, obviously the script is simple, match ARM spec and easy to read more then the c++ program. </a>
+            </p>
+          <script> setHint(); </script>
           <li><p>Complete cmake and adjust python programs to build Csim with cmake. It saves effort in maintaining both make and windows project file. In addition, cmake also support iMac user. <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> reference</a></p></li>
             <li style="margin-left:25px;"><p>Present the better option for cmake writting.</p></li>
               <li style="margin-left:50px;"><p>The version of cmake in Csim server is 2.6.x, however, the cmake 2.8.8 provides shared object to save the unnecessary compilation.</p></li>
