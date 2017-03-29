@@ -173,7 +173,8 @@ canvas {
       <div class="sectionContent">
         <article>
           <li><p>設計半自動的軟體系統，自動執行用gcc編譯器編譯benchmark程式，並產生excel比較圖表。</p></li>
-            <li style="margin-left:25px;"><p>設計bash scrip每天固定時間此程式會偵測公司的gcc編譯工具原始碼是否有修改，如有修改，則比較舊版的gcc與新改的gcc，目的是確保新改的gcc沒有邊際效應(side effect)。
+            <li style="margin-left:25px;"><p>目的是確保新改的gcc沒有邊際效應(side effect)
+              <a href="https://jonathan2251.github.io/ws/images/gcc-change-control.pdf"> (解釋如此份流程圖)</a>。
             </p></li>
             <li style="margin-left:25px;"><p>設計bash scrip比較任兩版的gcc編譯器的benchmark效能。
             </p></li>
