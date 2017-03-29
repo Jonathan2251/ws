@@ -288,11 +288,11 @@ Experience.prototype.draw = function (config) {
   c.height = dot[dot.length-1].py + radius + 0 + this.work[this.work.length-1].length*height;; // set canvas2.height changed according the font size
   var ctx=c.getContext("2d");
   ctx.font=String(fontSize)+"px Arial"; // must set font after set c.height, otherwise will make the fontSize smaller than 12 and worse
+  
+  var me = this;
 
-  drawVerticalLine(ctx, dot);
-  drawDots(ctx, dot);
-  outputWorkPeriod(ctx, dot, this.period, radius);
-  outputWorkContent(ctx, dot, this.work, height, gap, radius);
+  var id = setInterval(drawSlowly, 500);
+  var ii = 0;
   
   function createDots(dotX, radius, gap, height, period, work) {
     var dot = [];
@@ -308,7 +308,8 @@ Experience.prototype.draw = function (config) {
     return dot;
   }
   
-  function drawVerticalLine(ctx, dot) {
+  function drawVerticalLine(ii, ctx, dot) {
+    if (ii != 1) return;
     // Draw arrow vertical line
     ctx.fillStyle = "grey";
     ctx.beginPath();
@@ -330,7 +331,8 @@ Experience.prototype.draw = function (config) {
     ctx.stroke();
   }
   
-  function drawDots(ctx, dot) {
+  function drawDots(ii, ctx, dot) {
+    if (ii != 2) return;
     // Draw circles according dot[i]
     for (i = 0; i < dot.length; i++) {
       ctx.beginPath();
@@ -341,7 +343,8 @@ Experience.prototype.draw = function (config) {
     }
   }
   
-  function outputWorkPeriod(ctx, dot, period, radius) {
+  function outputWorkPeriod(ii, ctx, dot, period, radius) {
+    if (ii != 3) return;
     ctx.fillStyle = "grey";
     ctx.textAlign="right";
     for (i = 0; i < period.length; i++) {
@@ -355,7 +358,8 @@ Experience.prototype.draw = function (config) {
     ctx.fillText(monthToString(period[i-1].startDate.month)+" "+period[i-1].startDate.year,dot[i].px-2*radius,dot[i].py+4);
   }
   
-  function outputWorkContent(ctx, dot, work, height, gap, radius) {
+  function outputWorkContent(ii, ctx, dot, work, height, gap, radius) {
+    if (ii != 4) return;
     ctx.fillStyle = "grey";
     ctx.textAlign="left";
     for (i = 0; i < work.length; i++) {
@@ -365,5 +369,15 @@ Experience.prototype.draw = function (config) {
         posy += height;
       }
     }
+  }
+  
+  function drawSlowly() {
+    ii = ii + 1;
+    if (ii > 4)
+      clearInterval(id);
+    drawVerticalLine(ii, ctx, dot);
+    drawDots(ii, ctx, dot);
+    outputWorkPeriod(ii, ctx, dot, me.period, radius);
+    outputWorkContent(ii, ctx, dot, me.work, height, gap, radius);
   }
 };
