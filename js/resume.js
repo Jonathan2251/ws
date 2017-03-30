@@ -292,7 +292,7 @@ Experience.prototype.draw = function (config) {
   var me = this;
 
   var id = setInterval(drawSlowly, 500);
-  var ii = 0;
+  var count = 0;
   
   function createDots(dotX, radius, gap, height, period, work) {
     var dot = [];
@@ -308,8 +308,8 @@ Experience.prototype.draw = function (config) {
     return dot;
   }
   
-  function drawVerticalLine(ii, ctx, dot) {
-    if (ii != 1) return;
+  function drawVerticalLine(ctx, dot) {
+    if (count != 1) return;
     // Draw arrow vertical line
     ctx.fillStyle = "grey";
     ctx.beginPath();
@@ -331,8 +331,8 @@ Experience.prototype.draw = function (config) {
     ctx.stroke();
   }
   
-  function drawDots(ii, ctx, dot) {
-    if (ii != 2) return;
+  function drawDots(ctx, dot) {
+    if (count != 2) return;
     // Draw circles according dot[i]
     for (i = 0; i < dot.length; i++) {
       ctx.beginPath();
@@ -343,8 +343,8 @@ Experience.prototype.draw = function (config) {
     }
   }
   
-  function outputWorkPeriod(ii, ctx, dot, period, radius) {
-    if (ii != 3) return;
+  function outputWorkPeriod(ctx, dot, period, radius) {
+    if (count != 3) return;
     ctx.fillStyle = "grey";
     ctx.textAlign="right";
     for (i = 0; i < period.length; i++) {
@@ -358,8 +358,8 @@ Experience.prototype.draw = function (config) {
     ctx.fillText(monthToString(period[i-1].startDate.month)+" "+period[i-1].startDate.year,dot[i].px-2*radius,dot[i].py+4);
   }
   
-  function outputWorkContent(ii, ctx, dot, work, height, gap, radius) {
-    if (ii != 4) return;
+  function outputWorkContent(ctx, dot, work, height, gap, radius) {
+    if (count != 4) return;
     ctx.fillStyle = "grey";
     ctx.textAlign="left";
     for (i = 0; i < work.length; i++) {
@@ -372,12 +372,12 @@ Experience.prototype.draw = function (config) {
   }
   
   function drawSlowly() {
-    ii = ii + 1;
-    if (ii > 4)
+    count = count + 1;
+    if (count > 4)
       clearInterval(id);
-    drawVerticalLine(ii, ctx, dot);
-    drawDots(ii, ctx, dot);
-    outputWorkPeriod(ii, ctx, dot, me.period, radius);
-    outputWorkContent(ii, ctx, dot, me.work, height, gap, radius);
+    drawVerticalLine(ctx, dot);
+    drawDots(ctx, dot);
+    outputWorkPeriod(ctx, dot, me.period, radius);
+    outputWorkContent(ctx, dot, me.work, height, gap, radius);
   }
 };
