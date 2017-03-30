@@ -309,19 +309,26 @@ Experience.prototype.draw = function (config) {
   }
   
   function drawVerticalLine(ctx, dot) {
-    if (count > 0) return;
+    var pixs = dot[dot.length-1].py + 10;
+    if (count > pixs) return;
+    var i = count;
     // Draw arrow vertical line
     ctx.fillStyle = "grey";
     ctx.beginPath();
     
+    var h = dot[dot.length-1].py ;
     // Draw vertical arrow
-    ctx.moveTo(dot[0].px,0);
-    ctx.lineTo(dot[0].px,dot[dot.length-1].py+10);
-    
-    ctx.moveTo(dot[0].px,0);
-    ctx.lineTo(dot[0].px-5,5);
-    ctx.moveTo(dot[0].px,0);
-    ctx.lineTo(dot[0].px+5,5);
+    if (i < h) {
+      ctx.moveTo(dot[0].px,i);
+      ctx.lineTo(dot[0].px,i+1);
+    }
+    else if (i >= h) {
+      var j = i - h;
+      ctx.moveTo(dot[0].px + j, j);
+      ctx.lineTo(dot[0].px + j - 1, j);
+      ctx.moveTo(dot[0].px + j, j);
+      ctx.lineTo(dot[0].px + j + 1, j);
+    }
     
     ctx.stroke();
   }
