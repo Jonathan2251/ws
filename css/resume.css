@@ -42,11 +42,12 @@ p {
 #headshot {
 	width: 20%;
 	float: left;
-	margin-right: 30px;
+	margin-left: 20px;
+	margin-right: 10px;
 }
 
 #headshot img {
-	width: 100%;
+	width: 90%;
 	height: auto;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
@@ -54,7 +55,7 @@ p {
 
 #contactDetails {
 	float: right;
-	width: 72.5%;
+	width: 75%;
 }
 
 #contactDetails p {

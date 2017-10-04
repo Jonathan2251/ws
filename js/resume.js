@@ -225,11 +225,12 @@ function createWorkPeriod() {
   var MonthYear = makeStruct("month year");
   var Period = makeStruct("startDate endDate");
   // !! input your work period
-  period[0] = new Period(new MonthYear(11, 2016), "current");
-  period[1] = new Period(new MonthYear(3, 2013), new MonthYear(11, 2016));
-  period[2] = new Period(new MonthYear(8, 2012), new MonthYear(3, 2013));
-  period[3] = new Period(new MonthYear(9, 2004), new MonthYear(8, 2012));
-  period[4] = new Period(new MonthYear(6, 1999), new MonthYear(9, 2004));
+  period[0] = new Period(new MonthYear(4, 2017), "current");
+  period[1] = new Period(new MonthYear(11, 2016), new MonthYear(4, 2017));
+  period[2] = new Period(new MonthYear(3, 2013), new MonthYear(11, 2016));
+  period[3] = new Period(new MonthYear(8, 2012), new MonthYear(3, 2013));
+  period[4] = new Period(new MonthYear(9, 2004), new MonthYear(8, 2012));
+  period[5] = new Period(new MonthYear(6, 1999), new MonthYear(9, 2004));
   
   return period;
 }
@@ -238,19 +239,21 @@ function createWorkContent() {
   var str;
   
   // !! input your work content
-  str = new Array(5);
+  str = new Array(6);
   str[0] = new Array(1);
-  str[1] = new Array(3);
-  str[2] = new Array(1);
+  str[1] = new Array(1);
+  str[2] = new Array(3);
   str[3] = new Array(1);
   str[4] = new Array(1);
-  str[0][0] = "Web and document software study and design (html/css/javascript, Graphivz, ...)";
-  str[1][0] = "Senior software engineer in Marvell       (lvm open source team at my personal time)";
-  str[1][1] = "  llvm optimization for ARM";
-  str[1][2] = "  The simulator programmer of Marvell's ARM SOC chips";
-  str[2][0] = "Programmer in llvm (a compiler) open source team";
-  str[3][0] = "Senior software engineer in Motorola";
-  str[4][0] = "Software engineer in a few Taiwan's companies";
+  str[5] = new Array(1);
+  str[0][0] = "LLVM backend compiler development for a whole new GPU";
+  str[1][0] = "Web and document software study and design (html/css/javascript, Graphivz, ...)";
+  str[2][0] = "Senior software engineer in Marvell       (lvm open source team at my personal time)";
+  str[2][1] = "  llvm optimization for ARM";
+  str[2][2] = "  The simulator programmer of Marvell's ARM SOC chips";
+  str[3][0] = "Programmer in llvm (a compiler) open source team";
+  str[4][0] = "Senior software engineer in Motorola";
+  str[5][0] = "Software engineer in a few Taiwan's companies";
   
   return str;
 }
