@@ -56,7 +56,7 @@ function drawSkillBarChart() {
   var color = Chart.helpers.color;
   var horizontalBarChartData = {
       labels: ["Embedded system (c/c++, linux, bare metal, mips, assembly)", "Linux programming (gcc, device driver, bash, usb)", 
-      "CPU & GPU design (simulator, python, Verilog, mips, arm)", "Compiler design (yacc/lex, llvm/lld, glsl, cmake/make)", 
+      "CPU & GPU design (simulator, Verilog, mips, arm)", "Compiler design (llvm backend/lld/polly, glsl, yacc/lex, cmake)", 
       "Software engineering (OOP/OOA, design pattern)", "UI design (VC, Borland C++, VB, html/css/java script)", 
       "Documentation writing(Sphinx, uml, html/css/java script)", "Equipment usage (scope, spectrum, power meter, ...)"],
       datasets: [{
@@ -68,7 +68,7 @@ function drawSkillBarChart() {
               16,
               8,
               6,
-              8,
+              12,
               10,
               4,
               5,
@@ -246,7 +246,7 @@ function createWorkContent() {
   str[3] = new Array(1);
   str[4] = new Array(1);
   str[5] = new Array(1);
-  str[0][0] = "LLVM backend compiler development for a whole new GPU";
+  str[0][0] = "glsl frontend + LLVM backend compiler development for a whole new GPU";
   str[1][0] = "Web and document software study and design (html/css/javascript, Graphivz, ...)";
   str[2][0] = "Senior software engineer in Marvell       (lvm open source team at my personal time)";
   str[2][1] = "  llvm optimization for ARM";
