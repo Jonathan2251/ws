@@ -6,7 +6,7 @@ $(document).ready(function() {
   var filename = url.substr(url.lastIndexOf("/")+1);
 //  console.log(url);
 //  console.log(filename);
-  if (url.substr(0,4) == "http" && filename == "personal.html") {
+  if (/*url.substr(0,4) == "http" && */filename == "personal.html") {
     // On internet (http:), I only show first picture on personal.html or 
     // personal_ch1.html page since I don't upload my personal pictures to 
     // internet
