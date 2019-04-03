@@ -55,7 +55,8 @@ function drawSkillBarChart() {
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   var color = Chart.helpers.color;
   var horizontalBarChartData = {
-      labels: ["Embedded system (c/c++, linux, bare metal, mips, assembly)", "Linux programming (gcc, device driver, bash, usb)", 
+      labels: [
+      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (gcc, device driver, bash, usb)", 
       "CPU & GPU design (simulator, Verilog, mips, arm)", "Compiler design (llvm backend/lld/polly, glsl, yacc/lex, cmake)", 
       "Software engineering (OOP/OOA, design pattern)", "UI design (VC, Borland C++, VB, html/css/java script)", 
       "Documentation writing(Sphinx, uml, html/css/java script)", "Equipment usage (scope, spectrum, power meter, ...)"],
@@ -65,10 +66,10 @@ function drawSkillBarChart() {
           borderColor: window.chartColors.red,
           borderWidth: 1,
           data: [
-              16,
+             /* 16,*/
               8,
               6,
-              12,
+              14,
               10,
               4,
               5,
@@ -246,9 +247,10 @@ function createWorkContent() {
   str[3] = new Array(1);
   str[4] = new Array(1);
   str[5] = new Array(1);
-  str[0][0] = "glsl frontend + LLVM backend compiler development for a whole new GPU in Hisilcon";
+  str[0][0] = "Principle engineer in Hisilcon";
+  str[0][1] = "  glsl/opencl/spirv frontend + LLVM backend compiler development for a whole new GPU";
   str[1][0] = "Web and document software study and design (html/css/javascript, Graphivz, ...)";
-  str[2][0] = "Senior software engineer in Marvell       (lvm open source team at my personal time)";
+  str[2][0] = "Senior software engineer in Marvell       (llvm open source team at my personal time)";
   str[2][1] = "  llvm optimization for ARM";
   str[2][2] = "  The simulator programmer of Marvell's ARM SOC chips";
   str[3][0] = "Programmer in llvm (a compiler) open source team";
