@@ -15,20 +15,25 @@ digraph G {
   subgraph cluster_1 {
     style=filled;
     color=lightgrey;
-    label = "Apply";
-    node [style=filled,color=white]; codewarrior [label="Find the bug of Code Warrior's compiler"];
-    node [style=filled,color=white]; tinyos [label="Implement tiny OS for FIFO scheduling"];
+    label = "Apply in work";
     node [style=filled,color=white]; verilog [label="Cpu0 Verilog programming"];
     node [style=filled,color=white]; backend [label="Cpu0 llvm backend"];
-    node [style=filled,color=white]; teststation [label="the test stations of production line design"];
-    node [style=filled,color=white]; io [label="Implement the I/O redirection mechanism"];
-    node [style=filled,color=white]; bltc [label="Design Board Level Test Code framework"];
+    subgraph cluster_1_1 {
+      color=yellow;
+      label = "Production line auto test system";
+      //node [style=filled,color=white]; codewarrior [label="Find the bug of Code Warrior's compiler"];
+      node [style=filled,color=white]; tinyos [label="tiny OS for scheduling of test items"];
+      node [style=filled,color=white]; teststation [label="UI_StationTest"];
+      node [style=filled,color=white]; io [label="I/O redirection mechanism"];
+      node [style=filled,color=white]; bltc [label="Design the test framework of baremetal platform"];
+    }
   }
-  CPU -> codewarrior;
+  CPU -> verilog;
+  //CPU -> codewarrior;
   CPU -> tinyos;
   CPU -> backend;
   COMPILER -> backend;
-  COMPILER -> codewarrior;
+  //COMPILER -> codewarrior;
   COMPILER -> teststation;
   OS -> tinyos;
   OS -> io;
