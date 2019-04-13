@@ -187,7 +187,7 @@ canvas {
           <li><p>為提升Marvell公司gcc與llvm編譯器軟體工具效能，介紹Polly軟體系統。Polly是針對loop最佳化的開放原始碼專案。</p></li>
             <li style="margin-left:25px;"><p>此系統的好處是針對某些數值應用程式，像是矩陣相乘、各類矩陣運算的程式，他能提升五倍的速度，遺憾的是Marvell的處理器並沒有數值運算領域的運用，但也許未來的64位元的處理器會有機會。</p></li>
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
-          <li><p>提出解決方案利用編譯器產生程式碼，此想法獲得Csim小組採用。</p></li>
+          <li><p>提出解決方案利用編譯器產生程式碼，此想法獲得Csim小組採用。 <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> 推薦函</a></p></li>
             <p style="margin-left:25px;">
               <a id="hint_spec" style="color:red" title="">ARM spec</a>
               <a> &rarr; </a>
@@ -200,7 +200,7 @@ canvas {
             </p>
           <script> setHint(); </script>
 
-          <li><p>完成cmake以及調整python程式，使Csim軟體系統可採用一套cmake而不必維護make與windows專案檔兩套專案檔，同時也支援蘋果電腦的使用者。</a></p></li>
+          <li><p>完成cmake以及調整python程式，使Csim軟體系統可採用一套cmake而不必維護make與windows專案檔兩套專案檔，同時也支援蘋果電腦的使用者。 <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> 推薦函</a></p></li>
             <li style="margin-left:25px;"><p>介紹可改進cmake的程式寫法。</p></li>
               <li style="margin-left:50px;"><p>安裝於公司伺服器的cmake版本是2.6.x，儘管如此，cmake 2.8.8提供shared object支援以節省不必要的編譯時間。</p></li>
               <div id="container" style="width: 100%;">
@@ -244,34 +244,62 @@ canvas {
         <h1>計算機、編譯器、作業系統與軟體工程相關經驗</h1>
         <p style="margin-left:0px;"><img src="../images/study_and_apply_ch1.png" width="100%" height="290"/></p>
       </div>
+      <div class="sectionTitle">
+        <h1>計算機結構學習與應用：</h1>
+      </div>
       
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>為教學與自我學習，設計Cpu0 llvm後端編譯器（列在此履歷前面“我的開法原始碼專案”）。</p></li>
-            <li style="margin-left:25px;"><p>修改Cpu0 Verilog程式碼使其更符合llvm後端編譯器支援的實際處理器設計。</p></li>
-            <li style="margin-left:25px;"><p>運用編譯器語法分析工具yacc與lex，設計自動化測試站。</p></li>
-        </article>
-      </div>
-
-      <div class="sectionContent">
-        <article>
-            <li style="margin-left:25px;"><p>"微作業系統"機制：透過c++ "observe pattern"與mips組合語言，撰寫cpu的interrupt service routine，以解決程式掛住、後面其他測試項目皆無法繼續執行的問題。</p></li>
-              <li style="margin-left:50px;"><p>此後系統變得更加穩定且快速。當一測試項目死當時，其他測試項目皆無法繼續執行，此情況是一嚴重問題，特別是在新機型的軟硬體更容易發生，因為測試結果是在全部測試項目完成後，才能顯示，
-              遇此狀況，作業員無法得知測試結果。而新機型最需要搶時間，因為利潤高。</p></li>
+          <li><p>研讀書籍“計算機組織與設計：軟硬體介面”，“計算機結構 – 量的研究”與Mips與Broadcom處理器使用手冊。還有Verilog語言與工具研究。</p></li>
+          <li><p>工作應用：</p></li>
+            <li style="margin-left:25px;"><p>找出Code Warrior編譯器支援Mips處理器中的錯誤並告知Code Warrior。此錯誤來自preprocess #pack(1)的程式碼生成。</p></li>
+            <li style="margin-left:25px;"><p>使用mips組合語言製作"微作業系統"機制，以解決程式掛住、無法運行的問題。</p></li>
+              <li style="margin-left:50px;"><p>此後系統變得更加穩定且快速。當一測試項目死當時，其他測試項目皆無法繼續執行，此情況是一嚴重問題，因為測試結果是在全部測試項目完成後，才能顯示，
+              遇此狀況，作業員無法得知測試結果。我製作一個time out機制，讓死當的測試項目得以被略過(藉由從預存的堆疊指標與暫存器還原其值)，美國同事稱它為微作業系統，
+              使用c++加上幾百行的mips組合語言的"observe pattern")。</p></li>
+            <li style="margin-left:25px;"><p>運用Verilog與書籍“計算機結構 – 量的研究”所學，修改Cpu0 Verilog程式碼使其更符合llvm後端編譯器支援的實際處理器設計。</p></li>
         </article>
       </div>
       <div class="clear"></div>
       
+      <div class="sectionTitle">
+        <h1>編譯器學習與應用：</h1>
+      </div>
+      
       <div class="sectionContent">
         <article>
+          <li><p>研究llvm前端與後端設計，研讀書籍“編譯系統設計 Compilers – Principles, Techniques, & tools 2nd Aho,...”, yacc與lex工具。</p></li>
+          <li><p>工作應用：</p></li>
+            <li style="margin-left:25px;"><p>為教學與自我學習，設計Cpu0 llvm後端編譯器（列在此履歷前面“我的開法原始碼專案”）。</p></li>
+            <li style="margin-left:25px;"><p>運用編譯器語法分析工具yacc與lex，設計自動化測試站。</p></li>
+        </article>
+      </div>
+
+      <div class="sectionTitle">
+        <h1>作業系統學習與應用：</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <article>
+          <li><p>研讀書籍“Linux驅動程式 Linux Device Driver (2nd & 3rd edition)”</p></li>
+          <li><p>工作應用：</p></li>
+            <li style="margin-left:25px;"><p>如上，“計算機架構學習與應用”所列，我參考作業系統並使用mips組合語言來設計"微作業系統"機制，以解決程式死當無法運行的問題。</p></li>
             <li style="margin-left:25px;"><p>在Motorola時，撰寫I/O轉向機制，讓新版的程式更容易移植。</p></li>
         </article>
       </div>
       <div class="clear"></div>
       
+      <div class="sectionTitle">
+        <h1>軟體工程學習與應用：</h1>
+      </div>
+
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>在Motorola時，使用書籍“Design Patterns”中的五種patterns以及Rational Ross工具建立產線測試程式共用架構、文件，並產生程式碼。</p></li>
+          <li><p>研讀書籍“Design Patterns”與"物件導向分析書籍與工具(Rational Rose, ...)"</p></li>
+          <li><p>工作應用：</p></li>
+            <li style="margin-left:25px;"><p>在Motorola時，依主管要求，與其他四位成員建立產線測試程式共用架構。</p></li>
+              <li style="margin-left:50px;"><p>使用Rational Ross工具設計此架構。我應用物件導向分析、設計以及UML工具，從事此任務。</p></li>
+              <li style="margin-left:50px;"><p>使用書籍“Design Patterns”中的五種patterns以及Rational Ross工具建立程式共用架構、文件，並產生程式碼。</p></li>
         </article>
       </div>
       <div class="clear"></div>

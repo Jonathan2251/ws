@@ -204,7 +204,7 @@ canvas {
             </p></li>
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
           <li><p>Implement co-simulator(our name:Csim) for a few Marvell's ARM based cpu.</p></li>
-          <li><p>Apply compiler code generation idea to propose a solution and Csim team adopted it.</p></li>
+          <li><p>Apply compiler code generation idea to propose a solution and Csim team adopted it. <a href="http://jonathan2251.github.io/ws/en/RL_Marvell.pdf"> reference</a></p></li>
             <p style="margin-left:25px;">
               <a id="hint_spec" style="color:red" title="">ARM spec</a>
               <a> &rarr; </a>
@@ -258,40 +258,64 @@ canvas {
     
     <section>
       <div class="sectionTitle">
-        <h1>CPU, Compiler, OS, and others learning & applying in work</h1>
+        <h1>CPU, COMPILER, OS, AND SOFTWARE ENGINEERING RELATED LEANING & APPLY</h1>
         <p style="margin-left:0px;"><img src="../images/study_and_apply.png" width="100%" height="290"/></p>
       </div>
       <div class="sectionTitle">
-        <h1>Achievement</h1>
+        <h1>CPU architecture study</h1>
       </div>
       
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>Implement the Cpu0 llvm compiler backend from scratch for tutorial purpose, and writing books as in my publish books.</p></li>
-            <li style="margin-left:25px;"><p>Change the Verilog code of Cpu0 to become a cpu design for my llvm backend compiler support.</p></li>
-            <li style="margin-left:25px;"><p>Apply the compiler syntax parsing tool, yacc & lex, to create a script language in test station design.</p></li>
-        </article>
-      </div>
-      
-      <div class="sectionContent">
-        <article>
-            <li style="margin-left:25px;"><p>"Tiny OS": implement test items scheduling mechanism through timer interrupt routing with c++ "observe pattern" and mips assembly language to solve the halting problem in some testing program.</p></li>
-              <li style="margin-left:50px;"><p>After this implementation, the code has run more stable and fast since the testing driver code will hang on especially in new hardware and software of new model of set top box.</p></li>
+          <li><p>Study books “Computer Organization and Design: The Hardware/Software Interface”, “Computer Architecture – A Quantitative Approach”, Mips and Broadcom CPU user manual and Verilog.</p></li>
+          <li><p>Apply in work:</p></li>
+            <li style="margin-left:25px;"><p>Find the bug of Code Warrior's compiler in supporting Mips cpu and notify Code Warrior. The bug come from code generation for #pack(1) statement.</p></li>
+            <li style="margin-left:25px;"><p>Implement the "tiny OS" mechanism with mips assembly language to solve the halting problem in some program.</p></li>
+              <li style="margin-left:50px;"><p>After this implementation, the code has run more stable and fast. It is a serious problem since when one test item "halting", the other test items scheduled after that one won’t be run. 
+              In this situation, operator has no idea of the test result since test result is displayed after all test items finish execution. I implement a "time out" mechanism to jump out from the test item (by restore the stack and cpu registers status). 
+              My USA's coworker call it "tiny OS". It's c++ plus few hundred lines of mips assembly with "observe pattern" of "design pattern".</p></li>
+            <li style="margin-left:25px;"><p>Apply knowledge from Verilog and book “Computer Architecture” to change the Verilog code of Cpu0 to become a cpu design for my llvm backend compiler support.</p></li>
         </article>
       </div>
       <div class="clear"></div>
       
+      <div class="sectionTitle">
+        <h1>Compiler study:</h1>
+      </div>
       
       <div class="sectionContent">
         <article>
+          <li><p>Study llvm frontend & backend design. Study book “Compilers – Principles, Techniques, & tools 2nd Aho,...”, yacc and lex tool.</p></li>
+          <li><p>Apply in work:</p></li>
+            <li style="margin-left:25px;"><p>Implement the Cpu0 llvm compiler backend from scratch for tutorial purpose, and writing books as in my publish books.</p></li>
+            <li style="margin-left:25px;"><p>Apply the compiler syntax parsing tool, yacc & lex, in test station design.</p></li>
+        </article>
+      </div>
+
+      <div class="sectionTitle">
+        <h1>OS study:</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <article>
+          <li><p>Study book “Linux Device Driver (2nd & 3rd edition)”</p></li>
+          <li><p>Apply in work:</p></li>
+            <li style="margin-left:25px;"><p>Implement the "tiny OS" mechanism as mentioned in above section "CPU architecture study".</p></li>
             <li style="margin-left:25px;"><p>Implement the I/O redirection mechanism to make the new version of code porting task easier in Motorola.</p></li>
         </article>
       </div>
       <div class="clear"></div>
+      
+      <div class="sectionTitle">
+        <h1>Software Engineering study:</h1>
+      </div>
 
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>Utilize five patterns in "design pattern" and Rational Ross tool to create production line test framework, document and generate code in Motorola.</p></li>
+          <li><p>Study book “Design Patterns” and "OOA Analysis related books and tools (Rational Rose, ...)"</p></li>
+          <li><p>Apply in work:</p></li>
+            <li style="margin-left:25px;"><p>During working the Board Level Test Code framework project in Motorola as mentioned above:</p></li>
+              <li style="margin-left:50px;"><p>Utilize five patterns in "design pattern" and Rational Ross tool to create framework, document and generate code in Motorola.</p></li>
         </article>
       </div>
       <div class="clear"></div>
