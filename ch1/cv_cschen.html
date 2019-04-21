@@ -178,8 +178,8 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>獨立完成80% texture相關的API與optimization (frontend + llvm backend)以及其他的工作. </p></li>
-          </p></li>
+          <p>獨立完成80% texture相關的API與optimization (frontend + llvm backend)以及其他的工作. </p>
+          </p>
         </article>
       </div>
 
@@ -191,16 +191,16 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>設計半自動的軟體系統，自動執行用gcc編譯器編譯benchmark程式，並產生excel比較圖表。</p></li>
-            <li style="margin-left:25px;"><p>目的是確保新改的gcc沒有邊際效應(side effect)
+          <p>設計半自動的軟體系統，自動執行用gcc編譯器編譯benchmark程式，並產生excel比較圖表。</p>
+            <p style="margin-left:25px;">目的是確保新改的gcc沒有邊際效應(side effect)
               <a href="https://jonathan2251.github.io/ws/images/gcc-change-control.pdf"> (解釋如此份流程圖)</a>。
-            </p></li>
-            <li style="margin-left:25px;"><p>設計bash scrip比較任兩版的gcc編譯器的benchmark效能。
-            </p></li>
-          <li><p>為提升Marvell公司gcc與llvm編譯器軟體工具效能，介紹Polly軟體系統。Polly是針對loop最佳化的開放原始碼專案。</p></li>
-            <li style="margin-left:25px;"><p>此系統的好處是針對某些數值應用程式，像是矩陣相乘、各類矩陣運算的程式，他能提升五倍的速度，遺憾的是Marvell的處理器並沒有數值運算領域的運用，但也許未來的64位元的處理器會有機會。</p></li>
+            </p>
+            <p style="margin-left:25px;">設計bash scrip比較任兩版的gcc編譯器的benchmark效能。
+            </p>
+          <p>為提升Marvell公司gcc與llvm編譯器軟體工具效能，介紹Polly軟體系統。Polly是針對loop最佳化的開放原始碼專案。</p>
+            <p style="margin-left:25px;">此系統的好處是針對某些數值應用程式，像是矩陣相乘、各類矩陣運算的程式，他能提升五倍的速度，遺憾的是Marvell的處理器並沒有數值運算領域的運用，但也許未來的64位元的處理器會有機會。</p>
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
-          <li><p>提出解決方案利用編譯器產生程式碼，此想法獲得Csim小組採用。</p></li>
+          <p>提出解決方案利用編譯器產生程式碼，此想法獲得Csim小組採用。</p>
             <p style="margin-left:25px;">
               <a id="hint_spec" style="color:red" title="">ARM spec</a>
               <a> &rarr; </a>
@@ -213,14 +213,14 @@ canvas {
             </p>
           <script> setHint(); </script>
 
-          <li><p>完成cmake以及調整python程式，使Csim軟體系統可採用一套cmake而不必維護make與windows專案檔兩套專案檔，同時也支援蘋果電腦的使用者。</a></p></li>
-            <li style="margin-left:25px;"><p>介紹可改進cmake的程式寫法。</p></li>
-              <li style="margin-left:50px;"><p>安裝於公司伺服器的cmake版本是2.6.x，儘管如此，cmake 2.8.8提供shared object支援以節省不必要的編譯時間。</p></li>
+          <p>完成cmake以及調整python程式，使Csim軟體系統可採用一套cmake而不必維護make與windows專案檔兩套專案檔，同時也支援蘋果電腦的使用者。</a></p>
+            <p style="margin-left:25px;">介紹可改進cmake的程式寫法。</p>
+              <p style="margin-left:50px;">安裝於公司伺服器的cmake版本是2.6.x，儘管如此，cmake 2.8.8提供shared object支援以節省不必要的編譯時間。</p>
               <div id="container" style="width: 100%;">
                 <canvas id="canvas3" height="50"></canvas>
               </div>
               <script> drawCmakeSharedObjectBarChart(); </script>
-            <li style="margin-left:25px;"><p>cmake與ninja兩種編譯時效評估報告，消除某些主管認為ninja編譯時效較優的說法。</p></li>
+            <p style="margin-left:25px;">cmake與ninja兩種編譯時效評估報告，消除某些主管認為ninja編譯時效較優的說法。</p>
         </article>
       </div>
       <div class="clear"></div>
@@ -231,8 +231,8 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>下圖的上半部是計算機產生與執程式的流程圖。IR是中間碼的縮寫（Intermediate Representation）。
-          下半部是llvm的流程圖。黃色與綠色分別是我書中（如上，我的開法原始碼專案），如何建立LLVM後端編譯器與如何建立LLVM後端系統工具中的作品。</p></li>
+          <p>下圖的上半部是計算機產生與執程式的流程圖。IR是中間碼的縮寫（Intermediate Representation）。
+          下半部是llvm的流程圖。黃色與綠色分別是我書中（如上，我的開法原始碼專案），如何建立LLVM後端編譯器與如何建立LLVM後端系統工具中的作品。</p>
           <p><img src="../images/mywork_1.png" width="100%" height="120"/></p>
         </article>
       </div>
@@ -245,8 +245,8 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>設計QIP7kP1與P2電路板的產線測試程式。超過五百萬台的此一數位機上盒機型採用此程式進行測試並出貨。其他主要產品DCX33、DCX34與DCX35(共超過一千萬台)都是從此程式移植修改而來的。</p></li>
-          <li><p>依主管要求，運用mips處理器與軟體工程知識，帶領、並與其他四位成員一起建立產線測試程式的共用架構。</p></li>。</p></li>
+          <p>設計QIP7kP1與P2電路板的產線測試程式。超過五百萬台的此一數位機上盒機型採用此程式進行測試並出貨。其他主要產品DCX33、DCX34與DCX35(共超過一千萬台)都是從此程式移植修改而來的。</p>
+          <p>依主管要求，運用mips處理器與軟體工程知識，帶領、並與其他四位成員一起建立產線測試程式的共用架構。</p>。</p>
         </article>
       </div>
       <div class="clear"></div>
@@ -254,37 +254,37 @@ canvas {
     
     <section>
       <div class="sectionTitle">
-        <h1>計算機、編譯器、作業系統與軟體工程相關經驗</h1>
+        <h1>出社會後的學習並運用於工作</h1>
         <p style="margin-left:0px;"><img src="../images/study_and_apply_ch1.png" width="100%" height="290"/></p>
       </div>
       
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>為教學與自我學習，設計Cpu0 llvm後端編譯器（列在此履歷前面“我的開法原始碼專案”）。</p></li>
-            <li style="margin-left:25px;"><p>修改Cpu0 Verilog程式碼使其更符合llvm後端編譯器支援的實際處理器設計。</p></li>
-            <li style="margin-left:25px;"><p>運用編譯器語法分析工具yacc與lex，設計自動化測試站。</p></li>
+            <p style="margin-left:25px;">為教學與自我學習，設計Cpu0 llvm後端編譯器。</p>
+            <p style="margin-left:25px;">修改Cpu0 Verilog程式碼使其更符合llvm後端編譯器支援的實際處理器設計。</p>
+            <p>運用編譯器語法分析工具yacc與lex，設計自動化測試站。</p>
         </article>
       </div>
 
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>"微作業系統"機制：透過c++ "observe pattern"與mips組合語言，撰寫cpu的interrupt service routine，以解決程式掛住、後面其他測試項目皆無法繼續執行的問題。</p></li>
-              <li style="margin-left:50px;"><p>此後系統變得更加穩定且快速。當一測試項目死當時，其他測試項目皆無法繼續執行，此情況是一嚴重問題，特別是在新機型的軟硬體更容易發生，因為測試結果是在全部測試項目完成後，才能顯示，
-              遇此狀況，作業員無法得知測試結果。而新機型最需要搶時間，因為利潤高。</p></li>
+            <p style="margin-left:25px;">"微作業系統"機制：透過c++ "observe pattern"與mips組合語言，撰寫cpu的interrupt service routine，以解決程式掛住、後面其他測試項目皆無法繼續執行的問題。</p>
+              <p style="margin-left:50px;">此後系統變得更加穩定且快速。當一測試項目死當時，其他測試項目皆無法繼續執行，此情況是一嚴重問題，特別是在新機型的軟硬體更容易發生，因為測試結果是在全部測試項目完成後，才能顯示，
+              遇此狀況，作業員無法得知測試結果。而新機型最需要搶時間，因為利潤高。</p>
         </article>
       </div>
       <div class="clear"></div>
       
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>在Motorola時，撰寫I/O轉向機制，讓新版的程式更容易移植。</p></li>
+            <p style="margin-left:25px;">在Motorola時，撰寫I/O轉向機制，讓新版的程式更容易移植。</p>
         </article>
       </div>
       <div class="clear"></div>
       
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>在Motorola時，使用書籍“Design Patterns”中的五種patterns以及Rational Ross工具建立產線測試程式共用架構、文件，並產生程式碼。</p></li>
+            <p style="margin-left:25px;">在Motorola時，使用書籍“Design Patterns”中的五種patterns以及Rational Ross工具建立產線測試程式共用架構、文件，並產生程式碼。</p>
         </article>
       </div>
       <div class="clear"></div>

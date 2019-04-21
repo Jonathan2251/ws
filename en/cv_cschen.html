@@ -179,8 +179,8 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>Implement compiler (fontend + llvm backend) for 80% of texture related API and optimization by myself, and something else. </p></li>
-          </p></li>
+          <p>Implement compiler (fontend + llvm backend) for 80% of texture related API and optimization by myself, and something else. </p>
+          </p>
         </article>
       </div>
 
@@ -192,19 +192,19 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>Implement semi-auto software system of running benchmark and generating report for gcc toolchain. </p></li>
-            <li style="margin-left:25px;"><p>Purpose is to make sure the code change of gcc has no side effect in optimization
+          <p>Implement semi-auto software system of running benchmark and generating report for gcc toolchain. </p>
+            <p> style="margin-left:25px;"Purpose is to make sure the code change of gcc has no side effect in optimization
               <a href="https://jonathan2251.github.io/ws/images/gcc-change-control.pdf"> (expain in flow chart)</a>.
-            <li style="margin-left:25px;"><p>Implemented bash script which can compare any two version of gcc toolchain and generate report. Similar as above.
-            </p></li>
-          <li><p>Introduce polly for Marvell llvm toolchain optimization. Polly is a software for loop optimization.</p></li>
-            <li style="margin-left:25px;"><p>The advantage is that it might be 500% speed up in some numerical
+            <p style="margin-left:25px;">Implemented bash script which can compare any two version of gcc toolchain and generate report. Similar as above.
+            </p>
+          <p>Introduce polly for Marvell llvm toolchain optimization. Polly is a software for loop optimization.</p>
+            <p style="margin-left:25px;">The advantage is that it might be 500% speed up in some numerical
               application program, such as matrix multiplication, or other kind of matrix operation. 
               Sadly, Marvell's CPUs are not used in numerical applications. But maybe it will have for 64 bits ARM in future.
-            </p></li>
+            </p>
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
-          <li><p>Implement co-simulator(our name:Csim) for a few Marvell's ARM based cpu.</p></li>
-          <li><p>Apply compiler code generation idea to propose a solution and Csim team adopted it.</p></li>
+          <p>Implement co-simulator(our name:Csim) for a few Marvell's ARM based cpu.</p>
+          <p>Apply compiler code generation idea to propose a solution and Csim team adopted it.</p>
             <p style="margin-left:25px;">
               <a id="hint_spec" style="color:red" title="">ARM spec</a>
               <a> &rarr; </a>
@@ -216,14 +216,14 @@ canvas {
               <a style="font-size: 10px;"> Mouse hover the above </a> <a style="font-size: 10px;" href="https://jonathan2251.github.io/ws/en/cv_cschen.html"> (in html) </a>  <a style="font-size: 10px;"> for explanation, obviously the script is simple, match ARM spec and easy to read more then the c++ program. </a>
             </p>
           <script> setHint(); </script>
-          <li><p>Complete cmake and adjust python programs to build Csim with cmake. It saves effort in maintaining both make and windows project file. In addition, cmake also support iMac user.</p></li>
-            <li style="margin-left:25px;"><p>Present the better option for cmake writting.</p></li>
-              <li style="margin-left:50px;"><p>The version of cmake in Csim server is 2.6.x, however, the cmake 2.8.8 provides shared object to save the unnecessary compilation.</p></li>
+          <p>Complete cmake and adjust python programs to build Csim with cmake. It saves effort in maintaining both make and windows project file. In addition, cmake also support iMac user.</p>
+            <p "style="margin-left:25px;>Present the better option for cmake writting.</p>
+              <p style="margin-left:50px;">The version of cmake in Csim server is 2.6.x, however, the cmake 2.8.8 provides shared object to save the unnecessary compilation.</p>
               <div id="container" style="width: 100%;">
                 <canvas id="canvas3" height="50"></canvas>
               </div>
               <script> drawCmakeSharedObjectBarChart(); </script>
-            <li style="margin-left:25px;"><p>Report performance comparing between cmake and ninja for other manager's concern. The result is "no difference"</p></li>
+            <p style="margin-left:25px;">Report performance comparing between cmake and ninja for other manager's concern. The result is "no difference"</p>
         </article>
       </div>
 
@@ -235,8 +235,8 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>The upper half of the following figure is the work flow and software package of a computer program be generated and executed. IR stands for Intermediate Representation. 
-          The lower half is the llvm's work flow. The yellow and green parts are implemented in my books (listed as my open source project above), Tutorial: Create an LLVM Backend compiler and Tutorial: Create an LLVM Backend toolchain respectively.</p></li>
+          <p>The upper half of the following figure is the work flow and software package of a computer program be generated and executed. IR stands for Intermediate Representation. 
+          The lower half is the llvm's work flow. The yellow and green parts are implemented in my books (listed as my open source project above), Tutorial: Create an LLVM Backend compiler and Tutorial: Create an LLVM Backend toolchain respectively.</p>
           <p><img src="../images/mywork_1.png" width="100%" height="120"/></p>
         </article>
       </div>
@@ -249,8 +249,8 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <li><p>Design QIP7kP1 and P2 board level production line testing code. Over 5 millions units of QIP7k model of Set Top Box are tested with this code on production line and shipping to market. Other major products DCX33, DCX34 and DCX35 (over 10 millions of box) are ported from QIP7kP1 & QIP7kP2.</p></li>
-          <li><p>Combine mips cpu and software engineer knowledge, lead and cowork with other four members to create a frame work for board level testing code as manager request.</p></li>
+          <p>Design QIP7kP1 and P2 board level production line testing code. Over 5 millions units of QIP7k model of Set Top Box are tested with this code on production line and shipping to market. Other major products DCX33, DCX34 and DCX35 (over 10 millions of box) are ported from QIP7kP1 & QIP7kP2.</p>
+          <p>Combine mips cpu and software engineer knowledge, lead and cowork with other four members to create a frame work for board level testing code as manager request.</p>
         </article>
       </div>
       <div class="clear"></div>
@@ -265,16 +265,16 @@ canvas {
       
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>Implement the Cpu0 llvm compiler backend from scratch for tutorial purpose, and writing books as in my publish books.</p></li>
-            <li style="margin-left:25px;"><p>Change the Verilog code of Cpu0 to become a cpu design for my llvm backend compiler support.</p></li>
-            <li style="margin-left:25px;"><p>Apply the compiler syntax parsing tool, yacc & lex, to create a script language in test station design.</p></li>
+          <p style="margin-left:25px;">Implement the Cpu0 llvm compiler backend from scratch for tutorial purpose, and writing books as in my publish books.</p>
+          <p style="margin-left:25px;">Change the Verilog code of Cpu0 to become a cpu design for my llvm backend compiler support.</p>
+          <p style="margin-left:25px;">Apply the compiler syntax parsing tool, yacc & lex, to create a script language in test station design.</p>
         </article>
       </div>
       
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>"Tiny OS": implement test items scheduling mechanism through timer interrupt routing with c++ "observe pattern" and mips assembly language to solve the halting problem in some testing program.</p></li>
-              <li style="margin-left:50px;"><p>After this implementation, the code has run more stable and fast since the testing driver code will hang on especially in new hardware and software of new model of set top box.</p></li>
+          <p style="margin-left:25px;">"Tiny OS": implement test items scheduling mechanism through timer interrupt routing with c++ "observe pattern" and mips assembly language to solve the halting problem in some testing program.</p>
+            <p style="margin-left:50px;">After this implementation, the code has run more stable and fast since the testing driver code will hang on especially in new hardware and software of new model of set top box.</p>
         </article>
       </div>
       <div class="clear"></div>
@@ -282,14 +282,14 @@ canvas {
       
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>Implement the I/O redirection mechanism to make the new version of code porting task easier in Motorola.</p></li>
+            <p style="margin-left:25px;">Implement the I/O redirection mechanism to make the new version of code porting task easier in Motorola.</p>
         </article>
       </div>
       <div class="clear"></div>
 
       <div class="sectionContent">
         <article>
-            <li style="margin-left:25px;"><p>Utilize five patterns in "design pattern" and Rational Ross tool to create production line test framework, document and generate code in Motorola.</p></li>
+          <p style="margin-left:25px;">Utilize five patterns in "design pattern" and Rational Ross tool to create production line test framework, document and generate code in Motorola.</p>
         </article>
       </div>
       <div class="clear"></div>
