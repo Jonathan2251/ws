@@ -1,0 +1,16 @@
+// Free usage license, author: Chung-Shu Chen 陳鍾樞
+
+digraph G {
+
+  rankdir=LR;
+  subgraph cluster_0 {
+    style=filled;
+    color=lightgrey;
+    label = "GPU Just In Time Compiler Flow";
+    node [style=filled,color=white]; "frontend(opengl, vulkan and opencl compiler)", backend, linker;
+      "frontend(opengl, vulkan and opencl compiler)" -> backend [ label = "llvm IR" ];
+      backend -> linker [ label = "obj" ];
+    color=lightgrey
+  }
+
+}
