@@ -6,8 +6,10 @@ digraph G {
   subgraph cluster_0 {
     style=filled;
     label = "Study";
-    node [shape=record,style=filled,color=white]; CPU [label="CPU:|Computer Organization and Design: The Hardware/Software Interface\nComputer Architecture – A Quantitative Approach\nMips and Broadcom CPU user manual\nVerilog"];
-    node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm frontend & backend\nCompilers – Principles, Techniques, & tools\nyacc and lex"];
+    node [shape=record,style=filled,color=white]; CPU [label="CPU:|Computer Architecture – A Quantitative Approach\nMips and Broadcom CPU user manual\nVerilog"];
+    node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl and spirv spec\nMali frontend and backend\nGPU ISA"];
+    node [shape=record,style=filled,color=white]; NPU [label="NPU:|Onnx and Deep Learning Concept\nNPU ISA"];
+    node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm frontend & backend, lld and compilerrt\nCompilers – Principles, Techniques, & tools\nyacc and lex"];
     node [style=filled,color=white]; OS [label="OS:|Linux Device Driver"]; 
     node [style=filled,color=white]; "SOFTWARE ENGINEERING" [label="SOFTWARE ENGINEERING:|Design Patterns\nOOA Analysis related books and tools (Rational Rose, ...)"]; 
     color=lightgrey;
@@ -18,6 +20,9 @@ digraph G {
     label = "Apply in work";
     node [style=filled,color=white]; verilog [label="Cpu0 Verilog programming"];
     node [style=filled,color=white]; backend [label="Cpu0 llvm backend"];
+    node [style=filled,color=white]; linker [label="Cpu0 lld backend linker, software floating lib"];
+    node [style=filled,color=white]; gpucompiler [label="GPU compiler"];
+    node [style=filled,color=white]; npucompiler [label="NPU compiler"];
     subgraph cluster_1_1 {
       color=yellow;
       label = "Production line auto test system";
@@ -32,7 +37,11 @@ digraph G {
   //CPU -> codewarrior;
   CPU -> tinyos;
   CPU -> backend;
+  CPU -> linker;
+  GPU -> gpucompiler;
+  NPU -> npucompiler;
   COMPILER -> backend;
+  COMPILER -> gpucompiler;
   //COMPILER -> codewarrior;
   COMPILER -> teststation;
   OS -> tinyos;
