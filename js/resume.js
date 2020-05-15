@@ -69,7 +69,7 @@ function drawSkillBarChart() {
              /* 16,*/
               8,
               6,
-              16,
+              18,
               10,
               4,
               5,
