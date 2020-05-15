@@ -299,9 +299,8 @@ Experience.prototype.draw = function (config) {
   
   var me = this;
 
-  var id = setInterval(drawSlowly, 10);
-  var count = 0;
-  
+  drawSlowly(config);
+
   function createDots(dotX, radius, gap, height, period, work) {
     var dot = [];
     var Dot = makeStruct("color px py radius");
@@ -317,7 +316,6 @@ Experience.prototype.draw = function (config) {
   }
   
   function drawVerticalLine(ctx, dot) {
-    if (count > 0) return;
     // Draw arrow vertical line
     ctx.fillStyle = "grey";
     ctx.beginPath();
@@ -335,7 +333,6 @@ Experience.prototype.draw = function (config) {
   }
   
   function drawDots(ctx, dot) {
-    if (count < 100 || count > 100) return;
     // Draw circles according dot[i]
     for (i = 0; i < dot.length; i++) {
       ctx.beginPath();
@@ -347,7 +344,6 @@ Experience.prototype.draw = function (config) {
   }
   
   function outputWorkPeriod(ctx, dot, period, radius) {
-    if (count < 200 || count > 200) return;
     ctx.fillStyle = "grey";
     ctx.textAlign="right";
     for (i = 0; i < period.length; i++) {
@@ -362,7 +358,6 @@ Experience.prototype.draw = function (config) {
   }
   
   function outputWorkContent(ctx, dot, work, height, gap, radius) {
-    if (count < 300 || count > 300) return;
     ctx.fillStyle = "grey";
     ctx.textAlign="left";
     for (i = 0; i < work.length; i++) {
@@ -379,8 +374,5 @@ Experience.prototype.draw = function (config) {
     drawDots(ctx, dot);
     outputWorkPeriod(ctx, dot, me.period, radius);
     outputWorkContent(ctx, dot, me.work, height, gap, radius);
-    count = count + 1;
-    if (count > 300)
-      clearInterval(id);
   }
 };
