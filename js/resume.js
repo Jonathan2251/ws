@@ -299,7 +299,7 @@ Experience.prototype.draw = function (config) {
   
   var me = this;
 
-  drawSlowly(config);
+  draw(config);
 
   function createDots(dotX, radius, gap, height, period, work) {
     var dot = [];
@@ -369,7 +369,7 @@ Experience.prototype.draw = function (config) {
     }
   }
   
-  function drawSlowly() {
+  function draw() {
     drawVerticalLine(ctx, dot);
     drawDots(ctx, dot);
     outputWorkPeriod(ctx, dot, me.period, radius);
