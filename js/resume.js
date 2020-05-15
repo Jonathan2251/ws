@@ -56,10 +56,10 @@ function drawSkillBarChart() {
   var color = Chart.helpers.color;
   var horizontalBarChartData = {
       labels: [
-      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (gcc, device driver, bash, usb)", 
-      "CPU & GPU design (simulator, Verilog, mips, arm)", "Compiler design (llvm backend/lld/polly, glsl, yacc/lex, cmake)", 
-      "Software engineering (OOP/OOA, design pattern)", "UI design (VC, Borland C++, VB, html/css/java script)", 
-      "Documentation writing(Sphinx, uml, html/css/java script)", "Equipment usage (scope, spectrum, power meter, ...)"],
+      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (gcc, device driver, usb)", 
+      "CPU & GPU design (simulator, Verilog, mips, arm)", "Compiler design (llvm/lld/polly, glsl, yacc/lex, cmake)", 
+      "Software engineering (OOP/OOA, design pattern)", "UI design (VC, Borland C++, html/css/java script)", 
+      "Documentation writing(Sphinx, uml, ...)", "Equipment usage (scope, spectrum, power meter, ...)"],
       datasets: [{
           label: 'Quality',
           backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
@@ -69,7 +69,7 @@ function drawSkillBarChart() {
              /* 16,*/
               8,
               6,
-              14,
+              16,
               10,
               4,
               5,
@@ -244,7 +244,7 @@ function createWorkContent() {
   str = new Array(7);
   str[0] = new Array(1);
   str[1] = new Array(1);
-  str[2] = new Array(3);
+  str[2] = new Array(1);
   str[3] = new Array(1);
   str[4] = new Array(1);
   str[5] = new Array(1);
@@ -252,12 +252,11 @@ function createWorkContent() {
   str[0][0] = "Seniror compiler developer in Kneron";
   str[0][1] = "  NPU compiler";
   str[1][0] = "Principle engineer in Hisilcon";
-  str[1][1] = "  glsl/opencl/spirv frontend + LLVM backend compiler development for a whole new GPU";
-  str[2][0] = "Web and document software study and design (html/css/javascript, Graphivz, ...)";
+  str[1][1] = "  glsl/spirv frontend + LLVM backend compiler development for a whole new GPU to support OpenGL/OpenCL";
+  str[2][0] = "LLVM compiler";
   str[3][0] = "Senior software engineer in Marvell       (llvm open source team at my personal time)";
-  str[3][1] = "  llvm optimization for ARM";
-  str[3][2] = "  The simulator programmer of Marvell's ARM SOC chips";
-  str[4][0] = "Programmer in llvm (a compiler) open source team";
+  str[3][1] = "  llvm optimization and simulator for ARM";
+  str[4][0] = "Programmer in llvm open source team";
   str[5][0] = "Senior software engineer in Motorola";
   str[6][0] = "Software engineer in a few Taiwan's companies";
   
