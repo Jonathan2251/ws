@@ -7,6 +7,8 @@ digraph G {
     style=filled;
     label = "學習";
     node [shape=record,style=filled,color=white]; CPU [label="CPU:|計算機組織與設計：軟硬體介面\n計算機結構 – 量的研究\nMips與Broadcom處理器使用手冊\nVerilog"];
+    node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl, spirv規格 以及 Mali前端與後端程式\nGPU指令集與硬體規格"];
+    node [shape=record,style=filled,color=white]; NPU [label="NPU:|Onnx與深度學習\nNPU指令集與硬體規格"];
     node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm前端與後端\n編譯系統設計 Compilers – Principles, Techniques, & tools \nyacc與lex"];
     node [style=filled,color=white]; OS [label="OS:|Linux Device Driver"]; 
     node [style=filled,color=white]; "SOFTWARE ENGINEERING" [label="SOFTWARE ENGINEERING:|Design Patterns\n物件導向分析書籍與工具(Rational Rose, ...)"]; 
@@ -18,6 +20,9 @@ digraph G {
     label = "應用於工作";
     node [style=filled,color=white]; verilog [label="修改Cpu0 Verilog"];
     node [style=filled,color=white]; backend [label="設計Cpu0 llvm後端編譯器"];
+    node [style=filled,color=white]; linker [label="Cpu0 lld 後端連結器 與 軟體浮點函式庫"];
+    node [style=filled,color=white]; gpucompiler [label="GPU編譯器"];
+    node [style=filled,color=white]; npucompiler [label="NPU編譯器"];
     subgraph cluster_1_1 {
       color=yellow;
       label = "產線自動測試系統";
@@ -32,7 +37,11 @@ digraph G {
   //CPU -> codewarrior;
   CPU -> tinyos;
   CPU -> backend;
+  CPU -> linker;
+  GPU -> gpucompiler;
+  NPU -> npucompiler;
   COMPILER -> backend;
+  COMPILER -> gpucompiler;
   //COMPILER -> codewarrior;
   COMPILER -> teststation;
   OS -> tinyos;
