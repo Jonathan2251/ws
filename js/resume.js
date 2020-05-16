@@ -56,10 +56,10 @@ function drawSkillBarChart() {
   var color = Chart.helpers.color;
   var horizontalBarChartData = {
       labels: [
-      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (gcc, device driver, usb)", 
-      "CPU & GPU design (simulator, Verilog, mips, arm)", "Compiler design (llvm/lld/polly, glsl, yacc/lex, cmake)", 
+      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (gcc, device driver, usb, cmake)", 
+      "CPU & GPU design (simulator, Verilog, mips, arm)", "Compiler design (llvm/lld/polly, glsl/spirv, yacc/lex)", 
       "Software engineering (OOP/OOA, design pattern)", "UI design (VC, Borland C++, html/css/java script)", 
-      "Documentation writing(Sphinx, uml, ...)", "Equipment usage (scope, spectrum, power meter, ...)"],
+      "Documentation writing(Sphinx, uml, ...)", "Equipment usage (scope, power meter, ...)"],
       datasets: [{
           label: 'Quality',
           backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
