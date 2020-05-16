@@ -9,7 +9,7 @@ digraph G {
     node [shape=record,style=filled,color=white]; CPU [label="CPU:|Computer Architecture – A Quantitative Approach\nMips and Broadcom CPU user manual\nVerilog"];
     node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl and spirv spec\nMali frontend and backend\nGPU ISA"];
     node [shape=record,style=filled,color=white]; NPU [label="NPU:|Onnx and Deep Learning Concept\nNPU ISA"];
-    node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm frontend & backend, lld and compilerrt\nCompilers – Principles, Techniques, & tools\nyacc and lex"];
+    node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm frontend & backend, lld and compilerrt\nCompilers – Principles, Techniques, & tools\npolly open source\nyacc and lex"];
     node [style=filled,color=white]; OS [label="OS:|Linux Device Driver"]; 
     node [style=filled,color=white]; "SOFTWARE ENGINEERING" [label="SOFTWARE ENGINEERING:|Design Patterns\nOOA Analysis related books and tools (Rational Rose, ...)"]; 
     color=lightgrey;
@@ -18,19 +18,28 @@ digraph G {
     style=filled;
     color=lightgrey;
     label = "Apply in work";
-    node [style=filled,color=white]; verilog [label="Cpu0 Verilog programming"];
-    node [style=filled,color=white]; backend [label="Cpu0 llvm backend"];
-    node [style=filled,color=white]; linker [label="Cpu0 lld backend linker, software floating lib"];
+    subgraph cluster_1_1 {
+      color=gray;
+      label = "llvm CPU toolchain";
+      node [style=filled,color=white]; backend [label="Cpu0 llvm backend"];
+      node [style=filled,color=white]; linker [label="Cpu0 lld backend linker, software floating lib"];
+      node [style=filled,color=white]; verilog [label="Cpu0 Verilog programming"];
+    }
+    subgraph cluster_1_2 {
+      color=gray;
+      label = "ARM compiler optimization and simulator";
+      node [style=filled,color=white]; armopt [label="ARM compiler optimization"];
+      node [style=filled,color=white]; armsim [label="ARM Simulator"];
+    }
     node [style=filled,color=white]; gpucompiler [label="GPU compiler"];
     node [style=filled,color=white]; npucompiler [label="NPU compiler"];
-    subgraph cluster_1_1 {
-      color=yellow;
+    subgraph cluster_1_3 {
+      color=gray;
       label = "Production line auto test system";
       //node [style=filled,color=white]; codewarrior [label="Find the bug of Code Warrior's compiler"];
       node [style=filled,color=white]; tinyos [label="tiny OS for scheduling of test items"];
       node [style=filled,color=white]; teststation [label="UI_StationTest"];
       node [style=filled,color=white]; io [label="I/O redirection mechanism"];
-      node [style=filled,color=white]; bltc [label="Design the test framework of baremetal platform"];
     }
   }
   CPU -> verilog;
@@ -42,11 +51,12 @@ digraph G {
   NPU -> npucompiler;
   COMPILER -> backend;
   COMPILER -> gpucompiler;
+  COMPILER -> armopt;
+  COMPILER -> armsim;
   //COMPILER -> codewarrior;
   COMPILER -> teststation;
   OS -> tinyos;
   OS -> io;
   "SOFTWARE ENGINEERING" -> tinyos;
-  "SOFTWARE ENGINEERING" -> bltc;
 
 }
