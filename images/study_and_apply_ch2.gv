@@ -1,0 +1,61 @@
+// Free usage license, author: Chung-Shu Chen 陈钟枢
+
+digraph G {
+
+  rankdir=LR;
+  subgraph cluster_0 {
+    style=filled;
+    label = "学习";
+    node [shape=record,style=filled,color=white]; CPU [label="CPU:|计算机组织与设计：软硬体介面\n计算机结构 – 量的研究\nMips与Broadcom处理器使用手册\nVerilog"];
+    node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl, spirv规格 以及 Mali前端与后端程式\nGPU指令集与硬体规格"];
+    node [shape=record,style=filled,color=white]; NPU [label="NPU:|Onnx与深度学习\nNPU指令集与硬体规格"];
+    node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm前端与后端\n编译系统设计 Compilers – Principles, Techniques, & tools\npolly open source\nyacc与lex"];
+    node [style=filled,color=white]; OS [label="OS:|Linux Device Driver"]; 
+    node [style=filled,color=white]; "SOFTWARE ENGINEERING" [label="SOFTWARE ENGINEERING:|Design Patterns\n物件导向分析书籍与工具(Rational Rose, ...)"]; 
+    color=lightgrey;
+  }
+  subgraph cluster_1 {
+    style=filled;
+    color=lightgrey;
+    label = "应用于工作";
+    subgraph cluster_1_1 {
+      color=gray;
+      label = "llvm CPU toolchain";
+      node [style=filled,color=white]; backend [label="设计Cpu0 llvm后端编译器"];
+      node [style=filled,color=white]; linker [label="Cpu0 lld 后端连结器 与 软体浮点函式库"];
+      node [style=filled,color=white]; verilog [label="修改Cpu0 Verilog"];
+    }
+    subgraph cluster_1_2 {
+      color=gray;
+      label = "ARM compiler optimization and simulator";
+      node [style=filled,color=white]; armopt [label="ARM compiler optimization"];
+      node [style=filled,color=white]; armsim [label="ARM Simulator"];
+    }
+    node [style=filled,color=white]; gpucompiler [label="GPU编译器"];
+    node [style=filled,color=white]; npucompiler [label="NPU编译器"];
+    subgraph cluster_1_3 {
+      color=gray;
+      label = "数位机顶盒";
+      //node [style=filled,color=white]; codewarrior [label="找出Code Warrior编译器设计错误"];
+      node [style=filled,color=white]; tinyos [label="设计微作业系统FIFO排程机制"];
+      node [style=filled,color=white]; ui [label="使用者介面"];
+      node [style=filled,color=white]; io [label="撰写I/O转向机制"];
+    }
+  }
+  CPU -> verilog;
+  //CPU -> codewarrior;
+  CPU -> tinyos;
+  CPU -> backend;
+  CPU -> linker;
+  GPU -> gpucompiler;
+  NPU -> npucompiler;
+  COMPILER -> backend;
+  COMPILER -> gpucompiler;
+  COMPILER -> armopt;
+  COMPILER -> armsim;
+  //COMPILER -> codewarrior;
+  COMPILER -> ui;
+  OS -> tinyos;
+  OS -> io;
+  "SOFTWARE ENGINEERING" -> tinyos;
+}

@@ -197,13 +197,37 @@ canvas {
       <div class="sectionContent">
         <article>
           <p>Implement semi-auto software system of running benchmark and generating report for gcc toolchain. </p>
+            <p style="margin-left:25px;">Purpose is to make sure the code change of gcc has no side effect in optimization
+              <a href="https://jonathan2251.github.io/ws/images/gcc-change-control.pdf"> (expain in flow chart)</a> </p>
+            <p style="margin-left:25px;">Implemented bash script which can compare any two version of gcc toolchain and generate report. Similar as above.
+            </p>
           <p>Demonstrate polly and the concept of polyhedral optimization model for Marvell llvm and gcc toolchain optimization. Polly is a software for loop optimization.</p>
+            <p style="margin-left:25px;">The advantage is that it might be 500% speed up in some numerical
+              application program, such as matrix multiplication, or other kind of matrix operation. 
+              Sadly, Marvell's CPUs are not used in numerical applications. But maybe it will have for 64 bits ARM in future.
+            </p>
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
           <p>Implement co-simulator for a few Marvell's ARM based 64-bit cpu.</p>
           <p>Propose and implement DSL on simulator to save tens of system verification in c++ coding.</p>
+            <p style="margin-left:25px;">
+              <a id="hint_spec" style="color:red" title="">ARM spec</a>
+              <a> &rarr; </a>
+              <a id="hint_script" style="color:red" title="">script</a>
+              <a> &rarr; </a>
+              <a> generate c++ </a>
+              <a id="hint_h" style="color:red" title="">.h</a>
+              <a id="hint_cpp" style="color:red" title="">.cpp <br></a>
+              <a style="font-size: 10px;"> Mouse hover the above </a> <a style="font-size: 10px;" href="https://jonathan2251.github.io/ws/en/cv_cschen.html"> (in html) </a>  <a style="font-size: 10px;"> for explanation, obviously the script is simple, match ARM spec and easy to read more then the c++ program. </a>
+            </p>
           <script> setHint(); </script>
           <p>Complete cmake to replace make for Csim.</p>
-            <p style="margin-left:25px;">Advantage: simpler and cross-os-platform than make.</p>
+            <p "style="margin-left:25px;>Present the better option for cmake writting.</p>
+              <p style="margin-left:50px;">The version of cmake in Csim server is 2.6.x, however, the cmake 2.8.8 provides shared object to save the unnecessary compilation.</p>
+              <div id="container" style="width: 100%;">
+                <canvas id="canvas3" height="50"></canvas>
+              </div>
+              <script> drawCmakeSharedObjectBarChart(); </script>
+            <p style="margin-left:25px;">Report performance comparing between cmake and ninja for other manager's concern. The result is "no difference"</p>
         </article>
       </div>
 
@@ -215,7 +239,8 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <p>The lower half is the my llvm backend's work flow. Yellow and green parts are my implementation in my books.</p>
+          <p>The upper half of the following figure is the work flow that software package of a computer program be generated and executed. IR stands for Intermediate Representation. 
+          The lower half is the my llvm backend's work flow. Yellow and green parts are my implementation in my books.</p>
           <p><img src="../images/mywork_1.png" width="100%" height="120"/></p>
         </article>
       </div>
@@ -228,7 +253,8 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <p>Develop Set Top Box's software framework.</p>
+          <p>Design QIP7kP1 and P2 board level production line testing code. Over 5 millions units of QIP7k model of Set Top Box are tested with this code on production line and shipping to market. Other major products DCX33, DCX34 and DCX35 (over 10 millions of box) are ported from QIP7kP1 & QIP7kP2.</p>
+          <p>Combine mips cpu and software engineer knowledge, lead and cowork with other four members to create a frame work for board level testing code as manager request.</p>
         </article>
       </div>
       <div class="clear"></div>
@@ -239,6 +265,23 @@ canvas {
         <h1>Learning after school & applying in work</h1>
         <p style="margin-left:0px;"><img src="../images/study_and_apply.png" width="100%" height="600"/></p>
       </div>
+      
+      <div class="sectionContent">
+        <article>
+          <p style="margin-left:25px;">" Tiny OS": implement test items scheduling mechanism through timer interrupt routing with c++ "observe pattern" and mips assembly language to solve the halting problem in some testing program.</p>
+            <p style="margin-left:50px;">After this implementation, the code has run more stable and fast, and the testing driver code never hang on set top box.</p>
+        </article>
+      </div>
+      <div class="clear"></div>
+      
+      
+      <div class="sectionContent">
+        <article>
+            <p style="margin-left:25px;">Implement the I/O redirection mechanism to make the new version of code porting task easier in Motorola.</p>
+        </article>
+      </div>
+      <div class="clear"></div>
+    </section>
 
     <section>
       <div class="sectionTitle">

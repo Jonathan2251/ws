@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>陳鍾樞 - 履歷</title>
+
+<meta name="viewport" content="width=device-width"/>
+<meta name="description" content="陳鍾樞 - 履歷"/>
+<meta charset="UTF-8"> 
+
+<link type="text/css" rel="stylesheet" href="../css/resume.css">
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+
+<script src="../js/Chart.bundle.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/resume.js"></script>
+<style>
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+</style>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body id="top">
+<div id="cv">
+  <div class="mainDetails">
+    <div id="headshot">
+      <img src="../images/headshot.png" alt="Alan Smith" />
+    </div>
+    
+    <div id="contactDetails">
+      <ul>
+        <p>陳鍾樞<br></p>
+        <p>我是位有經驗的compiler開發者，開發過llvm cpu and gpu backend, lld linker, npu/onnx, c++, OpenGl/glsl compiler與simulator，...， 
+        對寫compiler感到快樂。</p>
+      </ul>
+    </div>
+    <div class="clear"></div>
+    
+    <div class="title">
+      <h1>詳細履歷</h1>
+    </div>
+  </div>
+  
+  <div id="mainArea">
+    <section>
+      <article>
+        <div class="sectionTitle">
+          <h1>資格</h1>
+        </div>
+        
+        <div class="sectionContent">
+          <p>二十年c/c++軟體開發經驗，八年編譯器相關工具開發經驗，碩士時研究平行處理。</p>
+        </div>
+      </article>
+      <div class="clear"></div>
+    </section>
+
+    <section>
+      <div class="sectionContent">
+        <div id="container" style="width: 100%;">
+            <canvas id="canvas" height="100"></canvas>
+        </div>
+        <script> drawSkillBarChart(); </script>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1>我的開法原始碼專案</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <p style="font-size: 0.7em;">很高興我的作品已被LLVM接受，出現在 <a href="http://llvm.org/docs/tutorial/#external-tutorials"> http://llvm.org/docs/tutorial/#external-tutorials</a></p>
+        <p>如何建立LLVM後端編譯器 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://jonathan2251.github.io/lbd/index.html" target="_blank"><img style="vertical-align: middle;" src="../images/GitHub-Mark-32px.png" title="My github lbd" width="16" height="16" /> http://jonathan2251.github.io/lbd/index.html</a> </p>
+        <p>如何建立LLVM後端系統工具 &nbsp;&nbsp;&nbsp; <a href="http://jonathan2251.github.io/lbt/index.html" target="_blank"><img style="vertical-align: middle;" src="../images/GitHub-Mark-32px.png" title="My github lbt" width="16" height="16" /> http://jonathan2251.github.io/lbt/index.html</a> </p>
+        <p>GPU編譯器概念 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://jonathan2251.github.io/lbd/gpu.html" target="_blank"><img style="vertical-align: middle;" src="../images/GitHub-Mark-32px.png" title="The concept of GPU compiler" width="16" height="16" /> http://jonathan2251.github.io/lbd/gpu.html</a> </p>
+      </div>
+      <div class="clear"></div>
+    </section>
+
+    <section>
+      <div class="sectionTitle">
+        <h1>學歷</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <article>
+          <p>1997-1999 碩士班，六月 1999，國立台灣師範大學，台北，主修：資訊科學。</p>
+          <p>1991-1994 學士班，六月 1994，國立台灣科技大學，台北，主修：工業工程。</p>
+        </article>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1>證照</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <article>
+          <p>1995年 高考資訊技師及格。</p>
+        </article>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1 class="instaFade delayOne">經驗</h1>
+      </div>
+    
+      <div id="container"" style="solid #000000;" class="instaFade delayOne">
+        <canvas id="canvas2" width="800"></canvas>
+      </div>
+      <script>
+        var workPeriod = createWorkPeriod();
+        var workContent = createWorkContent();
+        var experience = new Experience(workPeriod, workContent);
+        var config = createDefaultConfig();
+        experience.draw(config);
+      </script>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1>碩士論文THESIS OF MASTER DEGREE</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <p><a href="https://github.com/Jonathan2251/ow/tree/master/sortingnetwork/ThesisMaster"><img style="vertical-align: middle;" src="../images/user_phd.png" title="行排序法的相關研究" width="16" height="16" /> The Researches of Column Sort and Related Problems</a></p>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <h1>博士班研究計畫</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <p><a href="https://github.com/Jonathan2251/ow/tree/master/sortingnetwork/PHD"><img style="vertical-align: middle;" src="../images/user_phd.png" title="排序網路及相關演算法之研究" width="16" height="16" /> The Researches of Sorting Network and Related Algorithm</a></p>
+      </div>
+      <div class="clear"></div>
+    </section>
+    
+    <section>
+      <div class="sectionTitle">
+        <a href="https://jonathan2251.github.io/ws/ch1/cv_cschen.html"> 更詳細的履歷</a>
+      </div>
+      <div class="clear"></div>
+    </section>
+
+    <section>
+      <div class="sectionTitle">
+        <h1>推薦函</h1>
+      </div>
+      
+      <div class="sectionContent">
+        <p><a href="https://jonathan2251.github.io/ws/ch1/RL_Marvell.pdf"> 前主管推薦函: https://jonathan2251.github.io/ws/ch1//RL_Marvell.pdf</a></p>
+      </div>
+      <div class="clear"></div>
+    </section>
+  </div>
+</div>
+</body>
+</html>
