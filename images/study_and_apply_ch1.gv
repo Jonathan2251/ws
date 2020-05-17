@@ -35,10 +35,10 @@ digraph G {
     node [style=filled,color=white]; npucompiler [label="NPU編譯器"];
     subgraph cluster_1_3 {
       color=gray;
-      label = "產線自動測試系統";
+      label = "數位機上盒";
       //node [style=filled,color=white]; codewarrior [label="找出Code Warrior編譯器設計錯誤"];
       node [style=filled,color=white]; tinyos [label="設計微作業系統FIFO排程機制"];
-      node [style=filled,color=white]; teststation [label="設計自動化測試站"];
+      node [style=filled,color=white]; ui [label="使用者介面"];
       node [style=filled,color=white]; io [label="撰寫I/O轉向機制"];
     }
   }
@@ -54,7 +54,7 @@ digraph G {
   COMPILER -> armopt;
   COMPILER -> armsim;
   //COMPILER -> codewarrior;
-  COMPILER -> teststation;
+  COMPILER -> ui;
   OS -> tinyos;
   OS -> io;
   "SOFTWARE ENGINEERING" -> tinyos;
