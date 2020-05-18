@@ -51,7 +51,7 @@ function GetNewPage(currpage) {
       newpage = "ch1/personal.html"; break;
     }
     switch (currpage) {
-    case "ch1/index.html":
+    case "ch2/index.html":
       newpage = "ch1/index.html"; break;
     case "ch2/mywork.html":
       newpage = "ch1/mywork.html"; break;
