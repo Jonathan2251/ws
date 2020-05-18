@@ -28,6 +28,16 @@ function GetNewPage(currpage) {
     case "ch1/personal.html":
       newpage = "en/personal.html"; break;
     }
+    switch (currpage) {
+    case "ch2/index.html":
+      newpage = "en/index.html"; break;
+    case "ch2/mywork.html":
+      newpage = "en/mywork.html"; break;
+    case "ch2/more.html":
+      newpage = "en/more.html"; break;
+    case "ch2/personal.html":
+      newpage = "en/personal.html"; break;
+    }
     break;
   case "Chinese1":
     switch (currpage) {
@@ -39,6 +49,38 @@ function GetNewPage(currpage) {
       newpage = "ch1/more.html"; break;
     case "en/personal.html":
       newpage = "ch1/personal.html"; break;
+    }
+    switch (currpage) {
+    case "ch1/index.html":
+      newpage = "ch1/index.html"; break;
+    case "ch2/mywork.html":
+      newpage = "ch1/mywork.html"; break;
+    case "ch2/more.html":
+      newpage = "ch1/more.html"; break;
+    case "ch2/personal.html":
+      newpage = "ch1/personal.html"; break;
+    }
+    break;
+  case "Chinese2":
+    switch (currpage) {
+    case "en/index.html":
+      newpage = "ch2/index.html"; break;
+    case "en/mywork.html":
+      newpage = "ch2/mywork.html"; break;
+    case "en/more.html":
+      newpage = "ch2/more.html"; break;
+    case "en/personal.html":
+      newpage = "ch2/personal.html"; break;
+    }
+    switch (currpage) {
+    case "ch1/index.html":
+      newpage = "ch2/index.html"; break;
+    case "ch1/mywork.html":
+      newpage = "ch2/mywork.html"; break;
+    case "ch1/more.html":
+      newpage = "ch2/more.html"; break;
+    case "ch1/personal.html":
+      newpage = "ch2/personal.html"; break;
     }
     break;
   }
