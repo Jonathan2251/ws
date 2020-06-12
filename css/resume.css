@@ -122,6 +122,9 @@ section:last-child {
     #cv {
         width: 100%;
     }
+    .pagebreak {
+        page-break-before: always;
+    }
 }
 
 @-webkit-keyframes reset {
