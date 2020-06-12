@@ -16,7 +16,7 @@ html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-ser
 .clear {clear: both;}
 
 p {
-	font-size: 0.8em;
+	font-size: 0.9em;
 	line-height: 1.2em;
 	margin-bottom: 4px;
 	color: #444;
@@ -47,8 +47,8 @@ p {
 }
 
 #headshot img {
-	width: 40%;
-	height: 40%;
+	width: 80%;
+	height: 80%;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
 }
