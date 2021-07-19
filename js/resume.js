@@ -364,13 +364,13 @@ Experience.prototype.draw = function (config) {
   function outputWorkContent(ctx, dot, work, height, gap, radius) {
     ctx.fillStyle = "grey";
     ctx.textAlign="left";
-    for (i = 0; i < work.length; i++) {
+ /*   for (i = 0; i < work.length; i++) {
       var posy = dot[i].py+height+gap;
       for (j = 0; j < work[i].length; j++) {
         ctx.fillText(work[i][j],dot[i].px+2*radius,posy);
         posy += height;
       }
-    }
+    }*/
   }
   
   function draw() {
