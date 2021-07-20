@@ -69,7 +69,7 @@ function drawSkillBarChart() {
              /* 16,*/
               8,
               6,
-              18,
+              20,
               10,
               4,
               5,
@@ -256,7 +256,7 @@ function createWorkContent() {
   str[1][0] = "Seniror compiler developer in Kneron";
   str[1][1] = "  NPU compiler";
   str[2][0] = "Principle engineer in Hisilcon";
-  str[2][1] = "  glsl/spirv frontend + LLVM backend compiler development for a whole new GPU to support OpenGL/OpenCL";
+  str[2][1] = "  glsl/spirv frontend + LLVM backend compiler development for a whole new GPU ISA";
   str[3][0] = "LLVM compiler";
   str[4][0] = "Senior software engineer in Marvell       (llvm open source team at my personal time)";
   str[4][1] = "  llvm optimization and simulator for ARM";
