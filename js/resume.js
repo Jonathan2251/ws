@@ -54,12 +54,22 @@ define_end";
 function drawSkillBarChart() {
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   var color = Chart.helpers.color;
-  var horizontalBarChartData = {
-      labels: [
+  var longLabels = [
       /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (gcc, device driver, usb, cmake)", 
       "CPU & GPU design (simulator, Verilog, mips, arm)", "Compiler design (llvm/lld/polly, glsl/spirv, yacc/lex)", 
       "Software engineering (OOP/OOA, design pattern)", "UI design (VC, Borland C++, html/css/java script)", 
-      "Documentation writing(Sphinx, uml, ...)", "Equipment usage (scope, power meter, ...)"],
+      "Documentation writing(Sphinx, uml, ...)", "Equipment usage (scope, power meter, ...)"];
+  var shortLabels = [
+      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux...", 
+      "CPU & GPU...", "Compiler...", 
+      "Software...", "UI design...", 
+      "Document...", "Equipment..."];
+      var ll = longLabels;
+      if (window.innerWidth < 800) {
+        ll = shortLabels;
+      }
+  var horizontalBarChartData = {
+      labels: ll,
       datasets: [{
           label: 'Quality',
           backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
@@ -214,8 +224,20 @@ function monthToString(month) {
 }
 
 function createDefaultConfig() {
-  var Config = makeStruct("canvasId fontSize gap radius dotX");
-  var config = new Config("canvas2", 12, 2, 5, 150);
+
+  var canvas = document.getElementById('canvas2');
+  canvas.width = window.innerWidth*0.98;
+  console.log("window.innerWidth:" + window.innerWidth);
+  console.log("canvas.width:" + canvas.width);
+  var fontSize = 12;
+  var dotX = 150;
+  if (canvas.width < 800) {
+    fontSize = 6;
+    dotX = 70;
+  }
+  console.log("fontSize:" + fontSize);
+  var Config = makeStruct("canvasId fontSize gap radius dotX width");
+  var config = new Config("canvas2", fontSize, 2, 5, dotX, canvas.width);
   
   return config;
 }
@@ -286,6 +308,7 @@ function Experience(workPeriod, workContent) {
 }
 
 Experience.prototype.draw = function (config) {
+  
   var canvasId = config.canvasId;
   var fontSize = config.fontSize; // !! input fontSize then the font's size and canvas2.height will set according it
   var gap =  config.gap; // !! input the gap (between dot and work content)
@@ -360,6 +383,21 @@ Experience.prototype.draw = function (config) {
     }
     ctx.fillText(monthToString(period[i-1].startDate.month)+" "+period[i-1].startDate.year,dot[i].px-2*radius,dot[i].py+4);
   }
+ 
+  function getDisplayText(ctx, str, x, y) {
+    var s;
+    //if (str.length > 
+    var metrics = ctx.measureText(str);
+    console.log("  width:" + metrics.width);
+    console.log("  width+x:" + (metrics.width+x));
+    if (metrics.width + x > config.width) {
+      s = "..."
+    }
+    else {
+      s = str;
+    }
+    return s;
+  }
   
   function outputWorkContent(ctx, dot, work, height, gap, radius) {
     ctx.fillStyle = "grey";
@@ -367,7 +405,10 @@ Experience.prototype.draw = function (config) {
     for (i = 0; i < work.length; i++) {
       var posy = dot[i].py+height+gap;
       for (j = 0; j < work[i].length; j++) {
-        ctx.fillText(work[i][j],dot[i].px+2*radius,posy);
+        console.log(work[i][j].length);
+        var s = getDisplayText(ctx, work[i][j],dot[i].px+2*radius,posy);
+        //ctx.fillText(work[i][j],dot[i].px+2*radius,posy);
+        ctx.fillText(s,dot[i].px+2*radius,posy);
         posy += height;
       }
     }
