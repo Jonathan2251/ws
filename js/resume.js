@@ -55,9 +55,9 @@ function drawSkillBarChart() {
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   var color = Chart.helpers.color;
   var longLabels = [
-      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (gcc, device driver, usb, cmake)", 
-      "CPU & GPU design (simulator, Verilog, mips, arm)", "Compiler design (llvm/lld/polly, glsl/spirv, yacc/lex)", 
-      "Software engineering (OOP/OOA, design pattern)", "UI design (VC, Borland C++, html/css/java script)", 
+      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (device driver, usb, cmake...)", 
+      "CPU & GPU design (simulator, Verilog, mips, arm...)", "Compiler design (clang/llvm, glsl/spirv, onnx, yacc...)", 
+      "Software engineering (OOP/OOA, design pattern...)", "UI design (VC, Borland C++, html/css/java script...)", 
       "Documentation writing(Sphinx, uml, ...)", "Equipment usage (scope, power meter, ...)"];
   var shortLabels = [
       /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux...", 
