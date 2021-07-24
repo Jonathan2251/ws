@@ -224,20 +224,20 @@ function monthToString(month) {
 }
 
 function createDefaultConfig() {
-
-  var canvas = document.getElementById('canvas2');
-  canvas.width = window.innerWidth*0.98;
-  console.log("window.innerWidth:" + window.innerWidth);
-  console.log("canvas.width:" + canvas.width);
+  var canvas2 = document.getElementById('canvas2');
+  canvas2.width = 800;
+  var width = window.innerWidth*0.9;
+  console.log("width:" + width);
   var fontSize = 12;
   var dotX = 150;
-  if (canvas.width < 650) {
+  if (width < 650) {
     fontSize = 6;
     dotX = 70;
+    canvas2.width = width;
   }
   console.log("fontSize:" + fontSize);
   var Config = makeStruct("canvasId fontSize gap radius dotX width");
-  var config = new Config("canvas2", fontSize, 2, 5, dotX, canvas.width);
+  var config = new Config("canvas2", fontSize, 2, 5, dotX, canvas2.width);
   
   return config;
 }
@@ -386,10 +386,9 @@ Experience.prototype.draw = function (config) {
  
   function getDisplayText(ctx, str, x, y) {
     var s;
-    //if (str.length > 
     var metrics = ctx.measureText(str);
-    //console.log("  width:" + metrics.width);
-    //console.log("  width+x:" + (metrics.width+x));
+    console.log("  width+x:" + (metrics.width+x));
+    console.log("  config.width:" + config.width);
     if (metrics.width + x > config.width) {
       s = str.substring(0, 10) + "..."
     }
@@ -405,7 +404,6 @@ Experience.prototype.draw = function (config) {
     for (i = 0; i < work.length; i++) {
       var posy = dot[i].py+height+gap;
       for (j = 0; j < work[i].length; j++) {
-        //console.log(work[i][j].length);
         var s = getDisplayText(ctx, work[i][j],dot[i].px+2*radius,posy);
         //ctx.fillText(work[i][j],dot[i].px+2*radius,posy);
         ctx.fillText(s,dot[i].px+2*radius,posy);

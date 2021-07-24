@@ -26,7 +26,7 @@ p {
 	width: 90%;
 	max-width: 800px;
 	background: #f3f3f3;
-	margin: 10px auto;
+	margin: 10px auto; /* 10px: top black color; auto: in center */
 }
 
 .mainDetails {
@@ -102,8 +102,9 @@ section:last-child {
 
 .sectionContent {
 	float: left;
-	width: 90%;
+	width: 98%;
 	margin-left: 20px;
+	margin-right: 20px;
 }
 
 .sectionTitle h1 {
