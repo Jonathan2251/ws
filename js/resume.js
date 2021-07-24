@@ -231,7 +231,7 @@ function createDefaultConfig() {
   console.log("canvas.width:" + canvas.width);
   var fontSize = 12;
   var dotX = 150;
-  if (canvas.width < 800) {
+  if (canvas.width < 650) {
     fontSize = 6;
     dotX = 70;
   }
@@ -388,10 +388,10 @@ Experience.prototype.draw = function (config) {
     var s;
     //if (str.length > 
     var metrics = ctx.measureText(str);
-    console.log("  width:" + metrics.width);
-    console.log("  width+x:" + (metrics.width+x));
+    //console.log("  width:" + metrics.width);
+    //console.log("  width+x:" + (metrics.width+x));
     if (metrics.width + x > config.width) {
-      s = "..."
+      s = str.substring(0, 10) + "..."
     }
     else {
       s = str;
@@ -405,7 +405,7 @@ Experience.prototype.draw = function (config) {
     for (i = 0; i < work.length; i++) {
       var posy = dot[i].py+height+gap;
       for (j = 0; j < work[i].length; j++) {
-        console.log(work[i][j].length);
+        //console.log(work[i][j].length);
         var s = getDisplayText(ctx, work[i][j],dot[i].px+2*radius,posy);
         //ctx.fillText(work[i][j],dot[i].px+2*radius,posy);
         ctx.fillText(s,dot[i].px+2*radius,posy);
