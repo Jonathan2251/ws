@@ -1,3 +1,8 @@
+
+html
+{ height: 100%;}
+
+
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
 border:0;
 font:inherit;
@@ -11,12 +16,12 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 display:block;
 }
 
-html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; color: #222;}
 
 .clear {clear: both;}
 
 p {
-	font-size: 0.9em;
+	font-size: 100%;
 	line-height: 1.2em;
 	margin-bottom: 4px;
 	color: #444;
@@ -61,7 +66,7 @@ p {
 #contactDetails p {
 	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 14px;
+	font-size: 115%;
 }
 
 #papers {
@@ -77,7 +82,7 @@ p {
 .title h1 {
 	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 16px;
+	font-size: 130%;
 	text-align: center;
 /*	border-top: 2px solid #cf8a05;*/
 }
@@ -110,12 +115,12 @@ section:last-child {
 .sectionTitle h1 {
 	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 14px;
+	font-size: 115%;
 }
 
 .sectionContent h2 {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 12px;
+	font-size: 100%;
 	margin-bottom: -2px;
 }
 
