@@ -103,7 +103,7 @@ section:last-child {
 
 .sectionContent {
 	float: left;
-	width: 98%;
+	width: 98%; /* must in ratio %, otherwise pdf's width is narrow */
 	font-size: 14px;
 	margin-left: 20px;
 	margin-right: 20px;
