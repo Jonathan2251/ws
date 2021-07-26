@@ -103,6 +103,7 @@ section:last-child {
 .sectionContent {
 	float: left;
 	width: 98%;
+	font-size: 14px;
 	margin-left: 20px;
 	margin-right: 20px;
 }
@@ -111,12 +112,6 @@ section:last-child {
 	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
 	font-size: 14px;
-}
-
-.sectionContent h2 {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 12px;
-	margin-bottom: -2px;
 }
 
 @media print {
