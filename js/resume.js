@@ -226,16 +226,19 @@ function monthToString(month) {
 function createDefaultConfig() {
   var canvas2 = document.getElementById('canvas2');
   canvas2.width = 800;
-  var width = window.innerWidth*0.9;
-  console.log("width:" + width);
   var fontSize = 12;
   var dotX = 150;
+/*
+  // css uses fixed width 800px nowrap
+  var width = window.innerWidth*0.9;
+  console.log("width:" + width);
   if (width < 650) {
     fontSize = 6;
     dotX = 70;
     canvas2.width = width;
   }
   console.log("fontSize:" + fontSize);
+*/
   var Config = makeStruct("canvasId fontSize gap radius dotX width");
   var config = new Config("canvas2", fontSize, 2, 5, dotX, canvas2.width);
   
