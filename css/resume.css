@@ -24,6 +24,7 @@ p {
 
 #cv {
 	width: 800px;
+	height=1600px;
 	max-width: 800px;
 	background: #f3f3f3;
 	margin: 10px auto; /* 10px: top black color; auto: in center */
