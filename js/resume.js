@@ -65,9 +65,11 @@ function drawSkillBarChart() {
       "Software...", "UI design...", 
       "Document...", "Equipment..."];
       var ll = longLabels;
+/*
+  // css uses fixed width 800px nowrap
       if (window.innerWidth < 800) {
         ll = shortLabels;
-      }
+*/
   var horizontalBarChartData = {
       labels: ll,
       datasets: [{
