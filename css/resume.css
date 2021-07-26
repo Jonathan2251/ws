@@ -11,12 +11,12 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 display:block;
 }
 
-html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 130%; color: #222;}
 
 .clear {clear: both;}
 
 p {
-	font-size: 0.9em;
+	font-size: 100%;
 	line-height: 1.2em;
 	margin-bottom: 4px;
 	color: #444;
@@ -61,7 +61,7 @@ p {
 #contactDetails p {
 	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 14px;
+	font-size: 120%;
 }
 
 #papers {
@@ -77,7 +77,7 @@ p {
 .title h1 {
 	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 16px;
+	font-size: 130%;
 	text-align: center;
 /*	border-top: 2px solid #cf8a05;*/
 }
@@ -110,12 +110,12 @@ section:last-child {
 .sectionTitle h1 {
 	font-family: Helvetica, Arial, sans-serif;
 	font-style: italic;
-	font-size: 14px;
+	font-size: 120%;
 }
 
 .sectionContent h2 {
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 12px;
+	font-size: 100%;
 	margin-bottom: -2px;
 }
 
