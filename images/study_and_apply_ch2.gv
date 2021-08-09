@@ -7,7 +7,7 @@ digraph G {
     style=filled;
     label = "学习";
     node [shape=record,style=filled,color=white]; CPU [label="CPU:|计算机组织与设计：软硬体介面\n计算机结构 – 量的研究\nMips与Broadcom处理器使用手册\nVerilog"];
-    node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl, spirv规格 以及 Mali前端与后端程式\nGPU指令集与硬体规格"];
+    node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl, spirv规格 以及 Mali前端与后端程式\nCuda-like语言\nGPU指令集与硬体规格"];
     node [shape=record,style=filled,color=white]; NPU [label="NPU:|Onnx与深度学习\nNPU指令集与硬体规格"];
     node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm前端与后端\n编译系统设计 Compilers – Principles, Techniques, & tools\npolly open source\nyacc与lex"];
     node [style=filled,color=white]; OS [label="OS:|Linux Device Driver"]; 
