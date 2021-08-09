@@ -7,7 +7,7 @@ digraph G {
     style=filled;
     label = "Study";
     node [shape=record,style=filled,color=white]; CPU [label="CPU:|Computer Architecture – A Quantitative Approach\nMips and Broadcom CPU user manual\nVerilog"];
-    node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl and spirv spec\nMali frontend and backend\nGPU ISA"];
+    node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl and spirv spec\nMali frontend and backend\nCuda-like language\nGPU ISA"];
     node [shape=record,style=filled,color=white]; NPU [label="NPU:|Onnx and Deep Learning Concept\nNPU ISA"];
     node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm frontend & backend, lld and compilerrt\nCompilers – Principles, Techniques, & tools\npolly open source\nyacc and lex"];
     node [style=filled,color=white]; OS [label="OS:|Linux Device Driver"]; 

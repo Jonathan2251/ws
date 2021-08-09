@@ -192,9 +192,9 @@ canvas {
 
       <div class="sectionContent">
         <article>
-          <p>Re-implement top 2 layers of our npu compiler for our common graph data structure to handle onnx. </p>
-          <p>Inmplement compiler input interface to support encription-onnx format. </p>
-          <p>Confirm solution for MLIR supporting. </p>
+          <p>改寫我們的NPU編譯器上兩層的IR中間碼轉換程式以提供共同的hardware independent圖形資料結構, 以利多種NPU的支持。</p>
+          <p>支持加密格式的ONNX與config檔輸入。</p>
+          <p>確認如何支持MLIR。</p>
         </article>
       </div>
 
@@ -206,7 +206,7 @@ canvas {
         <article>
           <p>GPU編譯器範圍:</p>
           <p style="margin-left:25px;"><img src="../images/Hisilicon.png" width="100%" height="76"/></p>
-          <p style="margin-left:25px;">為支援自行設計的手機GPU, 移植ARM的code。20%前端需修改, 50%後端需修改(以行數計算).</p>
+          <p style="margin-left:25px;">為支援自行設計的手機GPU, 移植ARM的code。20%前端需修改, 50%後端需修改(以行數計算)。</p>
           <p>我的工作:</p>
             <p style="margin-left:25px;">獨立完成80% texture相關的API與optimization (frontend + llvm backend)與document撰寫。</p>
             <p style="margin-left:25px;">指導別的工程師完成其餘20% texture相關的API, <a href="https://www.khronos.org/registry/OpenGL/specs/es/3.2/GLSL_ES_Specification_3.20.html#texture-functions"> 80 APIs totally here </a>, 核對並與texture的架構leader一起合作。</p>
