@@ -9,7 +9,7 @@ digraph G {
     node [shape=record,style=filled,color=white]; CPU [label="CPU:|計算機組織與設計：軟硬體介面\n計算機結構 – 量的研究\nMips與Broadcom處理器使用手冊\nVerilog"];
     node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl, spirv規格 以及 Mali前端與後端程式\nCuda-like語言\nGPU指令集與硬體規格"];
     node [shape=record,style=filled,color=white]; NPU [label="NPU:|Onnx與深度學習\nNPU指令集與硬體規格"];
-    node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm前端與後端\n編譯系統設計 Compilers – Principles, Techniques, & tools\npolly open source\nyacc與lex"];
+    node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm前端與後端,lld與compiler-rt\n編譯系統設計 Compilers – Principles, Techniques, & tools\npolly open source\nyacc與lex"];
     node [style=filled,color=white]; OS [label="OS:|Linux Device Driver"]; 
     node [style=filled,color=white]; "SOFTWARE ENGINEERING" [label="SOFTWARE ENGINEERING:|Design Patterns\n物件導向分析書籍與工具(Rational Rose, ...)"]; 
     color=lightgrey;

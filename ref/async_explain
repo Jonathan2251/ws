@@ -1,0 +1,43 @@
+// async {...} is the keyword for our cuda-like language for asynchrous 
+// parallel processing.
+// Convert the the following source into next llvm-ir.
+
+int c = 0;
+
+void dev_func(int a, int b) {
+  int c = 0;
+  int x = a + b;
+  async {
+    c = x + a;
+  }
+  async {
+    c = x * b;
+  }
+}
+
+; Function Attrs: ssp uwtable
+define void @_Z8dev_funcii(i32 %0, i32 %1) local_unnamed_addr #0 {
+  %3 = add nsw i32 %1, %0
+  %4 = tail call i32 @_Z8USharpIdv()
+  switch i32 %4, label %11 [
+    i32 1, label %5
+    i32 2, label %7
+  ]
+
+5:                                                ; preds = %2
+  %6 = add nsw i32 %3, %0
+  br label %9
+
+7:                                                ; preds = %2
+  %8 = mul nsw i32 %3, %1
+  br label %9
+
+9:                                                ; preds = %5, %7
+  %10 = phi i32 [ %8, %7 ], [ %6, %5 ]
+  store i32 %10, i32* @c, align 4, !tbaa !8
+  br label %11
+
+11:                                               ; preds = %9, %2
+  ret void
+}
+
