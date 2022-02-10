@@ -1,15 +1,17 @@
 // Free usage license, author: Chung-Shu Chen 陳鍾樞
-
+// dot -Tpng -o Hisilicon.png Hisilicon.gv
 digraph G {
 
   rankdir=LR;
   subgraph cluster_0 {
     style=filled;
     color=lightgrey;
-    label = "GPU Just In Time Compiler Flow";
-    node [style=filled,color=white]; "frontend(opengl, vulkan and opencl compiler)", backend, linker;
-      "frontend(opengl, vulkan and opencl compiler)" -> backend [ label = "llvm IR" ];
-      backend -> linker [ label = "obj" ];
+    label = "GPU Online Compiler Flow";
+    node [style=filled,color=white];
+      frontend [label="frontend(opengl, vulkan and opencl compiler)"];
+      backend [label="backend(llvm)"]; linker;
+    frontend -> backend [ label = "llvm IR" ];
+    backend -> linker [ label = "obj" ];
     color=lightgrey
   }
 
