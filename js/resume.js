@@ -253,14 +253,15 @@ function createWorkPeriod() {
   var MonthYear = makeStruct("month year");
   var Period = makeStruct("startDate endDate");
   // !! input your work period
-  period[0] = new Period(new MonthYear(10, 2020), "current");
-  period[1] = new Period(new MonthYear(7, 2019), new MonthYear(10, 2020));
-  period[2] = new Period(new MonthYear(4, 2017), new MonthYear(7, 2019));
-  period[3] = new Period(new MonthYear(11, 2016), new MonthYear(4, 2017));
-  period[4] = new Period(new MonthYear(3, 2013), new MonthYear(11, 2016));
-  period[5] = new Period(new MonthYear(8, 2012), new MonthYear(3, 2013));
-  period[6] = new Period(new MonthYear(9, 2004), new MonthYear(8, 2012));
-  period[7] = new Period(new MonthYear(6, 1999), new MonthYear(9, 2004));
+  period[0] = new Period(new MonthYear(8, 2021), "current");
+  period[1] = new Period(new MonthYear(10, 2020), new MonthYear(8, 2021));
+  period[2] = new Period(new MonthYear(7, 2019), new MonthYear(10, 2020));
+  period[3] = new Period(new MonthYear(4, 2017), new MonthYear(7, 2019));
+  period[4] = new Period(new MonthYear(11, 2016), new MonthYear(4, 2017));
+  period[5] = new Period(new MonthYear(3, 2013), new MonthYear(11, 2016));
+  period[6] = new Period(new MonthYear(8, 2012), new MonthYear(3, 2013));
+  period[7] = new Period(new MonthYear(9, 2004), new MonthYear(8, 2012));
+  period[8] = new Period(new MonthYear(6, 1999), new MonthYear(9, 2004));
   
   return period;
 }
@@ -278,18 +279,21 @@ function createWorkContent() {
   str[5] = new Array(1);
   str[6] = new Array(1);
   str[7] = new Array(1);
-  str[0][0] = "GPU compiler developer in Biren";
-  str[0][1] = "  Our designed Cuda-like language compiler based on clang/llvm for our GPU";
-  str[1][0] = "Seniror compiler developer in Kneron";
-  str[1][1] = "  NPU compiler";
-  str[2][0] = "Principle engineer in Hisilcon";
-  str[2][1] = "  glsl/spirv frontend + LLVM backend compiler development for a whole new GPU ISA";
-  str[3][0] = "LLVM compiler";
-  str[4][0] = "Senior software engineer in Marvell       (llvm open source team at my personal time)";
-  str[4][1] = "  llvm optimization and simulator for ARM";
-  str[5][0] = "Programmer in llvm open source team";
-  str[6][0] = "Senior software engineer in Motorola";
-  str[7][0] = "Software engineer in a few Taiwan's companies";
+  str[8] = new Array(1);
+  str[0][0] = "AI compiler developer in Lightelligence";
+  str[0][1] = "  clang/llvm compiler design for our Optical computer";
+  str[1][0] = "GPU compiler developer in Biren";
+  str[1][1] = "  Our designed Cuda-like language compiler based on clang/llvm for our GPU";
+  str[2][0] = "Seniror compiler developer in Kneron";
+  str[2][1] = "  NPU compiler";
+  str[3][0] = "Principle engineer in Hisilcon";
+  str[3][1] = "  glsl/spirv frontend + LLVM backend compiler development for a whole new GPU ISA";
+  str[4][0] = "LLVM compiler";
+  str[5][0] = "Senior software engineer in Marvell       (llvm open source team at my personal time)";
+  str[5][1] = "  llvm optimization and simulator for ARM";
+  str[6][0] = "Programmer in llvm open source team";
+  str[7][0] = "Senior software engineer in Motorola";
+  str[8][0] = "Software engineer in a few Taiwan's companies";
   
   return str;
 }
