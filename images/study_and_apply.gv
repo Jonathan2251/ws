@@ -8,7 +8,7 @@ digraph G {
     label = "Study";
     node [shape=record,style=filled,color=white]; CPU [label="CPU:|Computer Architecture – A Quantitative Approach\nMips and Broadcom CPU user manual\nVerilog"];
     node [shape=record,style=filled,color=white]; GPU [label="GPU:|OpenGL/glsl and spirv spec\nMali frontend and backend\nCuda-like language\nGPU ISA"];
-    node [shape=record,style=filled,color=white]; NPU [label="NPU:|Onnx and Deep Learning Concept\nNPU ISA\nBook:Data Parallel C++\nBook:Heterogeneous Computing with OpenCL2.0"];
+    node [shape=record,style=filled,color=white]; NPU [label="NPU:|Onnx and Deep Learning Concept\nNPU ISA"];
     node [style=filled,color=white]; COMPILER [label="COMPILER:|llvm frontend & backend, lld and compiler-rt\nCompilers – Principles, Techniques, & tools\npolly open source\nyacc and lex"];
     node [style=filled,color=white]; OS [label="OS:|Linux Device Driver"]; 
     node [style=filled,color=white]; "SOFTWARE ENGINEERING" [label="SOFTWARE ENGINEERING:|Design Patterns\nOOA Analysis related books and tools (Rational Rose, ...)"]; 
