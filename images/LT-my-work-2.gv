@@ -1,0 +1,44 @@
+digraph G {
+  rankdir=LR;
+
+  compound=true;
+  style=filled;
+  node [shape=record];
+  subgraph cluster_a {
+    //label = "A";
+    subgraph cluster_l4 {
+      rankdir=TD;
+      label = "Frontend";
+      color=white;
+      Frontend [label="<dl> Deep Learning SW | <tvm> TVM"];
+    }
+    subgraph cluster_l3 {
+      rankdir=TD;
+      label = "Taskgraph -- TVM interface";
+      style=filled;
+      color=green;
+    }
+    subgraph cluster_l2 {
+      rankdir=TD;
+      label = "Backend";
+      Backend [label="{ { <clang> Clang | <llvm> LLVM } | GCC } | C/C++ Lib"]; 
+      style=filled;
+      color=yellow;
+    }
+    subgraph cluster_l1 {
+      rankdir=TD;
+      label = "Taskgraph -- runtime interface";
+      style=filled;
+      color=green;
+    }
+    Runtime;
+/*    subgraph cluster_l0 {
+      rankdir=LR;
+      label = "Runtime";
+      Runtime;
+    }*/
+  }
+
+  label = "AI SW";
+}
+

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chung-Shu Chen - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #2E8B57;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Chung-Shu Chen - Resume</h1>
+
+<div class="section">
+    <h2>Profile</h2>
+    <p>I am a compiler developer with extensive experience in LLVM CPU and GPU backends, LLD linker, NPU/ONNX, C++, OpenGL/GLSL, and simulators. I have a passion for compiler development.</p>
+</div>
+
+<div class="section">
+    <h2>Qualifications</h2>
+    <ul>
+        <li>Over 20 years of experience in C/C++ programming.</li>
+        <li>10 years of experience in compiler toolchain development.</li>
+        <li>Research experience in parallel processing during master's degree studies.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Open Source Projects</h2>
+    <p>I am proud that my work has been recognized by the LLVM community and is featured in their official documentation:</p>
+    <ul>
+        <li><a href="http://llvm.org/docs/tutorial/#external-tutorials">LLVM External Tutorials</a></li>
+    </ul>
+    <p>My contributions include:</p>
+    <ul>
+        <li><a href="http://jonathan2251.github.io/lbd/index.html">Tutorial: Create an LLVM Backend Compiler</a></li>
+        <li><a href="http://jonathan2251.github.io/lbt/index.html">Tutorial: Create an LLVM Backend Toolchain</a></li>
+        <li><a href="http://jonathan2251.github.io/lbd/gpu.html">The Concept of GPU Compiler</a></li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Education</h2>
+    <ul>
+        <li>Master of Science in Information Science, National Taiwan Normal University, Taipei (1997-1999).</li>
+        <li>Bachelor of Science in Industrial Engineering, National Taiwan University of Science and Technology, Taipei (1991-1994).</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Licenses</h2>
+    <ul>
+        <li>Taiwan National Computer Engineer License, 1995.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Experience</h2>
+    <h3>Lightelligence</h3>
+    <ul>
+        <li>Developed GNU and LLVM toolchains and integrated QEMU on RISC-V for our NPU co-processor.</li>
+        <li>Evaluated open-source frameworks like TVM and SYCL/OpenCL for NPU integration.</li>
+        <li>Assessed software and hardware solutions from vendors for optical computing in AI and data science applications.</li>
+        <li>Negotiated with RISC-V vendors leveraging the GNU/LLVM toolchains I developed.</li>
+        <li>Led software development for the Aurora hardware product, including compiler backend development.</li>
+        <li>Implemented built-in functions and code generation for our ISA in Clang and LLVM; provided guidance to other engineers.</li>
+        <li>Developed TaskGraph to integrate with TVM and Runtime, enabling deep learning graph support on our platform.</li>
+    </ul>
+
+    <h3>Biren</h3>
+    <ul>
+        <li>Developed GPU code generation for tensor instructions and handled usharpid processing.</li>
+        <li>Optimized GPU compiler performance and resolved bugs.</li>
+        <li>Authored a white paper proposing solutions for parallel processing in our CUDA-like language's async{...} construct.</li>
+    </ul>
+
+    <h3>Kneron</h3>
+    <ul>
+        <li>Redesigned the top layers of our NPU compiler to support a common graph data structure compatible with ONNX.</li>
+        <li>Implemented compiler input interfaces to support encrypted ONNX models and specific configuration file formats.</li>
+        <li>Explored and confirmed solutions for MLIR support.</li>
+    </ul>
+
+    <h3>Hisilicon</h3>
+    <ul>
+        <li>Contributed to the development of a new GPU for mobile devices, transitioning from ARM architecture.</li>
+        <li>Independently implemented approximately 80% of texture-related APIs in the compiler (frontend and LLVM backend) and authored corresponding documentation.</li>
+        <li>Assisted and mentored other engineers on the remaining 20% of texture-related APIs; collaborated with the texture architecture lead.</li>
+        <li>Developed Prefetch-Sample optimization to allow drivers to execute 2D-sampling instructions before loading/running GLSL shaders.</li>
+        <li>Implemented compiler support for our GPU's load/store operations for RGBA fixed-point formats in Vulkan (32, 16, 11, 10, and 2 bits; including NaN and Infinity) and authored related documentation.</li>
+    </ul>
+
+    <h3>Marvell</h3>
+    <ul>
+        <li>Developed a semi-automated software system for running benchmarks and generating reports for the GCC toolchain.</li>
+        <li>Demonstrated Polly and the concept of the polyhedral optimization model for Marvell's LLVM and GCC toolchain optimization.</li>
+        <li>Developed a co-simulator for several of Marvell's ARM-based 64-bit CPUs.</li>
+        <li>Proposed and implemented a domain-specific language (DSL) for the simulator, significantly reducing the effort required for system verification in C++.</li>
+        <li>Transitioned the build system from Make to CMake for Csim, enhancing cross-platform compatibility and simplifying the build process.</li>
+    </ul>
+
+    <h3>Motorola</h3>
+    <ul>
+        <li>Developed software frameworks for set-top boxes.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Academic Work</h2>
+    <h3>Master's Thesis</h3>
+    <ul>
+        <li><a href="https://github.com/jonathan2251/thesis">The Researches of Column Sort and Related Problems</a></li>
+        <li>Conference: Search "行排列法簡化步驟之研究" on related academic platforms.</li>
+    </ul>
+
+    <h3>Ph.D. Study Proposal</h3>
+    <ul>
+        < 

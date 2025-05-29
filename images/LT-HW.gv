@@ -1,0 +1,71 @@
+digraph Torus2D {
+    rankdir=LR;
+    node [shape=record, style=filled, fillcolor=lightyellow];
+
+    label="grid"
+    labelloc = "t"
+    //node [shape=plaintext]
+
+    // Define 16 PEs with RISC-V and NPU
+    PE0  [label="<f0> RISC-V |<f1> NPU"];
+    PE1  [label="<f0> RISC-V |<f1> NPU"];
+    PE2  [label="<f0> RISC-V |<f1> NPU"];
+    PE3  [label="<f0> RISC-V |<f1> NPU"];
+    PE4  [label="<f0> RISC-V |<f1> NPU"];
+    PE5  [label="<f0> RISC-V |<f1> NPU"];
+    PE6  [label="<f0> RISC-V |<f1> NPU"];
+    PE7  [label="<f0> RISC-V |<f1> NPU"];
+    PE8  [label="<f0> RISC-V |<f1> NPU"];
+    PE9  [label="<f0> RISC-V |<f1> NPU"];
+    PE10 [label="<f0> RISC-V |<f1> NPU"];
+    PE11 [label="<f0> RISC-V |<f1> NPU"];
+    PE12 [label="<f0> RISC-V |<f1> NPU"];
+    PE13 [label="<f0> RISC-V |<f1> NPU"];
+    PE14 [label="<f0> RISC-V |<f1> NPU"];
+    PE15 [label="<f0> RISC-V |<f1> NPU"];
+
+    // Horizontal wraparound connections
+    subgraph R1 {
+    rank=same
+    PE0  -> PE1  [dir=both, color=blue]; 
+    PE1  -> PE2  [dir=both, color=blue];
+    PE2  -> PE3  [dir=both, color=blue];
+    PE3  -> PE0  [dir=both, color=blue];
+    }
+
+    PE4  -> PE5  [dir=both, color=blue];
+    PE5  -> PE6  [dir=both, color=blue];
+    PE6  -> PE7  [dir=both, color=blue];
+    PE7  -> PE4  [dir=both, color=blue];
+
+    PE8  -> PE9  [dir=both, color=blue];
+    PE9  -> PE10 [dir=both, color=blue];
+    PE10 -> PE11 [dir=both, color=blue];
+    PE11 -> PE8  [dir=both, color=blue];
+
+    PE12 -> PE13 [dir=both, color=blue];
+    PE13 -> PE14 [dir=both, color=blue];
+    PE14 -> PE15 [dir=both, color=blue];
+    PE15 -> PE12 [dir=both, color=blue];
+
+    // Vertical wraparound connections
+    PE0  -> PE4  [dir=both, color=red];
+    PE4  -> PE8  [dir=both, color=red];
+    PE8  -> PE12 [dir=both, color=red];
+    PE12 -> PE0  [dir=both, color=red];
+
+    PE1  -> PE5  [dir=both, color=red];
+    PE5  -> PE9  [dir=both, color=red];
+    PE9  -> PE13 [dir=both, color=red];
+    PE13 -> PE1  [dir=both, color=red];
+
+    PE2  -> PE6  [dir=both, color=red];
+    PE6  -> PE10 [dir=both, color=red];
+    PE10 -> PE14 [dir=both, color=red];
+    PE14 -> PE2  [dir=both, color=red];
+
+    PE3  -> PE7  [dir=both, color=red];
+    PE7  -> PE11 [dir=both, color=red];
+    PE11 -> PE15 [dir=both, color=red];
+    PE15 -> PE3  [dir=both, color=red];
+}

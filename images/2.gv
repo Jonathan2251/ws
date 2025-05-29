@@ -1,0 +1,25 @@
+graph grid
+{
+	fontname="Helvetica,Arial,sans-serif"
+	//node [fontname="Helvetica,Arial,sans-serif"]
+        node [shape=record, style=filled, fillcolor=lightyellow];
+	edge [fontname="Helvetica,Arial,sans-serif",dir=both, color=blue]
+	//layout=dot
+	label="grid"
+	//labelloc = "t"
+//	node [shape=plaintext]
+	//node [shape=record]
+	// arbitrary path on rigid grid
+
+	edge [weight=100 style=dashed color=dimgrey]
+
+	// uncomment to hide the grid
+	//edge [style=invis]
+
+	A0 -- A1 
+	B0 -- B1
+
+	rank=same {A0 -- B0}
+	rank=same {A1 -- B1}
+}
+// grid.dot by Costa Shulyupin

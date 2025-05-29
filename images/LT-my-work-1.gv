@@ -1,0 +1,31 @@
+digraph G {
+  rankdir=LR;
+
+  compound=true;
+  node [shape=record];
+  subgraph cluster_a {
+    //label = "A";
+    subgraph cluster_l3 {
+      rankdir=TD;
+      label = "Frontend";
+      Frontend [label="<dl> Deep Learning SW | <tvm> TVM"];
+    }
+    subgraph cluster_l2 {
+      rankdir=TD;
+      label = "Backend";
+      Backend [label="{ { <clang> Clang | <llvm> LLVM } | GCC } | C/C++ Lib or Operators Lib"]; 
+    }
+/*    subgraph cluster_l1 {
+      rankdir=TD;
+      label = "Runtime";
+    }*/
+    subgraph cluster_l0 {
+      rankdir=LR;
+      label = "Simulators";
+      Simulators [label="{ <qemu> QEMU | <gem5> GEM5 }"]; 
+    }
+  }
+
+  label = "AI SW";
+}
+

@@ -1,0 +1,41 @@
+graph Torus2D {
+    layout=neato;
+    splines=true;
+    node [shape=record, style=filled, fillcolor=lightyellow, width=1.2, height=0.6, fixedsize=true];
+
+    // Define 4x4 grid positions (x,y)
+    PE0  [label="PE0\nRISC-V|NPU", pos="0,3!"];
+    PE1  [label="PE1\nRISC-V|NPU", pos="1,3!"];
+    PE2  [label="PE2\nRISC-V|NPU", pos="2,3!"];
+    PE3  [label="PE3\nRISC-V|NPU", pos="3,3!"];
+
+    PE4  [label="PE4\nRISC-V|NPU", pos="0,2!"];
+    PE5  [label="PE5\nRISC-V|NPU", pos="1,2!"];
+    PE6  [label="PE6\nRISC-V|NPU", pos="2,2!"];
+    PE7  [label="PE7\nRISC-V|NPU", pos="3,2!"];
+
+    PE8  [label="PE8\nRISC-V|NPU", pos="0,1!"];
+    PE9  [label="PE9\nRISC-V|NPU", pos="1,1!"];
+    PE10 [label="PE10\nRISC-V|NPU", pos="2,1!"];
+    PE11 [label="PE11\nRISC-V|NPU", pos="3,1!"];
+
+    PE12 [label="PE12\nRISC-V|NPU", pos="0,0!"];
+    PE13 [label="PE13\nRISC-V|NPU", pos="1,0!"];
+    PE14 [label="PE14\nRISC-V|NPU", pos="2,0!"];
+    PE15 [label="PE15\nRISC-V|NPU", pos="3,0!"];
+
+    // Use undirected edges for bidirectional torus links
+    edge [color=blue];
+    // Horizontal connections with wraparound
+    PE0 -- PE1; PE1 -- PE2; PE2 -- PE3; PE3 -- PE0;
+    PE4 -- PE5; PE5 -- PE6; PE6 -- PE7; PE7 -- PE4;
+    PE8 -- PE9; PE9 -- PE10; PE10 -- PE11; PE11 -- PE8;
+    PE12 -- PE13; PE13 -- PE14; PE14 -- PE15; PE15 -- PE12;
+
+    edge [color=red];
+    // Vertical connections with wraparound
+    PE0 -- PE4; PE4 -- PE8; PE8 -- PE12; PE12 -- PE0;
+    PE1 -- PE5; PE5 -- PE9; PE9 -- PE13; PE13 -- PE1;
+    PE2 -- PE6; PE6 -- PE10; PE10 -- PE14; PE14 -- PE2;
+    PE3 -- PE7; PE7 -- PE11; PE11 -- PE15; PE15 -- PE3;
+}
