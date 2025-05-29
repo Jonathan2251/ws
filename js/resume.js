@@ -282,20 +282,20 @@ function createWorkContent() {
   str[7] = new Array(1);
   str[8] = new Array(1);
   str[9] = new Array(1);
-  str[0][0] = "GPU compiler developer for MediaTek";
-  str[1][0] = "AI compiler developer for Lightelligence";
-  str[1][1] = "  clang/llvm compiler design for our Optical computer";
-  str[2][0] = "GPU compiler developer for Biren";
-  str[2][1] = "  Our designed Cuda-like language compiler based on clang/llvm for our GPU";
-  str[3][0] = "Seniror compiler developer for Kneron";
+  str[0][0] = "GPU compiler developer at MediaTek";
+  str[1][0] = "AI compiler developer at Lightelligence";
+  str[1][1] = "  Clang/LLVM compiler design for our optical computer";
+  str[2][0] = "GPU compiler developer at Biren";
+  str[2][1] = "  Ourself designed Cuda-like language compiler based on Clang/LLVM for our GPU";
+  str[3][0] = "Seniror compiler developer at Kneron";
   str[3][1] = "  NPU compiler";
-  str[4][0] = "Principle engineer for Hisilcon";
+  str[4][0] = "Principle engineer at Hisilcon";
   str[4][1] = "  glsl/spirv frontend + LLVM backend compiler development for a whole new GPU ISA";
   str[5][0] = "LLVM compiler";
-  str[6][0] = "Senior software engineer for Marvell       (llvm open source team at my personal time)";
-  str[6][1] = "  llvm optimization and simulator for ARM SoC";
+  str[6][0] = "Senior software engineer at Marvell       (llvm open source team at my personal time)";
+  str[6][1] = "  LLVM optimization and simulator for ARM SoC";
   str[7][0] = "Programmer in llvm open source team";
-  str[8][0] = "Senior software engineer for Motorola";
+  str[8][0] = "Senior software engineer at Motorola";
   str[9][0] = "Software engineer for a few Taiwan's companies";
   
   return str;
@@ -383,7 +383,8 @@ Experience.prototype.draw = function (config) {
   }
   
   function outputWorkPeriod(ctx, dot, period, radius) {
-    ctx.fillStyle = "grey";
+    //ctx.fillStyle = "grey";
+    ctx.fillStyle = "black";
     ctx.textAlign="right";
     for (i = 0; i < period.length; i++) {
       if (i == 0 && period[i].endDate == "current") {
@@ -411,7 +412,8 @@ Experience.prototype.draw = function (config) {
   }
   
   function outputWorkContent(ctx, dot, work, height, gap, radius) {
-    ctx.fillStyle = "grey";
+    //ctx.fillStyle = "grey";
+    ctx.fillStyle = "black";
     ctx.textAlign="left";
     for (i = 0; i < work.length; i++) {
       var posy = dot[i].py+height+gap;
