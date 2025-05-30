@@ -35,8 +35,7 @@ canvas {
     <div id="contactDetails">
       <ul>
         <p>陳鍾樞<br></p>
-        <p>我是位有經驗的compiler開發者，開發過llvm cpu and gpu backend, lld linker, npu/onnx, c++, OpenGl/glsl compiler與simulator，...， 
-        對寫compiler感到快樂。</p>
+        <p>我是一位編譯器開發者，擁有在 LLVM CPU 和 GPU 後端、LLD 連結器、NPU/ONNX、C++、OpenGL/GLSL、模擬器等方面的紮實經驗。我熱衷於編譯器及相關技術的開發工作。</p>
       </ul>
     </div>
     <div class="clear"></div>
@@ -180,13 +179,11 @@ canvas {
 
       <div class="sectionContent">
         <article>
-          <p>整理編譯gnu與llvm的RISCV開放原始碼工具鏈, 並跑在qemu與gem5。</p>
-          <p>探查TVM, DPC++,SYCL/OpenCL可行性。</p>
-	  <p>調查與評估符合我們光計算架構，供應商可提供的AI與科學計算應用的軟硬體。</p>
-          <p>憑藉我整理與編譯的gnu/llvm RISCV開放原始碼工具鏈，與RISCV供應商議價。</p>
-          <p>領導 Aurora 硬件產品的軟件開發並自己編寫編譯器後端。</p>
-          <p>針對我們的ISA, Coding clang's builtin-functions與實作llvm編譯器。</p>
           <p>實作TaskGraph並開發與TVM-compiler以及Runtime合作介面使得我們的平台可以支持深度學習的圖編譯。</p>
+          <p>為 Lightelligence 的基於 RISC-V 的光學 NPU 開發後端編譯器，內容包括：</p>  
+          <p>  1. 基於 GCC、LLVM 和 QEMU/Gem5 等開源專案，建構完整的 RISC-V 編譯器工具鏈。評估 RISC-V 供應商並進行價格協商，利用我們內部從開源自行建構工具鏈的能力作為談判優勢。</p>  
+          <p>  2. 主導 Aurora 硬體產品的軟體開發，並親自負責編譯器後端的程式設計。</p>  
+          <p>  3. 在 C++ 編譯器中開發 TaskGraph 元件及其與Runtime模組的介面，實現我們平台上的深度學習計算圖功能。</p>
         </article>
       </div>
 
@@ -196,8 +193,8 @@ canvas {
 
       <div class="sectionContent">
         <article>
-          <p>Gpu tensor指令與usharpid處理。</p>
-          <p>Gpu編譯器最佳化與bug fix。</p>
+          <p>GPU tensor指令與usharpid處理。</p>
+          <p>GPU編譯器最佳化與bug fix。</p>
           <p>我們的Cude-like語言<a href="https://github.com/Jonathan2251/ws/blob/master/ref/async_explain">async{...}</a>平行處理解法白皮書。</p>
         </article>
       </div>
@@ -223,11 +220,11 @@ canvas {
           <p>GPU編譯器範圍:</p>
           <p style="margin-left:25px;"><img src="../images/Hisilicon.png" width="100%" height="76"/></p>
           <p style="margin-left:25px;">為支援自行設計的手機GPU, 移植ARM的code。20%前端需修改, 50%後端需修改(以行數計算)。</p>
-          <p>我的工作:</p>
-            <p style="margin-left:25px;">獨立完成80% texture相關的API與optimization (frontend + llvm backend)與document撰寫。</p>
+          <p>貢獻:</p>
+            <p style="margin-left:25px;">獨立完成80% texture相關的API與optimization (frontend + LLVM backend)與document撰寫。</p>
             <p style="margin-left:25px;">指導別的工程師完成其餘20% texture相關的API, <a href="https://www.khronos.org/registry/OpenGL/specs/es/3.2/GLSL_ES_Specification_3.20.html#texture-functions"> 80 APIs totally here </a>, 核對並與texture的架構leader一起合作。</p>
-            <p style="margin-left:25px;">完成Prefetch-Sample optiomization, 讓driver在載入glsl bin與執行sampling指令前就可驅動2D sampling指令。</p>
-            <p style="margin-left:25px;">獨立完成GPU對vulkan load/store RGBA 固定浮點格式(32, 16, 11, 10 and 2 bits; NaN Infinity)支援的指令生成與document撰寫。</p>
+            <p style="margin-left:25px;">完成Prefetch-Sample optiomization, 讓driver在載入GLSL bin與執行sampling指令前就可驅動2D sampling指令。</p>
+            <p style="margin-left:25px;">獨立完成GPU對Vulkan load/store RGBA 固定浮點格式(32, 16, 11, 10 and 2 bits; NaN Infinity)支援的指令生成與document撰寫。</p>
         </article>
       </div>
 
@@ -237,11 +234,11 @@ canvas {
       
       <div class="sectionContent">
         <article>
-          <p>設計半自動的軟體系統，自動執行用gcc編譯器編譯benchmark程式，並產生excel比較圖表。</p>
+          <p>設計半自動的軟體系統，自動執行用GCC編譯器編譯benchmark程式，並產生Excel比較圖表。</p>
           <p>為提升Marvell公司gcc與llvm編譯器軟體工具效能，介紹Polly軟體系統。Polly是針對loop最佳化的開放原始碼專案。</p>
             <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150"/></p>
           <p>提出與實作DSL領域語言解決方案應用在ARM 64位元Csim上。</p>
-          <p>用cmake替代make於Csim上。</a></p>
+          <p>用cmake替代make於CSim上。</a></p>
             <p style="margin-left:25px;">優點: 比make簡潔與跨平台。</p>
         </article>
       </div>

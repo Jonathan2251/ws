@@ -196,7 +196,7 @@ canvas {
           <p>Developed backend compiler for Lightelligence's optical NPU based on RISC-V includes:</p>
           <p>  1. Built a complete RISC-V compiler toolchain using GCC, LLVM, and QEMU/Gem5 from open-source projects. Evaluated RISC-V vendors and pricing negotiations, leveraging our in-house ability to build the RISC-V toolchain from open source.</p>
           <p>  2. Led software development for the Aurora hardware product and personally programmed the compiler backend.</p>
-          <p>  3. Developed TaskGraph, integration with TVM and runtime support to enable Deep Learning Graph features on our platform.</p>
+          <p>  3. Developed the TaskGraph component in the C++ compiler and its interfaces to the Runtime module, enabling Deep Learning Graph features on our platform.</p>
         </article>
       </div>
 
@@ -216,7 +216,7 @@ canvas {
       </div>
       <div class="sectionContent">
         <article>
-          <p>Re-implemented the top two layers of our NPU compiler to support a common graph data structure for ONNX.</p>
+          <p>Re-implemented the top two layers of our NPU compiler to support a common graph data structure on different types of NPU.</p>
           <p>Developed compiler input interfaces to support encrypted ONNX models and configuration file formats.</p>
           <p>Validated solutions for MLIR support integration.</p>
         </article>
