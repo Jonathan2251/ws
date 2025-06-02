@@ -49,6 +49,7 @@ digraph G {
   CPU -> linker;
   GPU -> gpucompiler;
   NPU -> npucompiler;
+  COMPILER -> npucompiler;
   COMPILER -> backend;
   COMPILER -> gpucompiler;
   COMPILER -> armopt;
