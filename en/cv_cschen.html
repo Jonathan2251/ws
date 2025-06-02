@@ -193,10 +193,10 @@ canvas {
       </div>
       <div class="sectionContent">
         <article>
-          <p>Developed backend compiler for Lightelligence's optical NPU based on RISC-V includes:</p>
-          <p>  1. Built a complete RISC-V compiler toolchain using GCC, LLVM, and QEMU/Gem5 from open-source projects. Evaluated RISC-V vendors and pricing negotiations, leveraging our in-house ability to build the RISC-V toolchain from open source.</p>
-          <p>  2. Led software development for the Aurora hardware product and personally programmed the compiler backend.</p>
-          <p>  3. Developed the TaskGraph component in the C++ compiler and its interfaces to the Runtime module, enabling Deep Learning Graph features on our platform.</p>
+          <p>Developed a RISC-V backend compiler for Lightelligence’s optical NPU:</p>
+          <p>1. Built full RISC-V toolchain (GCC, LLVM, QEMU/Gem5); evaluated vendors and costs.</p>
+          <p>2. Led Aurora software development; implemented compiler backend.</p>
+          <p>3. Created TaskGraph in C++ compiler with Runtime integration for DL graph support.</p>
         </article>
       </div>
 
@@ -205,9 +205,10 @@ canvas {
       </div>
       <div class="sectionContent">
         <article>
-          <p>Developed GPU code generation for tensor instructions and handling of usharpid.</p>
-          <p>Optimized GPU performance and fixed related bugs.</p>
-          <p>Proposed solutions for parallel processing in our CUDA-like language <a href="https://github.com/Jonathan2251/ws/blob/master/ref/async_explain">async{...}</a>.</p>
+          <p>Built an in-house Cuda-like compiler using Clang/LLVM for our GPU:</p>
+          <p>1. Implemented GPU codegen for tensor ops and <code>usharpid</code>.</p>
+          <p>2. Optimized performance and resolved bugs.</p>
+          <p>3. Proposed parallelism via <a href="https://github.com/Jonathan2251/ws/blob/master/ref/async_explain"><code>async{...}</code></a>.</p>
         </article>
       </div>
 
@@ -216,9 +217,10 @@ canvas {
       </div>
       <div class="sectionContent">
         <article>
-          <p>Re-implemented the top two layers of our NPU compiler to support a common graph data structure on different types of NPU.</p>
-          <p>Developed compiler input interfaces to support encrypted ONNX models and configuration file formats.</p>
-          <p>Validated solutions for MLIR support integration.</p>
+          <p>NPU Compiler Developer:</p>
+          <p>1. Rebuilt the top two layers to support a unified graph across NPUs.</p>
+          <p>2. Added input support for encrypted ONNX and config files.</p>
+          <p>3. Validated MLIR integration solutions.</p>
         </article>
       </div>
 
@@ -234,16 +236,23 @@ canvas {
           </p>
           <p>My contributions:</p>
           <p style="margin-left:25px;">
-            Independently implemented the compiler frontend and LLVM backend for approximately 80% of texture-related APIs, based on the <a href="https://www.khronos.org/registry/OpenGL/specs/es/3.2/GLSL_ES_Specification_3.20.html#texture-functions" target="_blank">OpenGL ES 3.2 specification</a>, including documentation.
+          <p>Scope of GPU Compiler Work:</p>
+          <p style="margin-left:25px;"><img src="../images/Hisilicon.png" width="100%" height="76"/></p>
+          <p style="margin-left:25px;">
+            Compared our GPU compiler with the ARM-licensed version (yellow nodes); ~20% of frontend and 50% of backend modified, based on lines of code.
+          </p>
+          <p>My Contributions:</p>
+          <p style="margin-left:25px;">
+            1. Implemented ~80% of texture-related frontend/LLVM backend per <a href="https://www.khronos.org/registry/OpenGL/specs/es/3.2/GLSL_ES_Specification_3.20.html#texture-functions" target="_blank">OpenGL ES 3.2</a>; wrote documentation.
           </p>
           <p style="margin-left:25px;">
-            Provided guidance and support to other engineers on the remaining 20% of texture-related APIs, reviewed their code, and collaborated with the texture architecture lead.
+            2. Supported and reviewed the remaining 20% with team and texture lead.
           </p>
           <p style="margin-left:25px;">
-            Implemented a Prefetch-Sample optimization, allowing 2D texture sampling instructions to be executed by the driver before GLSL shaders are loaded or run.
+            3. Developed Prefetch-Sample optimization for driver-level texture sampling.
           </p>
           <p style="margin-left:25px;">
-            Developed compiler support for our GPU’s load/store operations in Vulkan, including RGBA fixed-point formats (32, 16, 11, 10, and 2 bits), with handling for NaN and Infinity values. Also authored related documentation.
+            4. Added compiler support for Vulkan load/store ops with RGBA fixed-point formats (32, 16, 11, 10, 2 bits) and NaN/Inf handling; documented feature.
           </p>
         </article>
       </div>
@@ -253,13 +262,12 @@ canvas {
       </div>
       <div class="sectionContent">
         <article>
-          <p>Developed a semi-automated software system to run benchmarks and generate reports for the GCC toolchain.</p>
-          <p>Demonstrated the use of Polly, a loop optimization framework, and introduced the concept of the polyhedral optimization model for improving both LLVM and GCC toolchains at Marvell.</p>
+          <p>LLVM Optimization and Simulator for ARM SoC:</p>
+          <p>1. Built a semi-automated system for benchmarking and reporting on the GCC toolchain.</p>
+          <p>2. Introduced Polly (loop optimization) and polyhedral model to improve LLVM/GCC at Marvell.</p>
           <p style="margin-left:40px;"><img src="../images/polly_benchmark.png" width="600" height="150" /></p>
-          <p>Implemented a co-simulator for several of Marvell’s ARM-based 64-bit CPUs.</p>
-          <p>  Proposed and implemented a domain-specific language (DSL) within the co-simulator, significantly reducing the amount of C++ code required for system verification.</p>
-          <p>Replaced the existing Make-based build system with CMake for the CSim project.</p>
-          <p style="margin-left:25px;">Benefit: CMake offers a simpler and more cross-platform solution compared to Make.</p>
+          <p>3. Developed a co-simulator for Marvell’s 64-bit ARM CPUs, including a DSL that reduced C++ verification code.</p>
+          <p>4. Migrated CSim from Make to CMake for a simpler, cross-platform build system.</p>
         </article>
       </div>
  
