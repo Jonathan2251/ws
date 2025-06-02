@@ -282,21 +282,21 @@ function createWorkContent() {
   str[7] = new Array(1);
   str[8] = new Array(1);
   str[9] = new Array(1);
-  str[0][0] = "GPU compiler developer at MediaTek";
-  str[1][0] = "AI compiler developer at Lightelligence";
-  str[1][1] = "  Clang/LLVM compiler design for our optical computer";
-  str[2][0] = "GPU compiler developer at Biren";
-  str[2][1] = "  Ourself designed Cuda-like language compiler based on Clang/LLVM for our GPU";
-  str[3][0] = "Seniror compiler developer at Kneron";
-  str[3][1] = "  NPU compiler";
-  str[4][0] = "Principle engineer at Hisilcon";
-  str[4][1] = "  glsl/spirv frontend + LLVM backend compiler development for a whole new GPU ISA";
-  str[5][0] = "LLVM compiler";
-  str[6][0] = "Senior software engineer at Marvell       (llvm open source team at my personal time)";
+  str[0][0] = "GPU Compiler Developer at MediaTek";
+  str[1][0] = "AI Compiler Developer at Lightelligence";
+  str[1][1] = "  Clang/LLVM-based Compiler for Optical Computing";
+  str[2][0] = "GPU Compiler Developer at Biren";
+  str[2][1] = "  In-house Cuda-like language compiler based on Clang/LLVM for our GPU";
+  str[3][0] = "NPU Compiler Developer at Kneron";
+  str[3][1] = "  Compiler from ONNX to NPU ISA";
+  str[4][0] = "Principle Engineer at Hisilcon";
+  str[4][1] = "  LLVM-based GLSL/SPIR-V to GPU ISA compiler";
+  str[5][0] = "LLVM-based CPU Compiler for the LLVM Open Source Project";
+  str[6][0] = "CPU Compiler Developer at Marvell       (llvm open source team at my personal time)";
   str[6][1] = "  LLVM optimization and simulator for ARM SoC";
-  str[7][0] = "Programmer in llvm open source team";
-  str[8][0] = "Senior software engineer at Motorola";
-  str[9][0] = "Software engineer for a few Taiwan's companies";
+  str[7][0] = "LLVM-based CPU Compiler for the LLVM Open Source Project";
+  str[8][0] = "Senior Software Engineer at Motorola";
+  str[9][0] = "Software Engineer for multiple companies in Taiwan";
   
   return str;
 }
