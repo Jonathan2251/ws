@@ -19,7 +19,7 @@ digraph ShaderToLLVMIR {
 
     // Tools with oval shapes
     node [shape=oval, style=filled, fillcolor=lightgreen];
-    Glslang [label="glslangValidator"];
+    Glslang [label="glslangValidator", fillcolor=pink];
     CL_SPIRV [label="OpenCL-SPIRV Translator"];
     GLSL_LIR [label="GLSL ES-LIR Translator"];
     SPIRV_LIR [label="SPIRV-LIR Translator"];
