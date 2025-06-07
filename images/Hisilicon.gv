@@ -3,12 +3,12 @@ digraph ShaderToLLVMIR {
     node [shape=record, style=filled, color=black];
 
     // Source Languages
-    GLSL [label="GLSL ES (OpenGL)", fillcolor=lightblue];
-    OpenCL_C [label="OpenCL C", fillcolor=lightblue];
+    GLSL [label="GLSL ES (OpenGL)", fillcolor=white];
+    OpenCL_C [label="OpenCL C", fillcolor=white];
 
     // Intermediate Representation
-    SPIRV [label="SPIR-V", fillcolor=orange];
-    SPIRV2 [label="SPIR-V", fillcolor=orange];
+    SPIRVG [label="SPIR-V (Vulkan)", fillcolor=orange];
+    SPIRVV [label="SPIR-V (OpenCL)", fillcolor=orange];
 
     LIR [label="LIR", fillcolor=orange];
 
@@ -19,7 +19,7 @@ digraph ShaderToLLVMIR {
 
     // Tools with oval shapes
     node [shape=oval, style=filled, fillcolor=lightgreen];
-    Glslang [label="glslangValidator", fillcolor=pink];
+    Glslang [label="glslangValidator", fillcolor=lightblue];
     CL_SPIRV [label="OpenCL-SPIRV Translator"];
     GLSL_LIR [label="GLSL ES-LIR Translator"];
     SPIRV_LIR [label="SPIRV-LIR Translator"];
@@ -32,8 +32,6 @@ digraph ShaderToLLVMIR {
 
     // Edges
     GLSL -> GLSL_LIR -> LIR -> LIR_LLVM -> LLVM_IR;
-    GLSL -> Glslang -> SPIRV -> SPIRV_LIR -> LIR;
-    OpenCL_C -> CL_SPIRV -> SPIRV2;
-    SPIRV2 -> SPIRV_LLVM -> LLVM_IR;
-    LLVM_IR -> LLVMCompiler -> GPU_ISA;
+    GLSL -> Glslang -> SPIRVG -> SPIRV_LIR -> LIR;
+    OpenCL_C -> CL_SPIRV -> SPIRVV ->  SPIRV_LLVM -> LLVM_IR -> LLVMCompiler -> GPU_ISA;
 }
