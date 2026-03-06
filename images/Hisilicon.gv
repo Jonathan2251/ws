@@ -3,7 +3,7 @@ digraph ShaderToLLVMIR {
     node [shape=record, style=filled, color=black];
 
     // Source Languages
-    GLSL [label="GLSL ES (OpenGL)", fillcolor=white];
+    GLSL [label="GLSL ES\n (OpenGL)", fillcolor=white];
     OpenCL_C [label="OpenCL C", fillcolor=white];
 
     // Intermediate Representation
@@ -12,7 +12,7 @@ digraph ShaderToLLVMIR {
 
     LIR [label="LIR", fillcolor=orange];
 
-    GPU_ISA [label="GPU ISA in Assembly and Binary", fillcolor=grey];
+    GPU_ISA [label="GPU ISA in \nAssembly and Binary", fillcolor=grey];
 
     // LLVM IR
     LLVM_IR [label="LLVM IR", fillcolor=orange];
