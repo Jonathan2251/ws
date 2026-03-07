@@ -55,16 +55,17 @@ function drawSkillBarChart() {
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   var color = Chart.helpers.color;
   var longLabels = [
-      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (device driver, usb, cmake...)", 
-      "CPU & GPU design (simulator, Verilog, mips, arm...)", "Compiler design (Clang/LLVM, GLSL/SPIRV, ONNEX, yacc...)", 
-      "Software engineering (OOP/OOA, design pattern...)", "UI design (VC, Borland C++, html/css/java script...)", 
-      "Documentation writing(Sphinx, UML, ...)", "Equipment usage (scope, power meter, ...)"];
-  var shortLabels = [
-      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux...", 
-      "CPU & GPU...", "Compiler...", 
-      "Software...", "UI design...", 
-      "Document...", "Equipment..."];
-      var ll = longLabels;
+      "Compiler Engineering (Clang/LLVM, GLSL/SPIRV, ONNEX, Yacc...)",
+      "Software Engineering (OOP/OOA, design pattern...)",
+      "CPU/GPU Architecture (Simulator, Verilog, Mali, MIPS, ARM, ...)",
+      "Documentation Writing(Sphinx, UML, ...)",
+      "Linux Programming (device driver, USB, cmake...)",
+      "UI Design (VC, Borland C++, html/css/java script...)",
+      "Equipment Usage (scope, power meter, ...)",
+      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/
+  ];
+
+  var ll = longLabels;
 /*
   // css uses fixed width 800px nowrap
       if (window.innerWidth < 800) {
@@ -78,15 +79,14 @@ function drawSkillBarChart() {
           borderColor: window.chartColors.red,
           borderWidth: 1,
           data: [
-             /* 16,*/
-              8,
-              6,
               20,
               10,
-              4,
+              8,
+              6,
               5,
-              3,
-              0
+              4,
+              3
+             /* 16*/
           ]
       }]
 
