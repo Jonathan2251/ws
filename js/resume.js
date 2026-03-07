@@ -55,16 +55,17 @@ function drawSkillBarChart() {
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   var color = Chart.helpers.color;
   var longLabels = [
-      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux programming (device driver, usb, cmake...)", 
-      "CPU & GPU design (simulator, Verilog, mips, arm...)", "Compiler design (clang/llvm, glsl/spirv, onnx, yacc...)", 
-      "Software engineering (OOP/OOA, design pattern...)", "UI design (VC, Borland C++, html/css/java script...)", 
-      "Documentation writing(Sphinx, uml, ...)", "Equipment usage (scope, power meter, ...)"];
-  var shortLabels = [
-      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/ "Linux...", 
-      "CPU & GPU...", "Compiler...", 
-      "Software...", "UI design...", 
-      "Document...", "Equipment..."];
-      var ll = longLabels;
+      "Compiler Engineering (Clang/LLVM, GLSL/SPIRV, ONNEX, Yacc...)",
+      "Software Engineering (OOP/OOA, design pattern...)",
+      "CPU/GPU Architecture (Simulator, Verilog, Mali, MIPS, ARM, ...)",
+      "Documentation Writing(Sphinx, UML, ...)",
+      "Linux Programming (device driver, USB, cmake...)",
+      "UI Design (VC, Borland C++, html/css/java script...)",
+      "Equipment Usage (scope, power meter, ...)",
+      /*"Embedded system (c/c++, linux, bare metal, mips, assembly)",*/
+  ];
+
+  var ll = longLabels;
 /*
   // css uses fixed width 800px nowrap
       if (window.innerWidth < 800) {
@@ -78,15 +79,14 @@ function drawSkillBarChart() {
           borderColor: window.chartColors.red,
           borderWidth: 1,
           data: [
-             /* 16,*/
-              8,
-              6,
               20,
               10,
-              4,
+              8,
+              6,
               5,
-              3,
-              0
+              4,
+              3
+             /* 16*/
           ]
       }]
 
@@ -282,17 +282,17 @@ function createWorkContent() {
   str[7] = new Array(1);
   str[8] = new Array(1);
   str[9] = new Array(1);
-  str[0][0] = "GPU Compiler Developer at MediaTek";
-  str[1][0] = "AI Compiler Developer at Lightelligence";
+  str[0][0] = "Graphics GPU Compiler Senior Staff Engineer at MediaTek";
+  str[1][0] = "AI NPU Compiler Staff Engineer at Lightelligence";
   str[1][1] = "  Clang/LLVM-based Compiler for Optical Computing";
-  str[2][0] = "GPU Compiler Developer at Biren";
+  str[2][0] = "AI GPU Compiler Engineer at Biren";
   str[2][1] = "  In-house Cuda-like language compiler based on Clang/LLVM for our GPU";
-  str[3][0] = "NPU Compiler Developer at Kneron";
+  str[3][0] = "AI NPU Compiler Developer at Kneron";
   str[3][1] = "  Compiler from ONNX to NPU ISA";
-  str[4][0] = "Principle Engineer at Hisilcon";
+  str[4][0] = "Graphics GPU Compiler Principle Engineer at Hisilcon";
   str[4][1] = "  LLVM-based GLSL/SPIR-V to GPU ISA compiler";
   str[5][0] = "LLVM-based CPU Compiler for the LLVM Open Source Project";
-  str[6][0] = "CPU Compiler Developer at Marvell       (llvm open source team at my personal time)";
+  str[6][0] = "CPU Compiler Senior Engineer at Marvell       (LLVM open source team at my personal time)";
   str[6][1] = "  LLVM optimization and simulator for ARM SoC";
   str[7][0] = "LLVM-based CPU Compiler for the LLVM Open Source Project";
   str[8][0] = "Senior Software Engineer at Motorola";
